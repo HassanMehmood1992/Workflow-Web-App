@@ -1,0 +1,56 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+
+/*
+ModuleID: DiagnosticLoggingSetDialogComponent
+Description: CSS file for DiagnosticLoggingSetDialogComponent.
+Location: ./diagnostic-logging-set-dialog.component.css
+Author: Nabil Shahid
+Version: 1.0.0
+Modification history: none
+*/
+
+.dateInput {
+    border: 0px;
+    border-bottom: 1px solid #d0d0d0;
+    background-color: #ededed;
+    color: #d0d0d0;
+    width: 140px;
+}
+
+.dialogBody {
+    padding-top: 30px;
+    padding-bottom: 28px;
+    padding-left: 30px;
+    padding-right: 23px;
+}
+
+.diagnosticLoggingDuration {
+    color: #1565c0;
+    width: 100%;
+}
+
+#diagnosticLoggingUpdateButton {
+    width: 100%;
+    color: #007AFF;
+    border: none;
+    background-color: #ECECEC;
+}
+
+#diagnosticLoggingButtonBorder {
+    margin-left: -25px;
+    margin-top: 40px;
+    width: 500px;
+}
+
+#diagnosticStartDate {
+    width: 100%;
+}
+
+.diagnosticLogrow {
+    text-align: center;
+    cursor: pointer;
+}

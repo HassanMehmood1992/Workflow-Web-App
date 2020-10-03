@@ -1,0 +1,28 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: ProgressDialogComponent
+Description: CSS rules and styles for the progress dialog component.
+Location: ./progress-dialog.component.css
+Author: Sheharyar Toor
+Version: 1.0.0
+Modification history: none
+*/
+::ng-deep#progressDialogBody{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 20px;
+    
+}
+::ng-deep#progressSpinner{
+    width: 40px;   
+    margin-left: 2%;
+}
+
+.loading-text{
+    margin-left: 4%;
+}

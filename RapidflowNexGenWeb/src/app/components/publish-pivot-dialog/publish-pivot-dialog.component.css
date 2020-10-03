@@ -1,0 +1,66 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+
+/*
+ModuleID: PublishPivotDialogComponent
+Description: CSS file for PublishPivotDialogComponent.
+Location: ./components/publish-pivot-dialog.component.css
+Author: Nabil Shahid
+Version: 1.0.0
+Modification history: none
+*/
+
+ ::ng-deep .PublishPivotdialogBody {
+    padding-top: 15px;
+    font-size: 15px;
+    color: #95989A;
+}
+
+::ng-deep .PublishPivotdialogBody .publishFormField {
+    width: 360px;
+}
+
+::ng-deep .PublishPivotdialogBody .mat-input-underline {
+    display: none;
+}
+
+::ng-deep .PublishPivotdialogBody .mat-select-value-text {
+    white-space: unset !important;
+    color: #007AFF;
+}
+
+::ng-deep .PublishPivotdialogBody .mat-form-field-wrapper {
+    padding-bottom: unset;
+}
+
+.publishFormDivider {
+    width: 112% !important;
+    margin-left: -6% !important;
+}
+
+.rolesSelection {
+    padding-top: 10px;
+}
+
+.roleLabel {
+    padding-top: 13px;
+}
+
+.roleSelectInput {
+    width: 195px;
+}
+
+.roleSelectDiv {
+    padding-left: 16px;
+}
+
+.colorStyle {
+    color: #95989A
+}
+
+.rowMargin {
+    margin-top: 15px;
+}

@@ -1,0 +1,85 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+
+/*
+ModuleID: NotificationsComponent
+Description: CSS rules and styles for notifications component.
+Location: ./notifications.component.css
+Author: Amir Hussain
+Version: 1.0.0
+Modification history: none
+*/
+
+.itemTitle {
+    font-size: 17px;
+    color: #000000;
+}
+
+.itemDescription {
+    font-size: 12px;
+    color: #95989A;
+}
+
+.mat-list-item-border {
+    border-bottom: 1px solid lightgray;
+}
+
+.mat-list-text {
+    width: 100% !important
+}
+
+.mat-list-item-content {
+    height: AUTO !important
+}
+
+.notificationScrollModal {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.dateCreatedStyle {
+    text-align: right;
+    margin-right: 10px;
+    height: 100%;
+    margin-bottom: auto;
+}
+
+.matMenuButton {
+    border-bottom: 0.5px solid darkgrey
+}
+
+#openNotification {
+    width: 100% !important;
+}
+
+.dateCreatedStyle>span {
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.marginClass {
+    margin-right: 8%
+}
+
+.alignright {
+    text-align: right
+}
+
+.padding20 {
+    width: 20px;
+    width: 10px;
+    border: none;
+    background: none;
+}
+
+.loadMore {
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.fullheight {
+    height: 100px;
+}

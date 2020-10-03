@@ -1,0 +1,71 @@
+<!-- 
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: HeaderComponent
+Description: HTML file for view of header component.
+Location: ./header.component.html
+Author: Amir Hussain
+Version: 1.0.0
+Modification history: none
+*/
+-->
+<mat-toolbar class="rfng-header">
+    <table class="rfng-header-table">
+        <tr>
+            <td *ngIf="showToggle" rowspan="2">
+                <img class="openSideMenuButton" width="26px" height="26px" title="Open application menu" src="assets/images/top_level/side-nav-menu.png" (click)="toggleSideNav()" />
+            </td>
+            <td rowspan="2">
+                <img width="40" height="40" [src]="currentImage" onerror="this.src='assets/images/placeholder.png'" alt="" class="small-images-border-raduis topHeaderImage" />
+            </td>
+            <td rowspan="2" class="headingStyle">
+                <h4 id="heading">
+                    {{currentHeading}}
+                </h4>
+                <span id="subHeading"> {{currentSubHeading}}</span>
+            </td>
+            <td id="topheaderSideProperties">
+                <span id="topheaderSideSpan">
+                    <span  class="logoutButton">
+                        <img id="headerCalender" class="topHeaderRightImage" width="12"  src="assets/images/others/webtop_calendar.png"
+                        /> &nbsp;{{dateTime.date}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <img class="topHeaderRightImage"
+                            width="12" src="assets/images/others/webtop_clock.png" />&nbsp; {{dateTime.time}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <img width="12" class="topHeaderRightImage" src="assets/images/others/webtop_user.png" />&nbsp;<span title="User: {{currentUserName}} &#013;Email: {{currentUserEmail}}">{{currentUserName}}</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span (click)="logout()" id="logoutButton" title="Logout">
+                    <img class="topHeaderRightImage" width="15" src="assets/images/top_level/Logout_web.png" />
+                    </span>
+                </span>
+            </td>
+        </tr>
+        <tr class="sidefilterRow">
+            <td>
+                <div id="headerfilters" layout="row" layout-align="end center">
+                    <span dynamic="accessRequestHtml"> </span>
+                    <span id="headerSearch" layout="row" layout-align="end center">
+                        <span  class="searchPannel"icon="search">
+                            <input class="searchControl animate-hide" [style.width]="searcWidth" id="filterSearch" [(ngModel)]="searchString" #ctrl="ngModel"
+                                placeholder="Filter contents below..." [hidden]="!searchOn">
+                            <span [hidden]="!showSearch">
+                                <img width="24px" height="24px" id="searchOn" src="assets/images/top_level/filter_display_web.png" title="Turn search ON"
+                                    [hidden]="(searchOn)" tabindex="0" (keyup.enter)="searchOn=true" (click)="searchOn=true" class="cursorPointer" />
+                                <img width="24px" height="24px" id="searchOff" src="assets/images/top_level/filter_selected_web.png" title="Turn search OFF"
+                                    [hidden]="!(searchOn)" tabindex="0" (keyup.enter)="searchOn=false;searchString=''" (click)="searchOn=false;searchString=''" class="cursorPointer" />
+                            </span>
+                    <span [hidden]="!showSort">
+                                <img width="24px" height="24px" id="sortOn" src="assets/images/top_level/sort_display_web.png" title="Turn sort ON" [hidden]="(alphaSort)"
+                                tabindex="0" (keyup.enter)="alphaSort=true;" (click)="alphaSort=true;" class="cursorPointer" />
+                                <img width="24px" height="24px" id="sortOff" src="assets/images/top_level/sort_selected_web.png" title="Turn sort OFF" [hidden]="!(alphaSort)"
+                                tabindex="0" (keyup.enter)="alphaSort=false;"  (click)="alphaSort=false;" class="cursorPointer" />
+                            </span>
+                    </span>
+                    </span>
+                </div>
+            </td>
+        </tr>
+    </table>
+</mat-toolbar>

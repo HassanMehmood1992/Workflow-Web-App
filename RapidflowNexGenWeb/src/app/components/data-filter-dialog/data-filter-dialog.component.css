@@ -1,0 +1,57 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+
+/*
+ModuleID: DataFilterDialogComponent
+Description: CSS rules and styles for data filter dialog component.
+Location: ./data-filter-dialog.component.css
+Author: Nabil Shahid
+Version: 1.0.0
+Modification history: none
+*/
+
+.closeButton {
+    color: #007AFF;
+    font-size: 17px;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    cursor: pointer;
+}
+
+::ng-deep #organizationFilterBody .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color: rgb(27, 142, 241) !important;
+}
+
+ ::ng-deep #organizationFilterBody .mat-ripple-element {
+    background: rgba(27, 142, 241, .4) !important;
+}
+
+#organizationFilterBody {
+    padding: 20px;
+}
+
+#organizationTableDiv {
+    overflow: auto;
+    max-height: 250PX;
+    width: 400PX;
+}
+
+.organizationCol {
+    cursor: pointer;
+}
+
+#dataFilterButtonBorder {
+    border-top: 1px solid #d2d2d2;
+    margin-top: 1px;
+    margin-bottom: 0px;
+}
+
+.dataFilterDiv {
+    text-align: center;
+    padding: 10px;
+}

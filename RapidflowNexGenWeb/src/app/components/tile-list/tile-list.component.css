@@ -1,0 +1,218 @@
+<!--
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+
+/*
+ModuleID: TileListComponent
+Description:  CSS rules and styles for tile list component.
+Location: ./tile-list.component.css
+Author: Nabil Shahid
+Version: 1.0.0
+Modification history: none
+*/
+
+-->.tile {
+    background-color: #ECECEC;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: 10px;
+    border-radius: 5px;
+    font-family: roboto;
+}
+
+.itemTitle {
+    font-size: 17px;
+    color: #000000;
+    margin-left: 2px;
+}
+
+.itemSubtitle {
+    font-size: 13px;
+    margin-left: 2px;
+}
+
+.mat-list-item-content {
+    display: initial !important;
+}
+
+.tasksHeader {
+    background-color: #071D49;
+    color: white;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    margin: 6px;
+    border-radius: 3px;
+    box-shadow: 0.5px 0.5px 0.5px 0.5px rgba(195, 172, 172, 0.4)
+}
+
+.tasksRow {
+    background-color: white;
+    color: #8E8E93;
+    margin-left: 6px;
+    margin-right: 6px;
+    margin-bottom: 6px;
+    border-radius: 3px;
+    padding-top: 7px;
+    padding-bottom: 8px;
+    box-shadow: 0.5px 0.5px 0.5px 0.5px rgba(195, 172, 172, 0.4)
+}
+
+.itemDescriptionTruncated {
+    font-size: 12px;
+    color: #95989A;
+    margin-left: 4px;
+    margin-top: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 700px;
+}
+
+.itemDescription {
+    font-size: 12px;
+    color: #95989A;
+    margin-left: 4px !important;
+}
+
+.firstLineRight {
+    font-size: 14px;
+    color: #007AFF
+}
+
+.secondLineRight {
+    font-size: 12px;
+    color: #007AFF;
+}
+
+.darkgreyStyle {
+    color: #95989A
+}
+
+.toggleArrow {
+    width: 25px;
+    margin-top: 25%;
+    cursor: pointer;
+}
+
+ ::ng-deep.mat-expansion-indicator {
+    padding: 15px 5px;
+}
+
+ ::ng-deep.mat-expanded {
+    border-radius: 6px !important;
+}
+
+.rightDetails {
+    padding-right: 7px !important;
+    padding-left: 0px !important;
+    line-height: 17px !important;
+    padding-top:2px;
+    text-align: right;
+    height: 60px;
+}
+
+ ::ng-deep.ngx-pagination {
+    color: #888282 !important;
+}
+
+::ng-deep.ngx-pagination>.current {
+    background-color: #dadada !important;
+    color: #888282 !important;
+}
+
+::ng-deep.ngx-pagination a {
+    color: #888282 !important;
+}
+
+::ng-deep.ngx-pagination .disabled {
+    color: #888282 !important;
+}
+
+::ng-deep.ngx-pagination li {
+    margin-left: 10px;
+}
+
+::ng-deep.ngx-pagination a:hover {
+    text-decoration: none !important;
+}
+
+.has-text-centered {
+    text-align: right;
+    margin-right: 10px;
+}
+
+.rfngExpension {
+    background-color: #ECECEC;
+    margin: 10px;
+    box-shadow: 0px 0px 0px 0px black !important;
+    border-radius: 6px;
+}
+
+.rfngExpensionheader {
+    padding: 35px 10px 35px 3px;
+    height: 48px !important
+}
+
+.rfngExpensionrow {
+    width: 100%
+}
+
+.secondlineStyle {
+    margin-right: 4px;
+    color: #95989A
+}
+
+.taskDetailStyle {
+    top: 25%;
+    overflow-wrap: break-word;
+}
+
+.taskDetailStyle2 {
+    top: 25%;
+    overflow-wrap: break-word;
+    font-weight: 600;
+    color: black
+}
+
+.pendingSinceStyle {
+    width: 13px;
+    margin-right: 6px;
+    margin-bottom: 3px;
+}
+
+.restoreDeleteStyle {
+    width: 24px;
+    margin-right: 4%;
+    float: right;
+    cursor: pointer;
+}
+
+table {
+    line-height: 15px
+}
+
+td>img {
+    width: 35px
+}
+
+.secondLineRight>img {
+    width: 13px;
+    margin-right: 6px;
+    margin-bottom: 3px;
+}
+
+.marginWidthFull {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.floatRight {
+    float: right;
+}
+
+.marginRight {
+    margin: 6px
+}

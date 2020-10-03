@@ -1,0 +1,50 @@
+<!-- 
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: PendingAccessDialogComponent
+Description: HTML file for view of pending access dialog component.
+Location: ./main/pending-access-dialog.component.css
+Author: Amir Hussain
+Version: 1.0.0
+Modification history: none
+*/
+-->
+<div class="dialogTitle">
+    Pending Approval Details
+</div>
+
+
+<div class="dialogBody">
+
+    <mat-list>
+        <mat-list-item class="mat-list-item-border ">
+            <h3 mat-line class="itemTitle">{{pendingAccess.ProcessName}}</h3>
+            <p mat-line class="organizationName">
+                <span class="itemDescription">{{pendingAccess.OrganizationName}}</span>
+            </p>
+
+            <span class="example-fill-remaining-space"></span>
+            <div class="alighnTextRight">
+                <span></span>
+                <br/>
+            </div>
+        </mat-list-item>
+        <mat-list-item class="mat-list-item-border ">
+            <p mat-line class="pendingAccess">
+                <span class="itemDescription">Pending with :</span>
+                <span class="itemDescription">{{pendingAccess.PendingAccessDetails[0].AccessRequestAssigneeName}}</span>
+            </p>
+            <p mat-line class="pendingAccess">
+                <span class="itemDescription">Pending Since :</span>
+                <span class="itemDescription">{{pendingAccess.PendingAccessDetails[0].PendingSince.toUpperCase()}}</span>
+            </p>
+
+        </mat-list-item>
+
+    </mat-list>
+
+</div>

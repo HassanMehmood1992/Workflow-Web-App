@@ -1,0 +1,63 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: ApplicationSettingsComponent
+Description: CSS rules and styles for application settings component
+Location: ./application-settings.component.spec.ts
+Author: Nabil Shahid
+Version: 1.0.0
+Modification history: none
+*/
+.mattablink {
+    padding-left:1%;
+    cursor: pointer;
+    box-sizing: border-box;
+    opacity: 1.0;
+    min-width: 10px;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: top;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.tab-text{
+    margin-left:14px;
+    color:#071D49;
+}
+#platformSettingsEditButton{
+    float: right;margin-top:6px;
+}
+#platformSettingsSaveCancelButtons{
+    float: right;margin-top:6px;display: none;
+    
+}
+.settingsNavBar{
+    height:50.4px;
+}
+.platformSettingsButton{
+    min-width:20px;
+}
+
+.platformSettingsButtonImage{
+    width: 20px;
+}
+@media screen and ( max-width: 1024px) and (orientation:portrait) {
+    
+    .rightSectionWidth{ width: 15%;
+    padding-left: 7.6%;
+    cursor: pointer;
+    }
+    .logoutImage {
+        width: 40px;
+        margin-left: 10%;
+        }
+    }
+    
+ 

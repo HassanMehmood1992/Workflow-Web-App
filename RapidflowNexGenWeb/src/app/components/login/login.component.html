@@ -1,0 +1,63 @@
+<!-- 
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: LoginComponent
+Description: HTML file for view the login component.
+Location: ./login.component.html
+Author: Sheharyar Toor
+Version: 1.0.0
+Modification history: none
+*/
+-->
+<div class="loginContainer">
+    <div id="loginDiv">
+        <img width="336" src="assets/images/rapidflow_badge_400px.png">
+        <br />
+    
+        <div id="LoginOptions">
+            <div *ngIf="userLogingIn" id="loogInUser">
+    
+                <img id="loadingimg" src="assets/images/others/logo_rotate.gif" /> <span class="loading-text"> Loading your RapidFlow Processes . . . </span>
+            </div>
+            <div class="Aligner" *ngIf="!userLogingIn">
+                <form name="loginForm" (ngSubmit)="authenticateUser()" #heroForm="ngForm" class="Aligner-item">
+                    <fieldset>
+                        <div class="row">
+                            <div class="">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                                <img width="20" src="assets/images/login_screen/login_user.png">
+                                            </span>
+                                        <input id="userId" class="form-control" maxlength="20" placeholder="Active Directory\Windows ID" value="" [(ngModel)]="userNameInput" #ctrl="ngModel" [ngModelOptions]="{standalone: true}" type="text" autofocus>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                                <img width="20" src="assets/images/login_screen/login_password.png">
+                                            </span>
+                                        <input class="form-control" type="password" autocomplete="off" maxlength="50" placeholder="Password" value="" [(ngModel)]="userPasswordInput" #ctrl="ngModel" [ngModelOptions]="{standalone: true}">
+                                    </div>
+                                </div>
+    
+                                <div *ngIf="invalidCredentials && loginAttempts < 3" class="errorMessage">Invalid Username or Password.</div>
+                                <div *ngIf="userInvalid && loginAttempts < 3" class="errorMessage">Your user account is invalid. Please contact Service Desk for Support.</div>
+                                <div class="form-group ">
+                                    <button [disabled]="userNameInput.length==0||userPasswordInput.length==0" [style.cursor]="userNameInput.length==0||userPasswordInput.length==0 ? 'not-allowed' : null" [style.backgroundColor]="userNameInput.length==0||userPasswordInput.length==0 ? '#949fb5' : '#071D49'"
+                                        class="col-xs-12 loginButton" type="submit" button mat-raised-button color="primary" value="Login">Login</button>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+    
+        </div>
+    </div>
+    
+</div>

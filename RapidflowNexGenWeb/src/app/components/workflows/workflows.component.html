@@ -1,0 +1,30 @@
+<!-- 
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: WorkflowsComponent
+Description: HTML file for view of workflows component.
+Location: ./workflows.component.html
+Author: Amir Hussain
+Version: 1.0.0
+Modification history: none
+*/
+-->
+<mat-list>
+    <mat-list-item tabindex="0" (keyup.enter)="movetoform(item)" class="mat-list-item-border mat-list-item-ripple mat-list-option" *ngFor="let item of workflows|filterArray:searchStr" (click)="movetoform(item)">
+        <h3 mat-line class="itemTitle">{{item.WorkflowDisplayName}}</h3>
+        <p mat-line class="objectItemDescription">
+            <span class="itemDescription">{{item.WorkflowDescription}}</span>
+        </p>
+    </mat-list-item>
+</mat-list>
+<mat-progress-bar class="loaderStyle" *ngIf="workflowsLoading" mode="query">
+</mat-progress-bar>
+<div class="notAvailableDiv" *ngIf="!workflowsAvailable">
+    <div class="notAvailableMessage">
+        No workflows available
+    </div>
+</div>

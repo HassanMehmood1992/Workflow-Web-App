@@ -1,0 +1,52 @@
+<!--
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: ProcessUserSettingComponent
+Description: HTML file for ProcessUserSettingComponent.
+Location: ./components/process-user-settings.component.html
+Author: Nabil Shahid
+Version: 1.0.0
+Modification history: none
+*/
+ -->
+<div class="row processSettingsHeader">
+    <div class="col-xs-1 titleIcon">
+        <app-nav-bar [NavArray]="NavArray"></app-nav-bar>
+    </div>
+    <div class="col-xs-11 settingsNavigation">
+        <nav mat-tab-nav-bar #tabGroup id="processSettingsTabs">
+            <a mat-tab-link class="mattablink" [routerLink]="['general']" routerLinkActive #gs="routerLinkActive">
+                <img [hidden]="!gs.isActive" class="tab-icons" src="assets/images/process_menu/process_settings_selected.png" />
+                <img [hidden]="gs.isActive" class="tab-icons" src="assets/images/process_menu/process_settings_display.png" />
+                <span class="tab-text">Process Settings</span>
+            </a>
+            <a *ngIf="currentUserIsAdmin||currentUserIsSupportPerson" mat-tab-link class="mattablink" [routerLink]="['accessmanagement']"
+                routerLinkActive #am="routerLinkActive">
+                <img [hidden]="!am.isActive" class="tab-icons" src="assets/images/process_menu/access_management_selected.png" />
+                <img [hidden]="am.isActive" class="tab-icons" src="assets/images/process_menu/access_management_display.png" />
+                <span class="tab-text">Access Management</span>
+            </a>
+            <a *ngIf="currentUserIsSupportPerson" mat-tab-link class="mattablink" [routerLink]="['errorlogs']" routerLinkActive #errl="routerLinkActive">
+                <img [hidden]="!errl.isActive" class="tab-icons" src="assets/images/top_level/application_settings/Errors_Log_Selected.png"
+                />
+                <img [hidden]="errl.isActive" class="tab-icons" src="assets/images/top_level/application_settings/Errors_Log_Display.png"
+                />
+                <span class="tab-text">Errors Log</span>
+            </a>
+            <a *ngIf="currentUserIsSupportPerson" mat-tab-link class="mattablink" [routerLink]="['diagnostics']" routerLinkActive #diag="routerLinkActive">
+                <img [hidden]="!diag.isActive" class="tab-icons" src="assets/images/top_level/application_settings/Diagnostics_display_selected.png"
+                />
+                <img [hidden]="diag.isActive" class="tab-icons" src="assets/images/top_level/application_settings/Diagnostics_display.png"
+                />
+                <span class="tab-text">Diagnostics</span>
+            </a>
+        </nav>
+    </div>
+</div>
+<div class="MyProcessRow">
+    <router-outlet></router-outlet>
+</div>

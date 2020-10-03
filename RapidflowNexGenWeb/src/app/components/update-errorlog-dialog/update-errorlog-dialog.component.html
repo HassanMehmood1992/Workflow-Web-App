@@ -1,0 +1,68 @@
+<!--
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: UpdateErrorlogDialogComponent
+Description: HTML file for UpdateErrorlogDialogComponent.
+Location: ./update-errorlog-dialog.component.html
+Author: Nabil Shahid
+Version: 1.0.0
+Modification history: none
+*/
+ -->
+<div class="dialogTitle">
+    Update Error Log
+</div>
+<div class="updateErrorDialogBody">
+    <div class="row">
+        <div class="col-xs-6">
+
+            Status
+            <select [(ngModel)]="data.Status">
+
+        <option value="Open">Open</option>
+        <option value="Reported">Reported</option>
+      </select>
+
+        </div>
+        <div class="col-xs-6">
+
+            Category
+            <select [(ngModel)]="data.Category">
+        <option value="Global">Global</option>
+        <option value="Platform">Platform</option>
+        <option value="Process">Process</option>
+      </select>
+
+        </div>
+    </div>
+
+    <div class="row marginClass">
+        <div class="col-xs-12">
+            <mat-form-field class="fullWidth">
+                <textarea matInput placeholder="Resolution" [(ngModel)]="data.Resolution" maxlength="1000" matTextareaAutosize matAutosizeMinRows="5" matAutosizeMaxRows="10"></textarea>
+            </mat-form-field>
+        </div>
+
+
+    </div>
+    <div class="row">
+
+        <div class="col-xs-12">
+            <mat-form-field class="fullWidth">
+                <textarea matInput [(ngModel)]="data.RCA" placeholder="RCA" maxlength="1000" matTextareaAutosize matAutosizeMinRows="5" matAutosizeMaxRows="10"></textarea>
+            </mat-form-field>
+        </div>
+
+    </div>
+
+</div>
+<div class="dialogButtons">
+    <mat-divider></mat-divider>
+
+    <button (click)="saveErrorLog()" class="singleDialogButton">Save</button>
+
+</div>

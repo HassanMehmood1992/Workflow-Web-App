@@ -1,0 +1,113 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+
+/*
+ModuleID: LoginComponent
+Description: CSS rules and styles for login component.
+Location: ./login.component.css
+Author: Sheharyar Toor
+Version: 1.0.0
+Modification history: none
+*/
+
+.panel-heading {
+    padding: 5px 15px;
+}
+
+.panel-footer {
+    padding: 1px 15px;
+    color: #A0A0A0;
+}
+
+.profile-img {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.Aligner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Aligner-item {
+    max-width: 50%;
+    width: 336px
+}
+
+.Aligner-item--top {
+    align-self: flex-start;
+}
+
+.Aligner-item--bottom {
+    align-self: flex-end;
+}
+
+.form-control {
+    border-radius: 5px;
+    border: 0px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 6px;
+    height: 50px;
+    margin: 0% !important;
+}
+
+.form-group {
+    height: 50px;
+}
+
+.input-group {
+    border: 1px solid #071D49;
+    border-radius: 6px;
+    height: 50px;
+}
+
+.input-group-addon {
+    border-bottom-left-radius: 5px !important;
+    border-top-left-radius: 5px !important;
+    background: white;
+    border: 0px;
+}
+
+#loginDiv {
+    text-align: center;
+    padding-top: 15%;
+}
+
+#LoginOptions {
+    margin-top: 6%;
+}
+
+#loogInUser {
+    margin-left: 36%;
+    margin-bottom: 1%;
+    width: 28%;
+    font-size: 14px
+}
+
+#loadingimg {
+    width: 40px;
+}
+.loading-text{
+    margin-left: 2%;
+}
+
+.loginButton {
+    background-color: #071D49;
+    color: white;
+    margin-top: 5%;
+    height: 50px;
+    border-radius: 6px;
+}
+
+.erroMessage {
+    color: red
+}

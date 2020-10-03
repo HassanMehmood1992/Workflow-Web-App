@@ -1,0 +1,28 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+
+/*
+ModuleID: AddonsComponent
+Description: CSS rules and styles for addons component.
+Location: ./addons.component.css
+Author: Amir Hussain
+Version: 1.0.0
+Modification history: none
+*/
+
+.itemTitle {
+    font-size: 17px;
+    color: #000000;
+}
+
+.itemDescription {
+    font-size: 12px;
+    color: #95989A;
+}
+
+.mat-list-item-border {
+    border-bottom: 1px solid lightgray;
+}

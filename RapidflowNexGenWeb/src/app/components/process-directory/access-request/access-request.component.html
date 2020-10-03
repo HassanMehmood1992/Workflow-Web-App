@@ -1,0 +1,29 @@
+<!-- 
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: AccessRequestComponent
+Description: HTML file for view of access request component.
+Location: ./access-request.component.html
+Author: Sheharyar Toor
+Version: 1.0.0
+Modification history: none
+*/
+-->
+<div mat-dialog-title>
+</div>
+<div mat-dialog-content class="matDialogContentStyle">
+    <mat-form-field class="matformfieldclass">
+        <input matInput placeholder="Process ID" value="" [(ngModel)]="processId" #ctrl="ngModel" [ngModelOptions]="{standalone: true}" class="processIDPlaceHolder" (input)="checkCmdbId()" [style.background-size]="correctCmdbId ? '26px 26px' : '16px 19px'" [style.background-image]="imagePath"
+            [style.background-position]="correctCmdbId ? '98% -3px' : '98% 0px'" [style.background-repeat]="correctCmdbId ? 'no-repeat' : 'no-repeat'" [attr.title]="imageMessage">
+    </mat-form-field>
+    <mat-form-field class="matformfieldclass">
+        <textarea matInput placeholder="Specify reason for access..." maxlength="255" matTextareaAutosize matAutosizeMinRows="4" value="" [(ngModel)]="justification" #ctrl="ngModel" [ngModelOptions]="{standalone: true}" matAutosizeMaxRows="7"></textarea>
+    </mat-form-field>
+</div>
+<div class="matButtonCenter" (click)="submitAccessRequest()">
+    <span class="mat-button buttonfull" [style.color]="correctCmdbId ? 'blue' : 'grey'" [style.cursor]="correctCmdbId ? 'pointer' : 'not-allowed'">Submit</span>
+</div>

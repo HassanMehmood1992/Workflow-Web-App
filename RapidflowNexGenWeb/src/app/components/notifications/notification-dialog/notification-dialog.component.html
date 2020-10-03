@@ -1,0 +1,65 @@
+<!-- 
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: NotificationDialogComponent
+Description: HTML file for view of notification dialog component.
+Location: ./notifications/notification-dialog.component.html
+Author: Amir Hussain
+Version: 1.0.0
+Modification history: none
+*/
+-->
+<div class="hideoverflowverticle">
+    <div class="dialogTitle">
+        Notification
+    </div>
+
+
+    <div class="dialogBody MyProcessRow">
+        <mat-list>
+            <mat-list-item class="mat-list-item-border ">
+                <table style="width:100%">
+                    <tr>
+                        <td>
+                            <span class="itemTitle">{{notification.FromDisplayName}}</span>
+
+
+                            <span class="example-fill-remaining-space"></span>
+                            <span class="dateCreated">
+                                <span [ngStyle]="{ 'color' : (statusInbox=='Pending') ? '#1980E8' : '#636363' }">{{notification.DateCreated | formatdate}}</span>
+                            <br/>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class=" ">
+                                <span class="itemDescription " [ngStyle]="{ 'color' : (statusInbox=='Pending') ? '#1980E8' : '#636363' }">{{notification.Message | decodeUriComponent}}</span>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+            </mat-list-item>
+            <mat-list-item class="mat-list-item-border" *ngIf="processNotifications">
+
+                <img matListAvatar width="44px" class="small-images-border-raduis" src="assets/images/process_menu/Form.png">
+                <h3 mat-line class="itemTitle "> <a class="formUrl" (click)="navigateToForm()">{{notification.Reference}}</a></h3>
+
+
+                <p mat-line>
+                    <span class="itemTitle">{{notification.ProcessName}}</span>
+                </p>
+            </mat-list-item>
+            <div class="mat-list-item " id="messageBody" [innerHTML]="notificaitonbody"></div>
+        </mat-list>
+    </div>
+    <mat-list-item (click)="updateNotification()" class="mat-button MyProcessBottomRow">
+        Delete
+    </mat-list-item>
+
+</div>

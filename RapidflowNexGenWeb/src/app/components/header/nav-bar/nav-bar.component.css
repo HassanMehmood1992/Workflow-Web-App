@@ -1,0 +1,27 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+
+/*
+ModuleID: NavBarComponent
+Description: CSS rules and styles for nav bar component.
+Location: ./nav-bar.component.css
+Author: Amir Hussain
+Version: 1.0.0
+Modification history: none
+*/
+
+.backbutton {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.matlineP {
+    MARGIN-LEFT: -10PX
+}
+
+.cursorPointer {
+    cursor: pointer;
+}

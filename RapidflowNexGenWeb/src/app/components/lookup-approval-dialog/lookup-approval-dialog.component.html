@@ -1,0 +1,107 @@
+<!-- 
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: LookupApprovalDialogComponent
+Description: HTML file for view of lookup approval dialog component.
+Location: ./lookup-approval-dialog.component.html
+Author: Amir Hussain
+Version: 1.0.0
+Modification history: none
+*/
+-->
+<div class="hideoverflowverticle">
+    <div class="dialogTitle">
+        Change Approval Task
+    </div>
+
+
+    <div class="dialogBody MyProcessRow">
+        <mat-list>
+
+            <mat-list-item class="mat-list-item-border ">
+
+                <img matListAvatar width="44px" class="small-images-border-raduis" src="assets/images/process_menu/Tasks/Change Approval.png">
+                <h3 mat-line class="itemTitle">{{lookupTask.ItemHeader1}}</h3>
+                <p mat-line>
+                    <span class="itemTitle">{{lookupTask.ItemHeader2}}</span>
+                </p>
+            </mat-list-item>
+            <mat-list-item>
+                <div class="itemDescriptionTruncated">
+                    <span *ngIf="lookupTask.ItemStatus=='delete'">
+                        Item has been deleted
+                    </span>
+                    <span *ngIf="lookupTask.ItemStatus=='restore'">
+                        Item has been restored
+                    </span>
+                    <span *ngIf="lookupTask.ItemStatus=='created'">
+                        Item has been Created
+                    </span>
+                    <span *ngIf="lookupTask.ItemStatus=='modified'">Item has been Modified</span>
+                    <span *ngIf="lookupTask.ItemStatus=='bulkinsert'">
+                        Multiple items have been created. Please open the lookup to view these items.
+                    </span>
+                </div>
+            </mat-list-item>
+
+            <div *ngIf="lookupTask.ItemStatus=='created'||lookupTask.ItemStatus=='delete'||lookupTask.ItemStatus=='restore'" class="taskDetails">
+
+
+                <span class="itemTitle"> Item Details</span>
+                <div class="row tasksHeader">
+                    <div class="col-xs-6">Column</div>
+                    <div class="col-xs-6">Value</div>
+
+                </div>
+                <div class="row tasksRow" *ngFor="let task of lookupTask.LookupItem| keys">
+                    <div [style.color]="task.Result == 'Pending' ? 'black' : null" class="col-xs-6">{{parseJSONObject(lookupTask.lookupDispalyAndTitleArray)[task.key]}}</div>
+                    <div [style.color]="task.Result == 'Pending' ? 'black' : null" class="col-xs-6">{{retrunstring(task.value)}}</div>
+
+                </div>
+            </div>
+            <div *ngIf="lookupTask.ItemStatus=='modified'" class="itemPreviousDetails">
+
+
+                <div class="col-xs-12">
+                    <span class="itemTitle"> Item Details</span>
+                    <div class="row tasksHeader">
+                        <div class="col-xs-6">Previous Value</div>
+                        <div class="col-xs-6">Modified Value</div>
+
+                    </div>
+                    <div *ngFor="let task of lookupTask.LookupItem| keys">
+                        <div class="row tasksRow">
+                            <div [style.color]="task.Result == 'Pending' ? 'black' : null" class="col-xs-12 taskRowHeader">{{parseJSONObject(lookupTask.lookupDispalyAndTitleArray)[task.key]}}</div>
+
+                        </div>
+                        <div class="row tasksRow" [style.background]="retrunstring(task.value) != retrunstring(parseJSONObject(lookupTask.PreviousItem)[task.key]) ? 'lightgrey' : null">
+                            <div class="col-xs-6">{{retrunstring(parseJSONObject(lookupTask.PreviousItem)[task.key])}}</div>
+                            <div class="col-xs-6">{{retrunstring(task.value)}}</div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="mat-list-item " id="messageBody"></div>
+
+        </mat-list>
+
+    </div>
+    <mat-list-item class=" MyProcessBottomRow row">
+        <div class="col-xs-6 mat-button approvalButton" (click)="completeLookupChangeApprovalTask('approved')">Approve</div>
+        <div class="col-xs-6 mat-button" (click)="completeLookupChangeApprovalTask('rejected')">Reject
+        </div>
+
+
+    </mat-list-item>
+
+</div>

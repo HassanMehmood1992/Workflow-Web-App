@@ -1,0 +1,34 @@
+<!--
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: DiagnosticLogToggleComponent
+Description: HTML file for Diagnostic Log Toggle Component.
+Location: ./diagnostic-log-toggle.component.html
+Author: Nabil Shahid
+Version: 1.0.0
+Modification history: none
+*/
+ -->
+<mat-list *ngIf="!noPermission">
+   
+
+    <mat-list-item>
+        <table class="fullWidth">
+            <tr>
+                <td class="leftSectionWidth">
+                    <span class="firstLineText">Configure Diagnostic Logging</span><br/>
+                    <span class="detailsText">{{timingDisplayString}}</span>
+                  </td>
+                <td class="toggleButtonCol">
+                    <mat-slide-toggle [checked]="diagnosticLoggingChecked" [(ngModel)]="diagnosticLoggingChecked" (change)="showChangeDignosticLoggingDialog()">
+                    </mat-slide-toggle>
+                </td>
+            </tr>
+        </table>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+</mat-list>

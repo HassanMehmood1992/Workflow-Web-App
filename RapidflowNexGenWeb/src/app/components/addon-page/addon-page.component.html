@@ -1,0 +1,32 @@
+<!--
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: AddonPageComponent
+Description: HTML file for addon page component.
+Location: ./addon-page.component.html
+Author: Nabil Shahid
+Version: 1.0.0
+Modification history: none
+*/
+ -->
+<mat-list class="topRow">
+    <mat-list-item class="mat-list-item-border" id="addOnPageHeader">
+        <app-nav-bar [NavArray]="navArray"></app-nav-bar>
+        <span class="example-fill-remaining-space"></span>
+    </mat-list-item>
+</mat-list>
+<div class="MyProcessRow">
+    <mat-progress-bar class="loaderStyle" *ngIf="addonLoading" mode="query"></mat-progress-bar>
+    <mat-card class="addonCard" *ngIf="!noPermission">
+        <div #container></div>
+    </mat-card>
+    <div class="notAvailableDiv" *ngIf="noPermission">
+        <div  class="notAvailableMessage">
+            You don't have permission on this view.
+        </div>
+    </div>
+</div>

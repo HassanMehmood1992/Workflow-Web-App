@@ -1,0 +1,108 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: GeneralSettingsComponent
+Description: CSS file for GeneralSettingsComponent.
+Location: ./general-settings.component.spec.ts
+Author: Nabil Shahid
+Version: 1.0.0
+Modification history: none
+*/
+.firstLineText {
+    font-size: 14px;
+    color: #000000;
+}
+
+.secondLineText {
+    font-family: Roboto;
+    font-size: 14px;
+    color: #8E8E93;
+}
+
+.rightText {
+    font-family: Roboto;
+    font-size: 14px;
+    margin-left: 10%;
+    color: #8E8E93;
+}
+
+.fullWidth {
+    width: 100%;
+}
+
+.leftSectionWidth {
+    width: 85%;
+}
+
+.rightSectionWidth {
+    width: 15%;
+    padding-left: 2%;
+    cursor: pointer;
+}
+
+.rightSectionToggleFormatting {
+    width: 15%;
+    float: right;
+    margin-right: 36%;
+}
+
+.detailsText {
+    font-family: Roboto;
+    font-size: 15px !important;
+    color: #8E8E93;
+}
+
+::ng-deep.mat-list-item-content {
+    height: auto !important;
+}
+
+.userDevicesItem {
+    padding: 0px !important;
+}
+
+.userDevicesHeader {
+    font-size: 17px !important;
+    color: #000000 !important;
+    font-weight: unset !important;
+    padding-right: 42px !important;
+    padding-left: 10px !important;
+}
+
+.userDevicesPanel {
+    width: 99.5%;
+    box-shadow: 0px 0px 0px 0px !important;
+}
+
+::ng-deep .userDevicesItem>.mat-list-item-content {
+    padding: 0px !important;
+}
+
+.deviceItem {
+    cursor: pointer;
+}
+
+.deviceImage {
+    width: 25px;
+}
+
+.deviceTable {
+    font-size: 14px;
+}
+
+.deviceLogoutImage {
+    width: 18px;
+    cursor: pointer;
+}
+
+.logoutImage {
+    width: 40px;
+}
+#applicationAlertDisplayDiv{
+    word-break: break-word;
+}
+#helpLinkAnchor{
+    width:100%; color:#000000 !important
+}

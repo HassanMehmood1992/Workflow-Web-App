@@ -1,0 +1,71 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: ErrorReportingDialogComponent
+Description: CSS file for ErrorReportingDialogComponent.
+Location: ./error-reporting-dialog.component.css
+Author: Nabil Shahid
+Version: 1.0.0
+Modification history: none
+*/
+.itemTitle {
+    font-size: 17px;
+    color: #000000;
+}
+
+.itemDescription {
+    font-size: 12px;
+    color: #95989A;
+}
+
+.mat-list-item-border {
+    border-bottom: 1px solid lightgray;
+}
+
+.hideoverflowverticle {
+    overflow: hidden;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+
+.topRow {
+    border-right: 0.5px solid lightgrey;
+    flex: 0 1 auto;
+}
+
+.MyProcessBottomRow {
+    height: 50px;
+    flex: 0 1 auto;
+    padding-left: 3%;
+    border-top: 0.5px solid lightgrey !important;
+}
+
+.MyProcessRow {
+    flex: 1 1 auto;
+    overflow: auto;
+}
+#errorReportButton{
+    padding-left: 60px; 
+    padding-top: 10px; 
+    padding-bottom: 10px;
+    border-right:0.5px solid lightgrey;text-align:center;
+}
+#cancelButton{
+    padding-right: 60px; 
+    padding-top: 10px; 
+    padding-bottom: 10px;
+    text-align:center;
+}
+
+.errorDialogBody{
+    padding:15px;
+    max-height:150px
+}
+#errorReportingDialogButtonDiv{
+    color:#1980E8; border-top:0.5px solid lightgrey;    text-align: center; text-transform: uppercase;    cursor: pointer;
+}
+ 

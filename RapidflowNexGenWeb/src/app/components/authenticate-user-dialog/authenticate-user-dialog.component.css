@@ -1,0 +1,57 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: AuthenticateUserDialogComponent
+Description: CSS rules and styles for the authenticate user dialog component.
+Location: ./authenticate-user-dialog.component.css
+Author: Sheharyar Toor
+Version: 1.0.0
+Modification history: none
+*/
+
+.authenticate-user-body {
+    padding:15px;max-height:80vh
+}
+
+.authenticate-user-header {
+    font-size:14px;text-align:center;
+}
+
+.authenticate-user-spinner {
+    width:20%; height:20%;
+}
+
+.authenticate-user-name {
+    text-align:center;height:30px;
+}
+
+.authenticate-user-password-div {
+    height:40px;
+}
+
+.authenticate-user-password-sub-div {
+    border:1px solid #071D49;border-radius:6px;height:40px;
+}
+
+.authenticate-user-password-span {
+    background:white;border:0px;border-top-left-radius: 6px; border-bottom-left-radius: 6px;
+}
+
+.authenticate-user-password {
+    border:0px;border-top-right-radius: 6px; border-bottom-right-radius: 6px; height:40px;margin:0% !important;
+}
+
+.authenticate-user-validation {
+    color:red;
+}
+
+.authenticate-user-okie-btn {
+    border-top:0.5px solid lightgrey;text-align:center;
+}
+
+.authenticate-user-cancel-btn {
+    color:#1980E8; border-top:0.5px solid lightgrey;text-align:center;cursor: pointer;
+}

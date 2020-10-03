@@ -1,0 +1,53 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+
+/*
+ModuleID: ProcessLooupItemDialogComponent
+Description: CSS rules and styles for process lookup item component.
+Location: ./process-lookup-page/process-lookup-item.component.css
+Author: Amir Hussain
+Version: 1.0.0
+Modification history: none
+*/
+
+.itemTitle {
+    font-size: 17px;
+    color: #000000;
+}
+
+.itemDescription {
+    font-size: 12px;
+    color: #95989A;
+}
+
+.mat-list-item-border {
+    border-bottom: 1px solid lightgray;
+}
+
+.hideoverflowverticle {
+    overflow: hidden;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+
+.topRow {
+    border-right: 0.5px solid lightgrey;
+    flex: 0 1 auto;
+}
+
+.MyProcessBottomRow {
+    height: 50px;
+    flex: 0 1 auto;
+    padding-left: 3%;
+    border-top: 0.5px solid lightgrey !important;
+}
+
+.MyProcessRow {
+    flex: 1 1 auto;
+    overflow: auto;
+    padding: 15px;
+}

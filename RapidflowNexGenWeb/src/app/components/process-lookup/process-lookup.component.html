@@ -1,0 +1,25 @@
+<!--
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: ProcessLookupComponent
+Description: HTML file for the process lookup component.
+Location: ./process-lookup.component.html
+Author: Sheharyar Toor
+Version: 1.0.0
+Modification history: none
+*/
+ -->
+<div>
+  <div [ngClass]="{'enableProcessLookup': !controlOptions.disabled, 'disableProcessLookup': controlOptions.disabled, 'processLookupRequired': ngModel.length == 0 && controlOptions.required, 'processLookupNotRequired': ngModel.length > 0}"
+    class="{{className}}" (click)="openDialog()">
+    <span *ngIf="ngModel.length == 0" class="processLookupPlaceholder">{{placeHolder}}</span>
+    <span *ngIf="ngModel.length > 0">{{ngModel}}</span>
+  </div>
+  <div class="validation" *ngIf="ngModel.length == 0 && controlOptions.required && clicked">
+    {{controlOptions.validationText}}
+  </div>
+</div>

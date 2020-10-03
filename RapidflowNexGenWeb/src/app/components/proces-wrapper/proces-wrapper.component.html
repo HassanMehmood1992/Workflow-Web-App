@@ -1,0 +1,100 @@
+<!-- 
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: ProcessWrapperComponent
+Description: HTML file for view of process wrapper component.
+Location: ./process-wrapper.component.html
+Author: Amir Hussain
+Version: 1.0.0
+Modification history: none
+*/
+-->
+<div class="row main-nav-row">
+    <div class="col-xs-10">
+
+        <div class="mat-toolbar-layout topRow wrapper-top-nav-div" class="nav-start">
+
+            <nav mat-tab-nav-bar>
+                <div fxLayout="row">
+                    <a fxLayout.xs="column" fxLayout.md="column" fxLayout.sm="column" mat-tab-link class="mattablink" [routerLink]="['tasks']" routerLinkActive #pt="routerLinkActive">
+                        <img [hidden]="!pt.isActive" class="tab-icons" src="assets/images/process_menu/Pending Tasks_Selected.png" />
+
+                        <img [hidden]="pt.isActive" class="tab-icons" src="assets/images/process_menu/Pending Tasks_display.png" />
+                        <span class="tab-text">Tasks&nbsp;&nbsp;&nbsp;</span>
+                        <span [hidden]="Counts['TasKCount']<1" class="ProcessBadge"></span>
+                    </a>
+                    <a fxLayout.xs="column" fxLayout.md="column" fxLayout.sm="column" mat-tab-link class="mattablink" [routerLink]="['forms']" routerLinkActive #cn="routerLinkActive">
+                        <img [hidden]="!cn.isActive" class="tab-icons img-create" src="assets/images/process_menu/Create_Selected.png" />
+                        <img [hidden]="cn.isActive" class="tab-icons img-create" src="assets/images/process_menu/Create_Display.png" />
+                        <span class="tab-text">Create</span>
+                    </a>
+                    <a fxLayout.xs="column" fxLayout.md="column" fxLayout.sm="column" mat-tab-link class="mattablink" [routerLink]="['submissions']" routerLinkActive #sub="routerLinkActive">
+                        <img [hidden]="!sub.isActive" class="tab-icons img-submission" src="assets/images/process_menu/submissions_selected.png" />
+                        <img [hidden]="sub.isActive" class="tab-icons img-submission" src="assets/images/process_menu/submissions_display.png" />
+                        <span class="tab-text">Submissions</span>
+                    </a>
+                    <a fxLayout.xs="column" fxLayout.md="column" fxLayout.sm="column" mat-tab-link class="mattablink" [routerLink]="['reports']" routerLinkActive #rep="routerLinkActive">
+                        <img [hidden]="!rep.isActive" class="tab-icons img-report" src="assets/images/process_menu/reports_filled.png" />
+                        <img [hidden]="rep.isActive" class="tab-icons img-report" src="assets/images/process_menu/reports.png" />
+                        <span class="tab-text">Reports</span>
+                    </a>
+                    <a fxLayout.xs="column" fxLayout.md="column" fxLayout.sm="column" mat-tab-link class="mattablink" [routerLink]="['pivots']" routerLinkActive #piv="routerLinkActive">
+                        <img [hidden]="!piv.isActive" class="tab-icons img-pivot" src="assets/images/process_menu/Pivot_Selected.png" />
+                        <img [hidden]="piv.isActive" class="tab-icons img-pivot" src="assets/images/process_menu/Pivot_Display.png" />
+                        <span class="tab-text">Pivots</span>
+                    </a>
+                    <a fxLayout.xs="column" fxLayout.md="column" fxLayout.sm="column" mat-tab-link class="mattablink" [routerLink]="['addons']" routerLinkActive #add="routerLinkActive">
+                        <img [hidden]="!add.isActive" class="tab-icons img-addon" src="assets/images/process_menu/Addons_Selected.png" />
+                        <img [hidden]="add.isActive" class="tab-icons img-addon" src="assets/images/process_menu/Addons_Display.png" />
+                        <span class="tab-text">Addons</span>
+                    </a>
+
+                    <a fxLayout.xs="column" fxLayout.md="column" fxLayout.sm="column" mat-tab-link class="mattablink" [routerLink]="['notifications']" routerLinkActive #noti="routerLinkActive">
+                        <img [hidden]="!noti.isActive" class="tab-icons noti-icon" src="assets/images/process_menu/Notifications_Selected.png" />
+                        <img [hidden]="noti.isActive" class="tab-icons noti-icon" src="assets/images/process_menu/Notifications_display.png" />
+                        <span class="tab-text">Notifications &nbsp;&nbsp;&nbsp;
+                            <span [hidden]="Counts['NotificationCount']<1" class="ProcessBadge"></span>
+                        </span>
+                    </a>
+
+                </div>
+            </nav>
+            <!-- This fills the remaining space of the current row -->
+
+        </div>
+
+    </div>
+    <div class="col-xs-2">
+        <span>
+            <button mat-icon-button [matMenuTriggerFor]="processsettings" class="wrapper-submenu">
+                <img width="20px" src="assets/images/process_menu/More.png" />
+            </button>
+
+
+
+            <mat-menu #processsettings="matMenu"  xPosition="before" yPosition="above">
+                <button mat-menu-item class="matMenuButton"  (click)="moveToOptions( 'Lookups') ">
+                    <img src="assets\images\process_menu\Lookup_Display.png" width="22" class="imageMargin" />Lookups</button>
+                <button mat-menu-item  class="matMenuButton"  (click)="moveToOptions( 'ProcessMatrics') ">
+                    <img src="assets\images\process_menu\processmetrics-unfilled.png" width="22" class="imageMargin"  />Metrics</button>
+                <button mat-menu-item (click)="moveToOptions( 'ProcessSettings') ">
+                    <img src="assets\images\process_menu\process_settings_display.png" class="imageMargin" width="22" />Process Settings</button>
+
+            </mat-menu>
+
+
+
+        </span>
+    </div>
+
+</div>
+
+
+<div [class.MyProcessRow]="!sub.isActive&&!noti.isActive" [class.scrollModelDiv]='sub.isActive||noti.isActive' class="MyProcessRow">
+    <router-outlet></router-outlet>
+
+</div>

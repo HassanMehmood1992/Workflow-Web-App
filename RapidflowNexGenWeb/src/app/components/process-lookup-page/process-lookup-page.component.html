@@ -1,0 +1,74 @@
+<!-- 
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: ProcessLookupPageComponent
+Description: HTML file for view of process lookup page component.
+Location: ./process-lookup-import.component.html
+Author: Amir Hussain
+Version: 1.0.0
+Modification history: none
+*/
+-->
+<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+
+
+
+<div class="hideoverflowverticle" *ngIf="!rerender">
+
+    <mat-list class="topRow">
+
+
+        <mat-list-item class="mat-list-item-border">
+            <app-nav-bar [NavArray]="navArray"></app-nav-bar>
+
+            <span *ngIf="activatedItem" class="mat-line">
+                <span (click)="hideItem()" class="backbutton" >
+                    <img src="assets\images\top_level\left_arrow.png" class="backbutton"width="24px" />
+                </span>
+            <span>{{itemName}}</span>
+            </span>
+
+            <span class="example-fill-remaining-space"></span>
+
+            <div *ngIf="!activatedItem&&permissionArray.Add" (click)="addNewItem();ReloadLookup=true" class="lookupOptionsButton">
+                <img class="tab-icons" src="assets\images\others\lookup - add - outline.png" class="controlIcons" title="add" /> Add
+
+            </div>
+            <div *ngIf="!activatedItem&&permissionArray.Add" (click)="OpenImportDialog();ReloadLookup=true" class="lookupOptionsButton">
+                <img src="assets\images\others\lookup - import - outline.png" class="controlIcons" title="import" /> Import
+            </div>
+            <div *ngIf="!activatedItem&&permissionArray.Add" (click)="exportToExcel()" class="lookupOptionsButton">
+
+                <img src="assets\images\others\lookup - export - outline.png" class="controlIcons" title="export" /> Export
+
+            </div>
+
+
+        </mat-list-item>
+    </mat-list>
+    <mat-progress-bar class="" *ngIf="lookupLoading" mode="query"></mat-progress-bar>
+    <div class="notAvailableDiv" *ngIf="!lookupLoading&&noPermission">
+        <div class="notAvailableMessage">
+            You don't have permission on this view.
+        </div>
+    </div>
+    <div class="MyProcessRow">
+
+        <div *ngIf="errorfound">Error found in rendering data </div>
+        <div [hidden]="activatedItem">
+            <table id="LookupTable" class="display" cellspacing="0" width="100%">
+
+            </table>
+        </div>
+        <mat-card class="example-card" *ngIf="activatedItem">
+            <mat-card-header>
+                <app-process-lookup-item *ngIf="activatedItem" [processLookupData]="processLookupData" [currentItem]="currentItem" [Lookup]="lookup" [exists]="exists" [permissionArray]="permissionArray" class="lookupitem"></app-process-lookup-item>
+            </mat-card-header>
+        </mat-card>
+    </div>
+
+</div>

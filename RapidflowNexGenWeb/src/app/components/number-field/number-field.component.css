@@ -1,0 +1,38 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: NumberFieldComponent
+Description: CSS rules and styles for the number field component.
+Location: ./number-field.component.css
+Author: Sheharyar Toor
+Version: 1.0.0
+Modification history: none
+*/
+
+input.ng-invalid{border-color: red !important; border-radius: 4px;} 
+textarea.ng-invalid{border-color: red !important; border-radius: 4px;}
+.validation{ font-size:11px;color:red;margin-left: 1%;}
+
+.enablenumberfield::placeholder {
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+min-height: 34px;
+padding-right: 15%;
+}
+.footer{
+border: none !important;
+background-color:#ececec;
+}
+.numberRequired{
+    border: 1px solid;
+    border-color: red !important; 
+    border-radius: 4px;
+  }
+ 
+  .footer-input {
+    max-height: 20px !important;height:20px !important;resize:inherit;overflow:hidden;
+  }

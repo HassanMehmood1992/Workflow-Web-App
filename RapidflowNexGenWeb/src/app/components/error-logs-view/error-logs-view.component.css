@@ -1,0 +1,143 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+
+/*
+ModuleID: ErrorLogsViewComponent
+Description: CSS file for ErrorLogsViewComponent.
+Location: ./error-logs-view.component.html
+Author: Nabil Shahid
+Version: 1.0.0
+Modification history: none
+*/
+
+@import '../../../../node_modules/datatables.net-dt/css/jquery.dataTables.css';
+::ng-deep.dataTables_wrapper {
+    padding: 20px;
+}
+
+::ng-deep.dataTable {
+    border-radius: 5px;
+    border-bottom: 0px !important;
+    border-collapse: separate;
+    border-spacing: 0px 5px !important;
+}
+
+::ng-deep#errorLogsTable_filter {
+    display: none;
+}
+
+.noPermissionMessage {
+    padding: 10px;
+}
+
+::ng-deep#errorLogsTable thead {
+    background-color: #071D49;
+    color: white;
+}
+
+::ng-deep#errorLogsTable_info {
+    display: none;
+}
+
+::ng-deep.dataTables_length {
+    padding-top: 5px;
+    color: #989a94 !important;
+}
+
+::ng-deep.dataTables_length select {
+    border-radius: 3px;
+}
+
+::ng-deep th {
+    font-size: 12px !important;
+    font-weight: 400 !important;
+}
+
+::ng-deep.odd {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+::ng-deep.even {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+mat-button {
+    font-weight: 300;
+    color: #071D49;
+}
+
+thead tr th {
+    border-bottom: 0px;
+}
+
+select {
+    width: 120px;
+    height: 28px;
+    border-radius: 3px;
+    color: #007aff;
+}
+
+.iconsCell {
+    padding: 0px;
+    margin-left: 15px;
+    width: 10%;
+    cursor: pointer;
+    text-align: right;
+    margin-top: 3px;
+    padding-right: 38px;
+    float: right;
+}
+
+.errorLogsForm {
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+::ng-deep#errorLogsTable_length {
+    display: none;
+}
+
+::ng-deep#errorLogsTable tbody tr td {
+    padding: 7px;
+}
+
+#tableDiv {
+    color: #a09e9e;
+}
+
+#errorLogsTable {
+    cursor: pointer;
+}
+
+::ng-deep#errorLogsTable_paginate a {
+    /* color: #888282 !important */
+}
+
+#exportErrorLogs {
+    width: 25px;
+    margin-left: 15px;
+}
+
+#statusDropDownDiv {
+    padding: 0px;
+}
+
+#eventDateDropDownDiv {
+    padding-left: 2px;
+}
+
+#categoryDropDownDiv {
+    margin-left: -55px;
+}
+
+#errorProcessSelectorDiv {
+    padding: 0px !important;
+    margin-left: -48px !important;
+}
+
+#errorLogProcessSelect {
+    width: 170px;
+}

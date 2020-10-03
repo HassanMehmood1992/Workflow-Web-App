@@ -1,0 +1,48 @@
+<!-- 
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: PivotsComponent
+Description: HTML file for view of pivots component.
+Location: ./pivots.component.html
+Author: Amir Hussain
+Version: 1.0.0
+Modification history: none
+*/
+-->
+<mat-list>
+    <span *ngFor="let item of Pivots|filterArray:searchStr">
+        <mat-list-item tabindex="0" (keyup.enter)="moveToPivots(item)" *ngIf="item.Availability.toLowerCase()=='both'||item.Availability.toLowerCase()=='web'" class="mat-list-item-border mat-list-item-ripple mat-list-option">
+
+            <h3 (click)="moveToPivots(item)" mat-line class="itemTitle">{{item.Title}}</h3>
+
+
+            <p class="objectItemDescription" (click)="moveToPivots(item)" mat-line>
+                <span class="itemDescription">{{item.Description}}</span>
+    </p>
+    <button class="menuStyle" [matMenuTriggerFor]="subMenu" tabindex="0" *ngIf="item.PublisherEmail!=undefined&&item.PublisherEmail.toLowerCase()==currentUser.Email.toLowerCase()||item.EditAllowed||item.DeleteAllowed">
+                <img height="14px" src="assets/images/process_menu/More_1.png" />
+            </button>
+    <mat-menu #subMenu="matMenu">
+        <button *ngIf="item.PublisherEmail!=undefined&&item.PublisherEmail.toLowerCase()==currentUser.Email.toLowerCase()||item.EditAllowed" mat-menu-item class="menuebuttons" (click)="openUpdatePivotDialog(item)">
+                    <img src="assets\images\top_level\edit_2.png" width="20px" class="imageMargin" />Edit</button>
+        <button *ngIf="item.PublisherEmail!=undefined&&item.PublisherEmail.toLowerCase()==currentUser.Email.toLowerCase()||item.DeleteAllowed" mat-menu-item (click)="deletePivot(item.ProcessObjectID)">
+                    <img src="assets\images\top_level\Remove_1.png" class="imageMargin" width="20px" />Delete</button>
+
+    </mat-menu>
+    </mat-list-item>
+    </span>
+
+</mat-list>
+<mat-progress-bar class="loaderStyle" *ngIf="pivotsLoading" mode="query">
+</mat-progress-bar>
+
+
+<div class="notAvailableDiv" *ngIf="!pivotsAvailabe">
+    <div class="notAvailableMessage">
+        No pivots available.
+    </div>
+</div>

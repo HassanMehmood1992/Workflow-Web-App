@@ -1,0 +1,46 @@
+<!--
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: ReportPageComponent
+Description: HTML file for ReportPageComponent.
+Location: ./components/report-page.component.html
+Author: Nabil Shahid
+Version: 1.0.0
+Modification history: none
+*/
+ -->
+<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+<mat-list class="topRow">
+
+    <mat-list-item class="mat-list-item-border">
+        <app-nav-bar [NavArray]="navArray"></app-nav-bar>
+        <span class="example-fill-remaining-space"></span>
+        <button mat-button (click)="exportToPDF()" class="reportButton" *ngIf="generatePDF" title="Export to pdf">
+            <img class="tab-icons" src="assets/images/others/export_to_pdf_2.png" class="controlIcons" />
+        </button>
+        <button mat-button (click)="exportToExcel()" class="reportButton" title="Export to excel">
+            <img src="assets/images/others/Export_to_excel.png" class="controlIcons" />
+
+        </button>
+        <button *ngIf="!allDataAccess" title="Data filter in effect" mat-button class="reportButton" (click)="showDataFilterDialog()">
+            <img src="assets/images/process_menu/Submissions/Advisory_web.png" class="controlIcons" />
+
+        </button>
+    </mat-list-item>
+</mat-list>
+
+<mat-progress-bar class="loaderStyle" *ngIf="reportLoading" mode="query"></mat-progress-bar>
+<div class="MyProcessRow" *ngIf="!noPermission">
+
+    <div #container class="containerClass"></div>
+</div>
+
+<div class="notAvailableDiv" *ngIf="noPermission">
+    <div class="notAvailableMessage">
+        You don't have permission on this view.
+    </div>
+</div>

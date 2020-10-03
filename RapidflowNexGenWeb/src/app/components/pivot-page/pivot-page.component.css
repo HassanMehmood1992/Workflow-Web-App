@@ -1,0 +1,62 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: PivotPageComponent
+Description: CSS file for PivotPageComponent
+Location: ./pivot-page.component.css
+Author: Nabil Shahid
+Version: 1.0.0
+Modification history: none
+*/
+.mat-form-field.mat-form-field {
+    width: auto;
+  }
+
+
+
+  .loaderStyle{
+      margin-top: 10px;
+  }
+
+  
+.controlIcons{
+    height: 24px;
+    width:24px;
+}
+mat-button{
+    font-weight: 300;
+    color:#071D49;
+}
+.pvtAxisLabel{
+    color: black;
+}
+
+.pivotCard{
+    padding:3px;
+    min-width: 98%;
+    display: inline-block !important;
+}
+.noPermissionMessage{
+    padding: 10px;
+    text-align: center;
+    background-color: #eeeeee;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px dashed;
+    margin-top: 15px !important;
+    margin-bottom: 15px !important;
+}
+.pivotButton{
+    min-width: 50px;
+    padding: 0px 10px 0px 10px;
+    margin-right: -12px;
+    
+}
+
+#pivotPageNavBar{
+    height: 50px !important;
+}

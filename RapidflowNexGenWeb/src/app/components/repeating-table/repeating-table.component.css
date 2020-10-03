@@ -1,0 +1,145 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+
+/*
+ModuleID: RepeatingTableComponent
+Description: CSS rules and styles for the repeating table component.
+Location: ./repeating-table.component.css
+Author: Sheharyar Toor
+Version: 1.0.0
+Modification history: none
+*/
+
+.content {
+    width: 100%;
+}
+
+.control-label {
+    margin: 0.5%;
+    text-indent: 5px;
+}
+
+.form-control {
+    width: 100%;
+    margin: 0.5%;
+    padding-left: 1.5%;
+}
+
+input.ng-invalid {
+    border-color: red !important;
+    border-radius: 4px;
+}
+
+textarea.ng-invalid {
+    border-color: red !important;
+    border-radius: 4px;
+}
+
+select.ng-invalid {
+    border-color: red !important;
+    border-radius: 4px;
+}
+
+.validation {
+    font-size: 11px;
+    color: red;
+    margin-left: 1%;
+}
+
+.tableHeaderRow>th {
+    text-align: center;
+}
+
+.table-display-index {
+    text-align: center;
+    vertical-align: middle;
+    width: 4% !important;
+}
+
+.table-header-columns {
+    font-weight: normal;
+}
+
+.table-body-rows {
+    vertical-align: top;
+}
+
+.table-body-rows2 {
+    text-align: center;
+    vertical-align: middle;
+    width: 4% !important;
+}
+
+.table-row-text {
+    text-align: left !important;
+    resize: inherit;
+}
+
+.table-row-textarea {
+    text-align: left !important;
+    resize: inherit;
+    overflow: hidden;
+}
+
+.table-row-fields {
+    text-align: left !important;
+}
+
+.table-remove-row {
+    cursor: pointer;
+}
+
+.table-remove-row-icon {
+    width: 14px;
+    border: 0px;
+}
+
+.table-footer {
+    border-bottom: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    background: #ececec;
+    color: black;
+}
+
+.table-footer-row {
+    vertical-align: top;
+}
+
+.table-footer-displayIndex {
+    text-align: center;
+    width: 4% !important;
+    border: 0px !important;
+    border-bottom-left-radius: 4px;
+}
+
+.table-footer-columns {
+    border-bottom: 0px;
+    border-left: 0px;
+    border-right: 0px !important;
+    padding-right: 1% !important;
+    vertical-align: middle;
+}
+
+.table-footer-label {
+    float: right;
+    margin: 0%;
+}
+
+.table-footer-value {
+    float: right;
+    max-height: 20px;
+}
+
+.table-add-row {
+    cursor: pointer;
+    margin-left: 8%;
+}
+
+.table-add-row-icon {
+    width: 14px;
+    border: 0px;
+}

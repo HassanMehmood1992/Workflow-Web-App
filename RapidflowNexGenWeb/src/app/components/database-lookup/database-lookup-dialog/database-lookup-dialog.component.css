@@ -1,0 +1,91 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: DatabaseLookupDialogComponent
+Description: CSS rules and styles for database lookup dialog component.
+Location: ./database-lookup/database-lookup-dialog.component.css
+Author: Sheharyar Toor
+Version: 1.0.0
+Modification history: none
+*/
+.mat-expansion-panel-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 10px;
+    height: 40px!important
+}
+
+.ExpansionList {
+    max-height: 7vh;
+    width: 100%;
+    overflow-y: auto;
+    list-style-type: none;
+    padding: 3px;
+    -webkit-padding-start: 0px;
+    margin: 0px!important;
+}
+
+.mat-expansion-panel-body {
+    margin: 0px 0px 0px 11px !important;
+    overflow: auto;
+}
+
+.dialogBody {
+    padding: 1%;
+}
+
+.mat-list-item-content {
+    text-align: center
+}
+
+.database-lookup-dialog-header {
+    background: white;
+}
+
+.database-lookup-dialog-list-input {
+    height: 50px !important;
+}
+
+.database-lookup-dialog-list-input-width {
+    width:100%;
+}
+
+.database-lookup-dialog-expansion-panel-header {
+    background-color: #ececec;font-weight: bold;height:36px!important
+}
+
+.database-lookup-dialog-expansion-panel-ul {
+    margin-left:10px !important;
+}
+
+.database-lookup-dialog-sub-body {
+    max-height:90vh;
+}
+
+.database-lookup-dialog-table {
+    max-height:70vh;overflow-y:auto;min-height:5vh
+}
+
+.database-lookup-dialog-table-head {
+    color: white;   background: #071D49;
+}
+
+.database-lookup-dialog-table-header {
+    cursor: pointer;
+}
+
+.database-lookup-dialog-footer {
+    color:#1980E8; border-top:0.5px solid lightgrey
+}
+
+.database-lookup-dialog-footer-div {
+    width:100%;text-align:center;
+}
+
+.database-lookup-dialog-btns {
+    color: #007aff;background-color:#dadada;border-radius:8px;min-width:120px;margin-left:1%;margin-right:1%;
+}

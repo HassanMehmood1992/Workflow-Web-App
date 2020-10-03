@@ -1,0 +1,93 @@
+<!--
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: ProcessMetricsComponent
+Description: HTML file for ProcessMetricsComponent
+Location: ./components/process-matrics.component.html
+Author: Nabil Shahid
+Version: 1.0.0
+Modification history: none
+*/
+ -->
+<mat-list class="topRow">
+    <mat-list-item class="mat-list-item-border" id="processMetricsNavBar">
+        <div mat-line>
+            <app-nav-bar [NavArray]="navArray"></app-nav-bar>
+
+
+        </div>
+    </mat-list-item>
+</mat-list>
+
+<mat-card id="processMetricsCard" class="MyProcessRow">
+
+    <div id="processMetricsDiv" >
+        <div class="row">
+            <div class="col-xs-2 metricsForm"  >Workflow form</div>
+            <div class="col-xs-4" >
+                <mat-select placeholder="Favorite food" (change)="performProcessMetricsLoadOperations()" [(ngModel)]="selectedWorkFlow" [(value)]="selectedWorkFlow">
+                    <mat-option *ngFor="let option of processWorkflows" [value]="option.WorkflowID">
+                        {{ option.WorkflowDisplayName }}
+                    </mat-option>
+                </mat-select>
+            </div>
+         
+            <div class="col-xs-2 metricsForm"  >Year </div>
+            <div class="col-xs-4">
+                <mat-slider [max]="currentYear" [min]="minYear" [step]="'1'" [thumb-label]="true" [tick-interval]="true" [(ngModel)]="sliderValue"
+                    (change)="performProcessMetricsLoadOperations()" id="yearSlider"></mat-slider>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="content" fxLayout="row wrap" fxLayout.xs="column" fxLayout.md="column" fxLayout.sm="column" fxLayoutWrap>
+        <div fxFlex="50%" class="metricsChartLabel">
+            <div class="metricsChart">
+                <h4>Active Users
+                </h4>
+                <canvas baseChart [datasets]="barChartDataUsers" [labels]="barChartLabelsUsers" [options]="barChartOptionsUsers" [legend]="barChartLegendUsers"
+                    [chartType]="barChartTypeUsers" [colors]="colorsUsers"></canvas>
+            </div>
+
+        </div>
+        <div fxFlex="50%" class="metricsChartLabel">
+            <div class="metricsChart">
+                <h4>Transactions
+                </h4>
+                <canvas baseChart [datasets]="barChartDataTransactions" [labels]="barChartLabelsTransactions" [options]="barChartOptionsTransactions"
+                    [legend]="barChartLegendTransactions" [colors]="colorsTransactions" [chartType]="barChartTypeTransactions"></canvas>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="content" fxLayout="row wrap" fxLayout.xs="column" fxLayout.md="column" fxLayout.sm="column" fxLayoutWrap>
+        <div fxFlex="50%" class="metricsChartLabel">
+            <div id="turnAroundChart">
+                <h4>Workflow Turnaround
+                </h4>
+                <canvas *ngIf="workflowTurnaroundNotUpdating" baseChart width="400" height="400" [datasets]="lineChartData" [labels]="lineChartLabels"
+                    [options]="lineChartOptions" [colors]="colorsBellCurve" [legend]="lineChartLegend" [chartType]="lineChartType"></canvas>
+            </div>
+        </div>
+        <div fxFlex="50%" class="metricsChartLabel">
+            <div id="breakDownChart">
+                <h4>Task Completion Breakdown (days)</h4>
+
+                <div *ngIf="!taskBreakDownHasData">No data available.</div>
+                <div *ngIf="!pieChartSupported">Not supported due to nature of tasks in this process.</div>
+                <canvas *ngIf="taskBreakDownNotUpdating&&taskBreakDownHasData&&pieChartSupported" baseChart [data]="pieChartData" [labels]="pieChartLabels"
+                    [colors]="colorsPieChart" [options]="pieChartOptions" [chartType]="pieChartType"></canvas>
+            </div>
+        </div>
+    </div>
+    <div>
+    </div>
+
+</mat-card>

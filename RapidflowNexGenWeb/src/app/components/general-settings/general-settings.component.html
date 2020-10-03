@@ -1,0 +1,180 @@
+<!--
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: GeneralSettingsComponent
+Description: HTML file for GeneralSettingsComponent.
+Location: ./general-settings.component.html
+Author: Nabil Shahid
+Version: 1.0.0
+Modification history: none
+*/
+ -->
+<mat-progress-bar class="loaderStyle" *ngIf="generalSettingsRendering!=2" mode="query"></mat-progress-bar>
+
+<mat-list *ngIf="generalSettingsRendering==2">
+    <mat-list-item>
+        <table class="fullWidth">
+            <tr>
+                <td class="leftSectionWidth">
+                    <span class="firstLineText">{{currentLoggedInUser["DisplayName"]}}</span>
+                    <br/>
+                    <span class="secondLineText">{{currentLoggedInUser["Email"]}}</span>
+                </td>
+                <td class="rightSectionWidth" (click)="logout()">
+                    <img class="logoutImage" src="assets/images/top_level/application_settings/Logout.png" />
+                    <span class="rightText">Logout</span>
+                </td>
+            </tr>
+        </table>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+        <table class="fullWidth">
+            <tr>
+                <td class="leftSectionWidth">
+                    <span class="firstLineText">Email Notifications</span>
+                </td>
+                <td class="rightSectionToggleFormatting">
+                    <mat-slide-toggle [checked]="emailNotificationsChecked" [(ngModel)]="emailNotificationsChecked" (change)="updateEmailNotification()">
+                    </mat-slide-toggle>
+                </td>
+            </tr>
+        </table>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+
+    <mat-list-item>
+        <table class="fullWidth">
+            <tr>
+                <td class="leftSectionWidth">
+                    <span class="firstLineText">Out of Office Delegation</span>
+                    <br/>
+                    <div *ngIf="outOfOfficeChecked">
+                        <span *ngIf="outOfOfficeDetails['Delegated_To'] != undefined" class="secondLineText">{{outOfOfficeDetails["Delegated_To"]["DisplayName"]}}</span>
+                        <br/>
+                        <span *ngIf="outOfOfficeDetails['Start_Date'] != undefined" class="secondLineText">Starting from {{setDateFormat(outOfOfficeDetails["Start_Date"],'date')}} 12:00 AM UTC</span>
+                        <span *ngIf="outOfOfficeDetails['End_Date'] != undefined" class="secondLineText">to {{setDateFormat(outOfOfficeDetails["End_Date"],'date')}} 11:59 PM UTC</span>
+                    </div>
+                </td>
+                <td class="rightSectionToggleFormatting">
+                    <mat-slide-toggle [checked]="outOfOfficeChecked" [(ngModel)]="outOfOfficeChecked" (change)="outOfOfficeDialog()">
+                    </mat-slide-toggle>
+                </td>
+            </tr>
+        </table>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+        <table class="fullWidth">
+            <tr>
+                <td class="leftSectionWidth">
+                    <span class="firstLineText">Proxy Approver</span>
+                    <br/>
+                    <div *ngIf="proxyApproverChecked">
+                        <span *ngIf="proxyApproverDetails['DisplayName'] != undefined" class="secondLineText">{{proxyApproverDetails["DisplayName"]}}</span>
+                    </div>
+                </td>
+                <td class="rightSectionToggleFormatting">
+                    <mat-slide-toggle [checked]="proxyApproverChecked" [(ngModel)]="proxyApproverChecked" (change)="proxyApproverDialog()">
+                    </mat-slide-toggle>
+                </td>
+            </tr>
+        </table>
+    </mat-list-item>
+
+    <mat-divider></mat-divider>
+    <mat-list-item>
+        <table class="fullWidth">
+            <tr>
+                <td class="leftSectionWidth">
+                    <span class="firstLineText">Application Alert</span>
+                    <br/>
+                    <div id="applicationAlertDisplayDiv">
+                        <span class="secondLineText" [innerHTML]="alertDisplayString"></span>
+                    </div>
+                </td>
+
+            </tr>
+        </table>
+    </mat-list-item>
+
+    <mat-divider></mat-divider>
+
+    <mat-list-item class="userDevicesItem">
+        <mat-expansion-panel class="userDevicesPanel">
+            <mat-expansion-panel-header title="View Devices" class="userDevicesHeader">
+                <mat-panel-title>
+                    Devices
+                </mat-panel-title>
+
+            </mat-expansion-panel-header>
+            <mat-list>
+                <mat-list-item>
+                    <table class="deviceTable" width="100%">
+                        <tr>
+                            <td width="20%">Device ID</td>
+                            <td width="20%">Device Type</td>
+                            <td width="20%">Date Created (UTC)</td>
+                            <td width="20%">Last Sync (UTC)</td>
+                            <td width="10%"></td>
+
+                        </tr>
+                    </table>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+
+                <span *ngFor="let ud of currentUserDevices ; let i = index">
+                    <mat-list-item class="deviceItem" (click)="showDevicesDialog(psr.Permission,psr.RoleName)">
+
+                        <table class="deviceTable" width="100%">
+                            <tr>
+                                <td width="20%"> {{ud.DeviceID}} </td>
+                                <td width="20%">
+                                    <img [src]="ud.ImagePath" class="deviceImage" /> {{ud.DeviceType}}
+                                </td>
+                                <td width="20%"> {{setDateFormat(ud.DateCreated,'datetime')}} </td>
+                                <td width="20%"> {{setDateFormat(ud.LastSync,'datetime')}} </td>
+                                <td width="10%">
+                                    <img src="assets/images/top_level/Logout_web.png" title="Log off device" class="deviceLogoutImage" (click)="logOffDevice(ud.UserDevicesID)"
+                                    />
+                                </td>
+                            </tr>
+                        </table>
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                </span>
+
+            </mat-list>
+
+        </mat-expansion-panel>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+        <a href="{{helpLink}}" target="blank" id="helpLinkAnchor">Help</a>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+        <table class="fullWidth">
+            <tr>
+                <td class="leftSectionWidth">
+                    <span class="detailsText">Rapidflow Platform</span>
+                    <br/>
+                    <span class="detailsText">Application Version</span>
+                    <br/>
+                    <span class="detailsText">Environment</span>
+                </td>
+                <td class="rightSectionToggleFormatting rightText">
+                    <span class="detailsText">6.0</span>
+                    <br/>
+                    <span class="detailsText">1.0</span>
+                    <br/>
+                    <span class="detailsText">DEV</span>
+                </td>
+            </tr>
+        </table>
+    </mat-list-item>
+</mat-list>

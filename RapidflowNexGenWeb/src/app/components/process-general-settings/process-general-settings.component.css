@@ -1,0 +1,108 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: ProcessGeneralSettingsComponent
+Description: CSS file for ProcessGeneralSettingsComponent.
+Location: ./components/process-general-settings.component.css
+Author: Nabil Shahid
+Version: 1.0.0
+Modification history: none
+*/
+.mattablink {
+    padding-left:1%;
+    cursor: pointer;
+    box-sizing: border-box;
+    opacity: 1.0;
+    min-width: 10px;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: top;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+::ng-deep.mat-list-item-content{
+    height: auto !important;
+}
+.tab-text{
+    margin-left:14px;
+    color:#071D49;
+}
+
+.firstLineText{
+    font-size: 17px;
+    color: #000000;
+}
+
+.secondLineText{
+    font-family: Roboto; 
+    font-size: 15px;
+    color: #8E8E93;
+}
+
+.rightText{
+    font-family: Roboto; 
+    font-size: 17px;
+    margin-left:10%;
+    color: #8E8E93;
+    text-align: right;
+}
+
+.fullWidth{
+    width: 100%;
+}
+
+.leftSectionWidth{
+    width: 75%;
+}
+
+.rightSectionWidth{
+    width: 15%;
+    padding-left:2%;
+}
+
+.rightSectionToggleFormatting{
+    width: 25%;
+    margin-right: 36%;
+    text-align: right;
+}
+
+.detailsText{
+    font-family: Roboto; 
+    font-size: 15px !important;
+    color: #8E8E93;
+}
+.dividerHeader{
+    background-color: #eeeeee;
+    font-size: 17px;
+    margin-right: 0.5px;
+}
+.userPermissionsItem{
+    padding: 0px !important;
+}
+.userPermissionsHeader{
+    font-size: 17px !important;
+    color: #000000 !important;
+    font-weight: unset !important;
+    padding-right: 35px !important;
+    padding-left: 10px !important;
+}
+.userPermissionsPanel{
+    width:99.5%; 
+    box-shadow: 0px 0px 0px 0px !important;
+}
+::ng-deep .userPermissionsItem > .mat-list-item-content{
+    padding: 0px !important;
+}
+.roleItem{
+    cursor: pointer;
+}
+
+#processAlertSpan{
+    word-break: break-word;
+}

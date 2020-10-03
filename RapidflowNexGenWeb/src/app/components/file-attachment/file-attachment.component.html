@@ -1,0 +1,49 @@
+<!-- 
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: FileAttachmentComponent
+Description: HTML file for view of file attachment component.
+Location: ./file-attachment.component.html
+Author: Sheharyar Toor
+Version: 1.0.0
+Modification history: none
+*/
+-->
+<div class="col-sm-12 file-attachment-div" [ngClass]="tempNgModel.length == 0 && controlOptions.required ? 'fileAttachmentRequired': 'fileAttachmentNotRequired'">
+  <label [style.display]="controlOptions.disabled?'none':'inline'" class="file-attachment-label">
+    <img src="assets/images/form_controls/attachment_add_256x256.png" class="file-attachment-icon" />
+    <span class="file-attachment-choose-file-span">Choose File</span>
+    <input id="{{fieldName}}" name="{{fieldName}}" [attr.readonly]="controlOptions.readonly?'':null" [attr.disabled]="controlOptions.disabled?'':null"
+      [required]="controlOptions.required" (change)="setFiles()" class="file-attachment-input" type="file" [formControl]="myForm.controls[fieldName]"
+    />
+  </label>
+  <div class="validation" *ngIf="(myForm.controls[fieldName].invalid && (myForm.controls[fieldName].dirty || myForm.controls[fieldName].touched)) || (controlOptions.required && this.tempNgModel.length == 0)">
+    {{controlOptions.validationText}}
+  </div>
+</div>
+<div class="" *ngIf="tempNgModel != ''">
+  <div class="row file-attachment-list-div" *ngFor="let file of tempNgModel">
+    <div class="file-attachment-list-sub-div">
+      <span *ngIf="!controlOptions.disabled || !controlOptions.readonly">
+        <img class="file-attachment-remove-file-icon" src="assets/images/form_controls/attachment_remove_256x256.png" (click)="removeFile(file)"
+        />
+      </span>
+      <span>
+        <a href="{{file.url}}" target="_blank"> {{file.name}} </a>
+      </span>
+      <span *ngIf="file.size > 0">(
+        <span [ngSwitch]="file.size > 1024*1024">
+          <span *ngSwitchCase="true">{{calculateSizeMb(file.size)}} MB</span>
+          <span *ngSwitchDefault>{{calculateSizeKb(file.size)}} KB</span>
+        </span>)
+      </span>
+    </div>
+  </div>
+</div>
+<div class="file-attachment-footer" *ngIf="tempNgModel.length == 0 && controlOptions.disabled">
+  No files chosen
+</div>

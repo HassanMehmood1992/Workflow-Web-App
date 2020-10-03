@@ -1,0 +1,31 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: DateTimePickerComponent
+Description: CSS rules and styles for date time picker component.
+Location: ./date-time-picker.component.css
+Author: Sheharyar Toor
+Version: 1.0.0
+Modification history: none
+*/
+
+.validation {
+    font-size: 11px;
+    color: red;
+    margin-left: 1%;
+}
+
+.datePickerRequired {
+    border: 1px solid;
+    border-color: red;
+    border-radius: 4px;
+}
+
+
+
+.date-picker-input {
+    text-align: center;
+}

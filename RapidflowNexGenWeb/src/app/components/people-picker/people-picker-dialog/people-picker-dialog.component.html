@@ -1,0 +1,71 @@
+<!-- 
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: PeoplePickerDialogComponent
+Description: HTML file for the people picker dialog component.
+Location: ./people-picker-dialog.component.html
+Author: Sheharyar Toor
+Version: 1.0.0
+Modification history: none
+*/
+-->
+<div class="dialogTitle">
+    {{selectorHeading}}
+</div>
+<div class="dialogBody people-picker-dialog-body">
+  
+    <mat-list class="topRow people-picker-dialog-top-row" >
+        <mat-list-item class="mat-list-item-border people-picker-dialog-list" >
+            <div mat-line class="people-picker-dialog-list-div">
+                <input class="whitesearch people-picker-dialog-search-field" type="text" maxlength="1300" name="{{name}}" [placeholder]="placeHolder" id="searchvalue" (input)="loadingRecords=true;searchQuery=$event.target.value;keyUp.next($event)" />
+                <img [style.visibility]="loadingRecords ? 'visible' : 'hidden'" width="7%" src="assets/images/form_controls/spinner.gif" />
+                <button (click)="onNoClick()" mat-button class="people-picker-dialog-done-btn">Done</button>
+            </div>
+        </mat-list-item>
+    </mat-list>
+    <p *ngIf="showAlert" class="people-picker-dialog-alert">
+        <ngb-alert *ngIf="!closed" (close)="closed=true" type='warn' [dismissible]="true">
+            <span [innerHTML]="'Can\'t select current logged in user as a value for this field..'">
+        </span>
+        </ngb-alert>
+    </p>
+    <div class="">
+        <div class="row people-picker-dialog-current-selection-div" *ngIf="ngModel.length > 0" >
+            <div class="dialogTitle people-picker-dialog-current-selection-text">
+                Current selection...</div>
+        </div>
+        <div *ngIf="ngModel.length > 0"  class="autocomplete-active autocomplete-list">
+            <ul class="users-ul">
+                <li *ngFor="let person of ngModel">
+                    <span *ngIf="!groupSelection"> {{person["DisplayName"]}} ({{person["Email"]}}) </span>
+                    <span *ngIf="groupSelection"> {{person["Name"]}} </span>
+                    <img class="remove-user-icon" height="15" width="15" title="Remove" src="assets/images/top_level/Remove_1.png" (click)="removePerson(person)" />
+                </li>
+            </ul>
+        </div>
+
+        <div class="row people-picker-dialog-current-selection-div">
+            <div class="dialogTitle people-picker-dialog-current-selection-text" *ngIf="selectionType == 'single' && searchResults.length > 0">
+                <span *ngIf="!groupSelection"> Select a person... </span>
+                <span *ngIf="groupSelection"> Select a group... </span>
+            </div>
+            <div class="dialogTitle people-picker-dialog-current-selection-text" *ngIf="selectionType != 'single' && searchResults.length > 0">
+                <span *ngIf="!groupSelection"> Select persons... </span>
+                <span *ngIf="groupSelection"> Select groups... </span>
+            </div>
+        </div>
+
+        <div class="results autocomplete-list">
+            <ul class="users-ul">
+                <li *ngFor="let person of searchResults" class="autocomplete-active" (click)="selectPerson(person)">
+                    <span *ngIf="!groupSelection"> {{person["DisplayName"]}} ({{person["Email"]}}) </span>
+                    <span *ngIf="groupSelection"> {{person["Name"]}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

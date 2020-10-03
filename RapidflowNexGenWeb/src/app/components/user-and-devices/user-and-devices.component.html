@@ -1,0 +1,38 @@
+<!--
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: UserAndDevicesComponent
+Description: HTML file for UserAndDevicesComponent.
+Location: ./components/user-and-devices.component.html
+Author: Nabil Shahid
+Version: 1.0.0
+Modification history: none
+*/
+ -->
+<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+<mat-progress-bar class="loaderStyle" *ngIf="usersAndDevicesLoading" mode="query"></mat-progress-bar>
+<div [hidden]="usersAndDevicesLoading">
+    <div id="mainDiv" *ngIf="!noPermission">
+        <table id="userDevicesTable">
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Email</th>
+                    <th>Date Created</th>
+                    <th>Last Modified</th>
+                    <th>Devices</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tfoot>
+        </table>
+    </div>
+    <div *ngIf="noPermission" class="marginClass">
+        You don't have permissions to view this page.
+    </div>
+</div>

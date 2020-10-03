@@ -1,0 +1,51 @@
+<!-- 
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: AccessRequestApprovalDialogComponent
+Description: HTML file for view of access request approval dialog component.
+Location: ./access-request-approval-dialog.component.html
+Author: Amir Hussain
+Version: 1.0.0
+Modification history: none
+*/
+-->
+<div class="hideoverflowverticle">
+    <div class="dialogTitle">
+        Access Request
+    </div>
+
+
+    <div class="dialogBody MyProcessRow">
+        <mat-list>
+            <mat-list-item class="mat-list-item-border ">
+                <img matListAvatar width="44px" class="small-images-border-raduis" src="assets/images/top_level/directory/access_request_display.png">
+                <h3 mat-line class="itemTitle">{{accessTask.ItemHeader1}}</h3>
+                <p mat-line style="margin-top:2%;">
+                    <img src="assets/images/others/stopwatch.png" width="12"><span class="itemTitle" style="font-size:11px;margin-left:2%;">{{accessTask.PendingSince | formatOffsetDate: accessTask.ProcessOffset}}</span>
+                </p>
+            </mat-list-item>
+            <mat-list-item class="mat-list-item-border ">
+                <div class="itemDescription">
+                    Reason :  {{accessTask.Reason}}
+                </div>
+            </mat-list-item>
+            <mat-list-item>
+                <mat-form-field class="approval-dialog-comments-box">
+                    <textarea style="resize:none;font-size:12px;" matInput [(ngModel)]="userComments" placeholder="Enter comments here" matTextareaAutosize matAutosizeMinRows="3" value="" matAutosizeMaxRows="7" maxlength="255"></textarea>
+                </mat-form-field>
+            </mat-list-item>
+        </mat-list>
+    </div>
+    <mat-list-item class=" MyProcessBottomRow row" id="accessRequestBottomRow">
+        <div class="col-xs-6 mat-button accessRequestApproveButton" [style.color]="userComments ? '#1980E8':'#A1A4A5'" [style.cursor]="userComments ? 'pointer':'not-allowed'" (click)="accessRequestAction('yes')">Approve</div>
+        <div class="col-xs-6 mat-button" [style.color]="userComments ? '#1980E8':'#A1A4A5'" [style.cursor]="userComments ? 'pointer':'not-allowed'" (click)="accessRequestAction('no')">Reject
+        </div>
+
+
+    </mat-list-item>
+
+</div>

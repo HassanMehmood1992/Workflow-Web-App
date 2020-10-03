@@ -1,0 +1,71 @@
+<!--
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: SubmissionsComponent
+Description: HTML file for SubmissionsComponent.
+Location: ./components/submissions.component.html
+Author: Nabil Shahid
+Version: 1.0.0
+Modification history: none
+*/
+ -->
+<div class="row submissionForm" *ngIf="currentWorkflow!=undefined">
+    <div class="col-xs-5 nopadding">
+        Workflow form
+        <select [(ngModel)]="selectedWorkflowID" (change)="generateWorkflowSubmissionView(true)" class="workflowDropDown">
+      <option *ngFor="let item of workflows" value="{{item.WorkflowID}}">{{item.WorkflowDisplayName}}</option>
+
+    </select>
+    </div>
+    <div class="col-xs-3 nopadding submitterSelectorDiv">
+        Submitted by
+        <select [(ngModel)]="currentFilterObject.SubmittedBy" (change)="changeFilter()" class="filterDropDown">
+      <option value="me">Me</option>
+      <option value="my direct reports">My Direct Reports</option>
+      <option value="all">Everyone</option>
+
+    </select>
+    </div>
+    <div class="col-xs-3 nopadding statusSelectorDiv">
+        Status
+        <select [(ngModel)]="currentFilterObject.Status" (change)="changeFilter()" class="filterDropDown">
+      <option value="all">{{currentWorkflow.WorkflowSettingsJSON[0].SubmissionsDefinition.AllFilterDisplay}}</option>
+      <option *ngFor="let item of currentWorkflow.WorkflowSettingsJSON[0].Workflow_Status_Labels | keys" [hidden]="item.key=='INITIATING'"
+        value="{{item.key}}">{{item.value}}</option>
+
+    </select>
+    </div>
+    <div class="col-xs-1 iconsCell">
+
+        <img src="assets/images/process_menu/Submissions/Advisory_web.png" title="Data filter in effect" *ngIf="filteredData" class="buttonclass" (click)="showDataFilterDialog()" />
+        <img src="assets/images/others/Export_to_excel.png" title="Export to Excel" class="buttonclass" (click)="exportToExcel()" />
+        <img src="assets/images/others/refreshIcon_on_submissions.png" title="Refresh" class="buttonclass" (click)="getFilteredSubmissions(true)" />
+    </div>
+
+</div>
+<mat-progress-bar class="loaderStyle" *ngIf="submissionsLoading&&!moreSubmissionsLoading" mode="query"></mat-progress-bar>
+<div class="submissionScrollModal" infinite-scroll *ngIf="(submissionsObject.length>0&&!submissionsLoading)||moreSubmissionsLoading" [infiniteScrollDistance]="1" [infiniteScrollThrottle]="50" [scrollWindow]="false" (scrolled)="onSubmissionsScrollDown()">
+    <app-tile-list [listItems]="submissionsObject" (savedFormActionTaken)="generateWorkflowSubmissionView(true)" [currentFilterObject]="currentFilterObject" [listType]="'submissions'" [listItemsLength]="submissionsObject.length" [currentWorkflow]="currentWorkflow"
+        #tileListRef></app-tile-list>
+
+    <div class="loadMoreDiv" *ngIf="!allSubmissionsLoaded">
+
+        <a *ngIf="!submissionsLoading&&!moreSubmissionsLoading&&!allSubmissionsLoaded" (click)="onSubmissionsScrollDown()" class="loadMore">Load More...</a>
+        <div id="loadingMoreDiv" *ngIf="moreSubmissionsLoading">
+            <mat-progress-bar mode="query"></mat-progress-bar>
+        </div>
+    </div>
+    <div class="fullheight"></div>
+
+</div>
+<div class="notAvailableDiv" *ngIf="submissionsObject.length==0&&!submissionsLoading">
+
+    <div class="notAvailableMessage">
+        No submissions available.
+    </div>
+
+</div>

@@ -1,0 +1,120 @@
+<!-- 
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: ProcessDirectoryComponent
+Description: HTML file for view of process directory component.
+Location: ./process-directory.component.html
+Author: Sheharyar Toor
+Version: 1.0.0
+Modification history: none
+*/
+-->
+<div class="hideoverflowverticle">
+    <mat-list class="topRow">
+
+        <mat-list-item class="mat-list-item-border topRow">
+            <a class="mattablink" tabindex="0" (keyup.enter)="accessRequest('none')" (click)="accessRequest('none')" title="Submit access request for a process access">
+                <img class="tab-icons" src="assets/images/top_level/directory/access_request_display.png" />
+                <span class="tab-text">Access Request</span>
+            </a>
+            <span class="example-fill-remaining-space"></span>
+            <span *ngIf="organizationsLoaded" id="filterOrganizationsSpan" tabindex="0" (keyup.enter)="showOrganizationFilterDialog()" (click)="showOrganizationFilterDialog()">
+                <span *ngIf="selectedOrganization!=''">
+                    {{selectedOrganization}}
+                </span>
+            <span *ngIf="selectedOrganization==''">
+                    All Organizations
+                </span>
+            <img *ngIf="selectedOrganization==''" title="Filter by Organization" src="assets/images/process_menu/Lookup_Display.png" class="organizationFilterImage">
+            <img *ngIf="selectedOrganization!=''" title="Filter by Organization" src="assets/images/process_menu/Lookup_Selected.png" class="organizationFilterImage">
+            </span>
+        </mat-list-item>
+    </mat-list>
+    <div class="progressbartopdiv">
+        <div class="progressbardiv" *ngIf="isProcessDirectoryLoading">
+            <mat-progress-bar mode="query"></mat-progress-bar>
+        </div>
+
+        <div class="notAvailableDiv" *ngIf="processDirectoryCount<1 && !isProcessDirectoryLoading">
+            <div class="notAvailableMessage">
+                No processes found.
+            </div>
+        </div>
+    </div>
+    <div class="scrollModal" infinite-scroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="50" [scrollWindow]="false" (scrolled)="OnDirectoryScrollDown()">
+        <div>
+            <div class="row directoryItemStyle" *ngFor="let process of processDirectory">
+                <table class="fullWidth">
+                    <tr>
+                        <td class="leftSectionWidth">
+                            <div class="row">
+                                <div class="col-xs-1 div-p-img">
+                                    <img matListAvatar width="44px" class="small-images-border-raduis" height="44px" [src]="process.ProcessImage" />
+                                </div>
+                                <div class="col-xs-11 div-p-txt">
+                                    <span class="firstLineText">{{process.ProcessName}}</span>
+                                    <span class="firstLineText1" layout="column">
+                                        {{process.OrganizationName}}
+                                    </span>
+                                    <p class="secondLineText" layout="column">
+                                        {{process.Description}}
+                                    </p>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="rightSectionWidth">
+                            <div class="row" *ngIf="process.IsSubscribed =='Active'">
+                                <div class="col-xs-6">
+                                    <img height="16px" src="assets/images/top_level/directory/Already Added.png" />
+                                </div>
+                                <div class="col-xs-6">
+                                    <button class="invisibleButton cursorPointer" tabindex="0" [matMenuTriggerFor]="processsettings">
+                                        <img height="20px" src="assets/images/process_menu/More_1.png" />
+                                    </button>
+                                    <mat-menu #processsettings="matMenu" [overlapTrigger]="false" yPosition="below" xPosition="before" class="MatMenueList">
+                                        <button (click)="shareProcess(process)" class="matmenuitem" mat-menu-item>
+                                            <img height="14px" src="assets/images/top_level/Share_1.png" class="imageMargin"
+                                            />
+                                            <span class="detailsText">Share</span>
+                                        </button>
+                                    </mat-menu>
+                                </div>
+                            </div>
+                            <div class="row" *ngIf="process.IsSubscribed !='Active'">
+                                <div class="col-xs-6">
+                                </div>
+                                <div class="col-xs-6">
+                                    <button class="invisibleButton cursorPointer" [matMenuTriggerFor]="processsettings" tabindex="0">
+                                        <img height="20px" src="assets/images/process_menu/More_1.png" />
+                                    </button>
+                                    <mat-menu #processsettings="matMenu" class="menuwidth" [overlapTrigger]="false" yPosition="below" xPosition="before">
+                                        <button (click)="addProcessToFavorites(process)" class="matmenuitem matmenuitemForFavourites" mat-menu-item>
+                                            <img height="14px" src="assets/images/top_level/directory/addtofavorites_outline_1.png"
+                                                class="imageMargin" />
+                                            <span class="detailsText">Add to Favorites</span>
+                                        </button>
+                                        <button (click)="shareProcess(process)" class="matmenuitem" mat-menu-item>
+                                            <img height="14px" src="assets/images/top_level/Share_1.png" class="imageMargin"
+                                            />
+                                            <span class="detailsText">Share</span>
+                                        </button>
+                                    </mat-menu>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="loadMoreDiv" *ngIf="!allProcessesLoaded">
+            <a *ngIf="!isProcessDirectoryLoading&&!moreProcessesLoading&&!allProcessesLoaded" (click)="OnDirectoryScrollDown()" class="loadMore">Load More...</a>
+            <div id="loadingMoreDiv" *ngIf="moreProcessesLoading">
+                <mat-progress-bar mode="query"></mat-progress-bar>
+            </div>
+        </div>
+    </div>
+</div>

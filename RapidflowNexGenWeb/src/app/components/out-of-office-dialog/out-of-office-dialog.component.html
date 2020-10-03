@@ -1,0 +1,44 @@
+<!--
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: OutOfOfficeDialogComponent
+Description: HTML file for OutOfOfficeDialogComponent.
+Location: ./out-of-office-dialog.component.spec.ts
+Author: Sheharyar Toor
+Version: 1.0.0
+Modification history: none
+*/
+ -->
+<div class="dialogTitle">
+    Out of Office Delegation
+</div>
+<div class="outOfOfficeDialogBody">
+    <div class="row" id="outOfOfficeToPeoplePicker">
+        <app-people-picker [(ngModel)]="outOfOfficeDetails.Delegated_To" ngDefaultControl [selfSelection]="'false'" [selectionType]="'single'"
+            [controlOptions]="outOfOfficeAssigneeOptionsJSON" [fieldName]="'outOfOfficeAssignee'"></app-people-picker>
+
+    </div>
+    <mat-divider></mat-divider>
+    <div class="row" id="startDateRowOutOfOffice">
+        <div class="col-xs-5">
+            <app-date-time-picker [(ngModel)]="outOfOfficeDetails.Start_Date" ngDefaultControl [controlOptions]="startDateOptions" [required]="startDateOptions.required"></app-date-time-picker>
+        </div>
+        <div class="col-xs-2" id="outOfOfficeToTextDiv">to</div>
+        <div class="col-xs-5">
+            <app-date-time-picker [(ngModel)]="outOfOfficeDetails.End_Date" ngDefaultControl [controlOptions]="endDateOptions"
+                [required]="endDateOptions.required"></app-date-time-picker>
+        </div>
+    </div>
+
+</div>
+<div class="dialogButtons">
+    <mat-divider></mat-divider>
+
+    <button (click)="saveOutOfOfficeDetails()" class="singleDialogButton" [style.color]="outOfOfficeDetails['Delegated_To'].length==0 ? '#a0a0a0' : null"
+        [style.cursor]="outOfOfficeDetails['Delegated_To'].length==0 ? 'not-allowed' : null" [disabled]="outOfOfficeDetails['Delegated_To'].length==0">Update</button>
+
+</div>

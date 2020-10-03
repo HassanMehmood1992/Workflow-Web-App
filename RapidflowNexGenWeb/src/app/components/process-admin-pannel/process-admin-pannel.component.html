@@ -1,0 +1,38 @@
+<!--
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: ProcessAdminPannelComponent
+Description: HTML file for ProcessAdminPannelComponent.
+Location: ./components/process-admin-panel.component.html
+Author: Nabil Shahid
+Version: 1.0.0
+Modification history: none
+*/
+ -->
+<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+
+<div *ngIf="noPermission&&!adminPanelLoading" class="noPermissionMessage">You don't have permission to view this page.</div>
+
+<div class="MyProcessRow">
+    <mat-progress-bar class="loaderStyle" *ngIf="adminPanelLoading" mode="query"></mat-progress-bar>
+    <div [hidden]="adminPanelLoading||noPermission">
+        <div id="mainDiv">
+            <table id="adminPanelTable">
+                <thead>
+                    <tr>
+                        <th>Edit</th>
+                        <th width="10%">Role</th>
+                        <th width="40%">Users</th>
+                        <th width="40%">Groups</th>
+                        <th width="40%">Permissions</th>
+                    </tr>
+                </thead>
+                <tfoot>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<!-- 
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: ReportsComponent
+Description: HTML file for view of reports component.
+Location: ./reports.component.html
+Author: Amir Hussain
+Version: 1.0.0
+Modification history: none
+*/
+-->
+<mat-list>
+    <span *ngFor="let item of reports|filterArray:searchStr">
+        <mat-list-item tabindex="0" (keyup.enter)="moveToreport(item)"  class="mat-list-item-border mat-list-item-ripple mat-list-option" (click)="moveToreport(item)" *ngIf="item.Availability.toLowerCase()=='both'||item.Availability.toLowerCase()=='web'">
+            <h3 mat-line class="itemTitle">{{item.Title}}</h3>
+            <p class="objectItemDescription" mat-line>
+                <span class="itemDescription">{{item.Description}}</span>
+    </p>
+    </mat-list-item>
+    </span>
+
+</mat-list>
+
+<mat-progress-bar class="loaderStyle" *ngIf="reportsLoading" mode="query">
+</mat-progress-bar>
+
+<div class="notAvailableDiv" *ngIf="!reportsAvailable">
+    <div class="notAvailableMessage">
+        No reports available.
+    </div>
+</div>

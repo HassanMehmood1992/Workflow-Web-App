@@ -1,0 +1,81 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+
+/*
+ModuleID: SubmissionsComponent
+Description: HTML file for SubmissionsComponent.
+Location: ./components/submissions.component.html
+Author: Nabil Shahid
+Version: 1.0.0
+Modification history: none
+*/
+
+select {
+    height: 28px;
+    border-radius: 3px;
+    color: #007aff;
+    font-size: 14px;
+}
+
+.submissionForm {
+    font-family: roboto;
+    font-size: 15px;
+    margin: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.iconsCell {
+    padding: 0px;
+    margin-left: -15px;
+    width: 14%;
+    cursor: pointer;
+}
+
+@media screen and (max-width:1024px) {
+    .iconsCell {
+        margin-left: 0px;
+        padding-top: 3%;
+    }
+}
+
+.submissionScrollModal {
+    height: 90%;
+    overflow-y: auto;
+}
+
+.buttonclass {
+    width: 25px;
+    margin-left: 15px;
+}
+
+.loadMore {
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.fullheight {
+    height: 100px;
+}
+
+.nopadding {
+    padding: 0px
+}
+
+.submitterSelectorDiv{
+    margin-left: -50px;
+ }
+.statusSelectorDiv{
+    margin-left: 10px;
+    width: 24% !important;
+ }
+.filterDropDown{
+    width: 150px
+}
+
+.workflowDropDown{
+    width:250px;
+}

@@ -1,0 +1,42 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+
+/*
+ModuleID: AccessRequestComponent
+Description: CSS rules and styles for the access request component.
+Location: ./access-request.component.css
+Author: Sheharyar Toor
+Version: 1.0.0
+Modification history: none
+*/
+
+.mat-dialog-container {
+    border-radius: 15px !important;
+    overflow-x: hidden !important;
+    background-color: #ededed;
+}
+
+.matDialogContentStyle {
+    text-align: center;
+    padding-top: 5%;
+}
+
+.processIDPlaceHolder {
+    height: 20px;
+}
+
+.matformfieldclass {
+    width: 85% !important;
+}
+
+.matButtonCenter {
+    text-align: center;
+    margin-top: 10%;
+}
+
+.buttonfull {
+    width: 100%;
+}

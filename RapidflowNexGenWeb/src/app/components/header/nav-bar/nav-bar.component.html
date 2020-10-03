@@ -1,0 +1,28 @@
+<!-- 
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: NavBarComponent
+Description: HTML file for view of nav bar component.
+Location: ./nav-bar.component.html
+Author: Amir Hussain
+Version: 1.0.0
+Modification history: none
+*/
+-->
+<div mat-line class="matlineP">
+    <span *ngFor="let item of NavArray">
+      <span  tabindex="0" (keyup.enter)="goback('Back',item)" (click)="goback('Back',item)" class="backbutton cursorPointer" >
+          <img src="assets\images\top_level\left_arrow.png" width="24px" class="backbutton" />
+</span>
+    <span class="backbutton" *ngIf="item.imagesrc!=''">
+              <img [src]="item.imagesrc" width="24px" />
+</span>
+
+    <span>{{item.text}}</span>
+    </span>
+
+</div>

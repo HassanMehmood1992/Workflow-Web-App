@@ -1,0 +1,71 @@
+ /* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: PlatformSettingsComponent
+Description: CSS file for PlatformSettingsComponent
+Location: ./platform-settings.component.spec.ts
+Author: Nabil Shahid
+Version: 1.0.0
+Modification history: none
+*/
+.fullWidth{
+    width: 100%;
+}
+::ng-deep #platformSettingsDiv .mat-form-field-placeholder-wrapper{
+     left: 3px !important; 
+     top: -8px !important;
+}
+::ng-deep #platformSettingsDiv .mat-input-element{
+    background-color: #f1f1f1 !important;
+    color:#929292 !important;
+    height: 29px !important;
+    border-radius: 3px !important;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+}
+::ng-deep #platformSettingsDiv .mat-input-underline{
+    display: none !important;
+}
+textarea{
+    padding: 5px !important;
+}
+::ng-deep.platformSettingsPeoplePicker textarea{
+    background-color: #f1f1f1 ; 
+    border-color: #f1f1f1 !important;
+}
+.platformSettingsLabel{
+     color: black;
+    font-size: 11px;
+}
+.platformSettingsTextInput{
+    width: 100%;
+    border: 0px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 5px;
+    color: #929292;
+    border-radius: 3px;
+}
+.row{
+    margin-top: 15px;
+}
+::ng-deep.editablePeoplePicker{
+background-color: white !important;
+}
+::ng-deep.disabledPeoplePicker{
+background-color: #f1f1f1 !important;
+}
+::ng-deep.platformSettingsPerson div{
+    border: 0px !important;
+    color: #949494;
+}
+.noPermissionMessage{
+    padding: 10px;
+}
+
+#platformSettingsDiv{
+    padding:10px;
+}

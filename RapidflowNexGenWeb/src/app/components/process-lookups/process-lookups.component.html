@@ -1,0 +1,39 @@
+<!-- 
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: ProcessLookupsComponent
+Description: HTML file for view of process lookups component.
+Location: ./process-lookups.component.html
+Author: Amir Hussain
+Version: 1.0.0
+Modification history: none
+*/
+-->
+<mat-list>
+
+    <mat-list-item class="mat-list-item-border">
+        <app-nav-bar [NavArray]="navArray"></app-nav-bar>
+        <span class="example-fill-remaining-space"></span>
+
+    </mat-list-item>
+</mat-list>
+<mat-progress-bar class="loaderStyle" *ngIf="lookupLoading" mode="query">
+</mat-progress-bar>
+<mat-list>
+    <mat-list-item class="mat-list-item-border mat-list-item-ripple mat-list-option" *ngFor="let item of lookups|filterArray:searchStr" (click)="moveTolookups(item)">
+        <h3 mat-line class="itemTitle">{{item.LookupTitle}}</h3>
+        <p class="objectItemDescription" mat-line>
+            <span class="itemDescription">{{item.LookupDescription}}</span>
+        </p>
+    </mat-list-item>
+</mat-list>
+
+<div class="notAvailableDiv" *ngIf="!lookupsAvailable">
+    <div class="notAvailableMessage">
+        No lookups available.
+    </div>
+</div>

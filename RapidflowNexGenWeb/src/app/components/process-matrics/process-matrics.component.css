@@ -1,0 +1,73 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: ProcessMetricsComponent
+Description: CSS file for ProcessMetricsComponent
+Location: ./components/process-matrics.component.css
+Author: Nabil Shahid
+Version: 1.0.0
+Modification history: none
+*/
+.pieChartAdjustment {
+    margin: -175px;
+    margin-top: 15px;
+}
+
+.yearLable{
+    font-weight:600; font-size:17px;
+}
+
+.mat-slider-horizontal {
+    height: 48px;
+    min-width: 250px;
+}
+.metricsForm{
+    font-size:17px; font-weight:500;
+}
+.metricsChartLabel{
+    text-align:center
+}
+#processMetricsDiv{
+    padding:45px;
+}
+#processMetricsCard
+ {
+    padding:10px;height:100%;
+ }   
+ .metricsChart{
+     display: block
+ }
+ #turnAroundChart{
+    display: block;margin-left: 8%;margin-top: 5%;
+ }
+ #breakDownChart{
+    display: block;margin-left: 6%;margin-top: 6%;
+ }
+ #processMetricsNavBar{
+    height: 50px !important;
+ }
+::ng-deep.mat-slider-thumb-label {
+        transform: rotate(45deg) !important;
+        border-radius: 50% 50% 0 !important;
+      }
+      
+      ::ng-deep.mat-slider-thumb {
+        transform: scale(0) !important;
+      }
+      
+      ::ng-deep.mat-slider-thumb-label-text {
+        opacity: 1 !important;
+      }
+    
+      ::ng-deep .mat-accent .mat-slider-thumb {
+        background-color: #071D49;
+    } 
+    ::ng-deep .mat-accent .mat-slider-thumb-label {
+        background-color: #071D49;
+    } 
+    ::ng-deep .mat-accent .mat-slider-track-fill {
+        background-color: #071D49;
+    } 

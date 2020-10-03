@@ -1,0 +1,154 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+
+/*
+ModuleID: ProcessWrapperComponent
+Description: CSS rules and styles for process wrapper component.
+Location: ./process-wrapper.component.css
+Author: Amir Hussain
+Version: 1.0.0
+Modification history: none
+*/
+
+.mat-tab-group {
+    width: 90%;
+}
+
+;
+.mat-tab-header-pagination {
+    position: relative;
+    display: inline !important;
+    justify-content: center;
+    align-items: center;
+    min-width: 32px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.mattablink {
+    padding-left: 1%;
+    cursor: pointer;
+    box-sizing: border-box;
+    opacity: 1.0;
+    min-width: 10px;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: top;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.mat-tab-link {
+    height: 47px !important;
+    padding: 1.5%;
+    cursor: pointer;
+    box-sizing: border-box;
+    opacity: 1.6;
+    min-width: 16px;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    vertical-align: top;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.tab-text {
+    margin-left: 10px;
+    color: #071D49;
+}
+
+.mat-tab-header,
+.mat-tab-nav-bar {
+    border-bottom: none
+}
+
+.demo-tab-group {
+    border: 1px solid #e8e8e8;
+}
+
+.demo-tab-content {
+    padding: 16px;
+}
+
+.main-nav-row {
+    border-bottom: 0.5px solid lightgrey;
+    padding-top: 2px;
+}
+
+.nav-start {
+    border-right: unset !important;
+    min-height: 47px;
+    height: auto
+}
+
+.wrapper-submenu {
+    margin-top: 5px;
+}
+
+@media screen and (max-width:1024px) {
+    .img-create {
+        margin-left: 28%;
+    }
+    .img-submission {
+        margin-left: 12%;
+    }
+    .img-report {
+        margin-left: 14%;
+    }
+    .img-pivot {
+        margin-left: 21%;
+    }
+    .img-addon {
+        margin-left: 23%;
+    }
+    .noti-icon {
+        margin-left: -3%;
+    }
+}
+
+@media screen and (max-width:1280px) {
+    .img-create {
+        margin-left: 28%;
+    }
+    .img-submission {
+        margin-left: 12%;
+    }
+    .img-report {
+        margin-left: 14%;
+    }
+    .img-pivot {
+        margin-left: 21%;
+    }
+    .img-addon {
+        margin-left: 23%;
+    }
+    .noti-icon {
+        margin-left: -3%;
+    }
+}
+
+.matMenuButton {
+    border-bottom: 0.5px solid lightgrey
+}
+
+.col-xs-2 {
+    text-align: right;
+}
+
+.imageMargin {
+    margin-right: 10px
+}
+
+.MyProcessRow {
+    width: 100%
+}

@@ -1,0 +1,93 @@
+<!--
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: ErrorLogsViewComponent
+Description: HTML file for ErrorLogsViewComponent.
+Location: ./error-logs-view.component.html
+Author: Nabil Shahid
+Version: 1.0.0
+Modification history: none
+*/
+-->
+<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+<mat-progress-bar *ngIf="!errorLogsLoaded" class="loaderStyle" mode="query"></mat-progress-bar>
+<div [hidden]="!errorLogsLoaded||noPermission">
+
+    <div class="row errorLogsForm">
+        <div class="col-xs-2" id="statusDropDownDiv" *ngIf="renderedFrom=='errorLogsPage'||renderedFrom=='processErrorLogsPage'">
+            Status
+            <select [(ngModel)]="selectedStatus" (change)="changeFilter('Status')">
+                <option value="">All</option>
+                <option value="Open">Open</option>
+                <option value="Reported">Reported</option>
+            </select>
+        </div>
+        <div class="col-xs-3" id="eventDateDropDownDiv">
+            Event Date
+            <select (change)="changeFilter('Date')" [(ngModel)]="selectedDate">
+                <option value="">All</option>
+                <option *ngFor="let item of distinctDates" value="{{item}}">{{item}}</option>
+            </select>
+        </div>
+        <div class="col-xs-3" id="categoryDropDownDiv">
+            Category
+            <select (change)="changeFilter('Category')" [(ngModel)]="selectedCategory">
+                <option value="">All</option>
+                <option value="Global">Global</option>
+                <option value="Platform">Platform</option>
+                <option value="Process">Process</option>
+            </select>
+        </div>
+
+        <span [hidden]="renderedFrom=='processErrorLogsPage'||renderedFrom=='processDiagnosticLogsPage'">
+        <div class="col-xs-3" id="errorProcessSelectorDiv" >
+            Process
+            <select (change)="changeFilter('ProcessName')" [(ngModel)]="selectedProcess" id="errorLogProcessSelect">
+                <option value="">All</option>
+                <option *ngFor="let item of distinctProcessNames" value="{{item}}">{{item}}</option>
+
+            </select>
+        </div>
+        </span>
+
+
+
+        <div class="col-xs-1 iconsCell" >
+
+            <img src="assets/images/others/Export_to_excel.png" title="Export to Excel" id="exportErrorLogs" (click)="exportToExcel()"
+            />
+
+        </div>
+    </div>
+
+
+
+
+    <div id="tableDiv">
+        <table id="errorLogsTable">
+            <thead>
+                <tr>
+                    <th>Event Date & Time</th>
+                    <th>Logs</th>
+                    <th>Category</th>
+                    <th>Status</th>
+                    <th>Process</th>
+                    <th>EventDate</th>
+                    <th>Method</th>
+                    <th></th>
+
+                </tr>
+            </thead>
+            <tfoot>
+
+
+        </table>
+    </div>
+</div>
+<div *ngIf="noPermission" class="noPermissionMessage">
+    You don't have permission to view this page.
+</div>

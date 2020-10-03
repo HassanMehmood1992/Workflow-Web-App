@@ -1,0 +1,35 @@
+<!--
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: PeoplePickerComponent
+Description: HTML file for view of people picker component.
+Location: ./people-picker.component.html
+Author: Sheharyar Toor
+Version: 1.0.0
+Modification history: none
+*/
+ -->
+<div class="people-picker-div">
+    <div [ngClass]="{'enablePeoplePicker': !controlOptions.disabled, 'disablePeoplePicker': controlOptions.disabled, 'peoplePickerRequired': ngModel.length == 0 && controlOptions.required, 'peoplePickerNotRequired': ngModel.length > 0}" class="{{className}}"  
+    (click)="openDialog()" >
+        <span *ngIf="ngModel.length == 0" class="peoplePickerPlaceholder">{{controlOptions.placeholder}}</span>
+        <span *ngIf="!groupSelection">
+            <span *ngFor="let person of ngModel">
+                {{person.DisplayName}}
+            </span>
+        </span>
+
+        <span *ngIf="groupSelection">
+                <span *ngFor="let person of ngModel">
+                    {{person.Name}}
+                </span>
+            </span>
+    </div>
+    <div class="validation" *ngIf="ngModel.length == 0 && controlOptions.required && clicked">
+        {{controlOptions.validationText}}
+      </div>
+</div>

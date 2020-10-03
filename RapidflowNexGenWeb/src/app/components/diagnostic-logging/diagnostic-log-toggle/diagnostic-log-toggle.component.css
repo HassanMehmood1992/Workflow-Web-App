@@ -1,0 +1,27 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: DiagnosticLogToggleComponent
+Description: Css rules and styles for Diagnostic Log Toggle Component.
+Location: ./diagnostic-log-toggle.component.spec.ts
+Author: Nabil Shahid
+Version: 1.0.0
+Modification history: none
+*/
+.toggleButtonCol{
+    text-align: right;
+  }
+  .fullWidth{
+    width:100%;
+  }
+  .detailsText{
+    font-family: Roboto; 
+    font-size: 15px !important;
+    color: #8E8E93;
+}
+::ng-deep.mat-list-item-content{
+    height: auto !important;
+}

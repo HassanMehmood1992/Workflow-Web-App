@@ -1,0 +1,153 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+
+/*
+ModuleID: NotificationDialogComponent
+Description: CSS rules and styles for notification dialog component.
+Location: ./notifications/notification-dialog.component.css
+Author: Amir Hussain
+Version: 1.0.0
+Modification history: none
+*/
+
+.itemTitle {
+    font-size: 17px;
+    color: #000000;
+}
+
+.itemDescription {
+    font-size: 12px;
+    color: #95989A;
+}
+
+.mat-list-item-border {
+    border-bottom: 1px solid lightgray;
+}
+
+.formUrl:hover {
+    text-decoration: underline;
+}
+
+.formUrl {
+    cursor: pointer;
+    color: #1980E8;
+}
+
+.hideoverflowverticle {
+    overflow: hidden;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+
+.topRow {
+    border-right: 0.5px solid lightgrey;
+    flex: 0 1 auto;
+}
+
+.MyProcessBottomRow {
+    height: 50px;
+    flex: 0 1 auto;
+    padding-left: 3%;
+    border-top: 0.5px solid lightgrey !important;
+    color: #1980E8
+}
+
+.MyProcessRow {
+    flex: 1 1 auto;
+    overflow: auto;
+    padding: 15px
+}
+
+.mat-line {
+    line-height: 1.4;
+}
+
+.mat-list-text {
+    padding-left: 2px!important
+}
+
+.matlineStyle {
+    padding: 2px;
+    white-space: normal;
+    line-height: 1.1em;
+    height: 2.5em;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    display: -webkit-box
+}
+
+.dateCreated {
+    text-align: right;
+    height: 100%;
+    float: right;
+    margin-bottom: auto;
+}
+
+.dateCreated>span {
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+#messageBody {
+    padding-left: 10px;
+    padding-right: 10px
+}
+
+.small-images-border-raduis {
+    width: 35px
+}
+
+
+/* styles for '...' */
+
+.block-with-text {
+    /* hide text if it more than N lines  */
+    overflow: hidden;
+    /* for set '...' in absolute position */
+    position: relative;
+    /* use this value to count block height */
+    line-height: 1.2em;
+    /* max-height = line-height (1.2) * lines max number (3) */
+    max-height: 3.6em;
+    /* fix problem when last visible word doesn't adjoin right side  */
+    text-align: justify;
+    /* place for '...' */
+    margin-right: -1em;
+    padding-right: 1em;
+}
+
+
+/* create the ... */
+
+.block-with-text:before {
+    /* points in the end */
+    content: '...';
+    /* absolute position */
+    position: absolute;
+    /* set position to right bottom corner of block */
+    right: 0;
+    bottom: 0;
+}
+
+
+/* hide ... if we have text, which is less than or equal to max lines */
+
+.block-with-text:after {
+    /* points in the end */
+    content: ' ';
+    /* absolute position */
+    position: absolute;
+    /* set position to right bottom corner of text */
+    right: 0;
+    /* set width and height */
+    width: 1em;
+    height: 1em;
+    margin-top: 0.2em;
+    /* bg color = bg color under block */
+    /* background: white; */
+}

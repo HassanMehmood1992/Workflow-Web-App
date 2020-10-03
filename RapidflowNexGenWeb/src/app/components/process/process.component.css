@@ -1,0 +1,45 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+
+/*
+ModuleID: ProcessComponent
+Description: CSS rules and styles for process component.
+Location: ./process.component.css
+Author: Amir Hussain
+Version: 1.0.0
+Modification history: none
+*/
+
+.alert-custom {
+    color: white;
+    background-color: #f16969;
+    border-color: #800040;
+}
+
+ng:deep.alert {
+    padding: 15px;
+    margin-bottom: 0px !important;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+ng:deep.alert-danger {
+    color: white;
+    background-color: #771621;
+    border-color: #ebccd1;
+}
+
+.alertStyle {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    margin-bottom: 0px
+}
+
+.hideoverflowverticle {
+    width: 100%;
+    overflow: hidden;
+}

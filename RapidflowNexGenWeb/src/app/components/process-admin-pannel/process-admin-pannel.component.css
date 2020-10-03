@@ -1,0 +1,164 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+
+/*
+ModuleID: ProcessAdminPannelComponent
+Description: CSS file for ProcessAdminPannelComponent.
+Location: ./components/process-admin-panel.component.css
+Author: Nabil Shahid
+Version: 1.0.0
+Modification history: none
+*/
+
+@import '../../../../node_modules/datatables.net-dt/css/jquery.dataTables.css';
+::ng-deep.dataTables_wrapper {
+    padding: 20px;
+}
+
+::ng-deep.dataTable {
+    border-radius: 5px;
+    border-bottom: 0px !important;
+    border-collapse: separate;
+    border-spacing: 0px 5px !important;
+}
+
+::ng-deep#adminPanelTableFilter_filter {
+    display: none;
+}
+
+::ng-deep thead {
+    background-color: #071D49;
+    color: white;
+}
+
+::ng-deep#adminPanelTable_filter {
+    display: none;
+}
+
+::ng-deep.dataTables_length {
+    display: none;
+}
+
+::ng-deep.dataTables_length select {
+    border-radius: 3px;
+}
+
+::ng-deep th {
+    font-size: 12px !important;
+    font-weight: 400 !important;
+}
+
+::ng-deep.odd {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+::ng-deep.even {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+mat-button {
+    font-weight: 300;
+    color: #071D49;
+}
+
+thead tr th {
+    border-bottom: 0px;
+}
+
+select {
+    width: 120px;
+    height: 28px;
+    border-radius: 3px;
+    color: #007aff;
+}
+
+.iconsCell {
+    padding: 0px;
+    margin-left: 15px;
+    width: 10%;
+    cursor: pointer;
+    text-align: right;
+    margin-top: 3px;
+}
+
+.errorLogsForm {
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+::ng-deep#adminPanelTableFilter_length {
+    display: none;
+}
+
+::ng-deep#adminPanelTableFilter tbody tr td {
+    padding: 7px;
+}
+
+#tableDiv {
+    color: #a09e9e;
+}
+
+::ng-deep#adminPanelTable {
+    width: 100% !important;
+}
+
+::ng-deep#adminPanelTable_paginate a {
+    /* color: #888282 !important */
+}
+
+::ng-deep#adminPanelTable_info {
+    display: none;
+}
+
+.everyoneCheckBox {}
+
+.roleUsers {}
+
+::ng-deep #permissionDiv .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color: rgb(27, 142, 241) !important;
+}
+
+::ng-deep #permissionDiv .mat-ripple-element {
+    background: rgba(27, 142, 241, .4) !important;
+}
+
+ ::ng-deep#updateUsersButtonDiv {
+    color: #007AFF !important;
+    text-align: center !important;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+ ::ng-deep.updateButtonDivider {
+    margin-top: 15px;
+    width: 110%;
+    margin-left: -12px;
+}
+
+.noPermissionMessage {
+    padding: 10px;
+}
+
+::ng-deep #adminPanelTable tr td:nth-child(1) {
+    width: 5% !important;
+}
+
+::ng-deep #adminPanelTable tr td:nth-child(2) {
+    width: 30% !important;
+}
+
+::ng-deep #adminPanelTable tr td:nth-child(3) {
+    width: 30% !important;
+}
+
+::ng-deep #adminPanelTable tr td:nth-child(4) {
+    width: 30% !important;
+}
+
+::ng-deep #adminPanelTable tr td:nth-child(5) {
+    width: 5% !important;
+}

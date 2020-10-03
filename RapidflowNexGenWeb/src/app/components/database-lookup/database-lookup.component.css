@@ -1,0 +1,65 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+
+/*
+ModuleID: DatabaseLookupDialogComponent
+Description: CSS rules and styles for database lookup component.
+Location: ./database-lookup.component.css
+Author: Sheharyar Toor
+Version: 1.0.0
+Modification history: none
+*/
+
+.content {
+    width: 100%;
+}
+
+.control-label {
+    margin: 0.5%;
+    text-indent: 5px;
+}
+
+.form-control {
+    width: 100%;
+    margin: 0.5%;
+    padding-left: 1.5%
+}
+
+input.ng-invalid {
+    border-color: red !important;
+    border-radius: 4px;
+}
+
+textarea.ng-invalid {
+    border-color: red !important;
+    border-radius: 4px;
+}
+
+.validation {
+    font-size: 11px;
+    color: red;
+    margin-left: 1%;
+}
+
+.databaseLookupRequired {
+    border: 1px solid;
+    border-color: red !important;
+    border-radius: 4px;
+    height: auto;
+}
+
+.databaseLookupNotRequired {
+    border: 1px solid;
+    height: auto;
+}
+
+.databaseLookupPlaceholder {
+    color: #999999;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    padding-right: 15%;
+}

@@ -1,0 +1,65 @@
+<!-- 
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: NotificationsComponent
+Description: HTML file for view of notificaitons component.
+Location: ./notifications.component.html
+Author: Amir Hussain
+Version: 1.0.0
+Modification history: none
+*/
+-->
+<mat-progress-bar class="loaderStyle" *ngIf="notificationloading&&!moreNotificationsLoading" mode="query">
+
+</mat-progress-bar>
+<div class="notificationScrollModal" infinite-scroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="50" [scrollWindow]="false" *ngIf="(!notificationloading||moreNotificationsLoading)&&notificationsAvailable" (scrolled)="OnNotificationsScrollDown()">
+    <mat-list>
+        <mat-list-item class="mat-list-item-border mat-list-item-ripple mat-list-option" *ngFor="let item of notifications|filterArray:searchStr let i = index" tabindex="0" (keyup.enter)="openNotificationDialog(item,i)">
+            <h3 mat-line class="itemTitle" (click)="openNotificationDialog(item,i)">{{item.FromDisplayName}}</h3>
+            <p mat-line (click)="openNotificationDialog(item,i)" id="openNotification">
+                <span class="itemDescription" [ngStyle]="{ 'color' : (item.NotificationAction=='Pending') ? '#1980E8' : 'darkgrey' }">{{item.Message | decodeUriComponent}}</span>
+            </p>
+
+            <div class="dateCreatedStyle">
+                <span [ngStyle]="{ 'color' : (item.NotificationAction=='Pending') ? '#1980E8' : 'darkgrey' }">{{item.DateCreated | formatdate}}</span>
+                <br/>
+
+
+
+
+            </div>
+            <div class="alignright">
+                <button tabindex="0" [matMenuTriggerFor]="processsettings" class="padding20">
+                    <img height="14px" src="assets/images/process_menu/More_1.png" />
+                </button>
+                <mat-menu #processsettings="matMenu" xPosition="before">
+                    <button (click)="updateNotification(item,'Read',i)" *ngIf="item.NotificationAction=='Pending'" mat-menu-item class="matMenuButton">
+                        <img height="14px" src="assets/images/others/unfilled.png" class="marginClass" />Read</button>
+
+                    <button mat-menu-item (click)="updateNotification(item,'UnRead',i)" *ngIf="item.NotificationAction!='Pending'" class="matMenuButton">
+                        <img height="14px" src="assets/images/others/filled.png" class="marginClass" />Unread</button>
+
+                    <button mat-menu-item (click)="updateNotification(item,'Delete',i)">
+                        <img height="14px" src="assets/images/top_level/Remove_1.png" class="marginClass" />Delete</button>
+                </mat-menu>
+            </div>
+        </mat-list-item>
+    </mat-list>
+    <div class="loadMoreDiv" *ngIf="!allNotificationsLoaded">
+
+        <a *ngIf="!notificationloading&&!moreNotificationsLoading&&!allNotificationsLoaded" (click)="OnNotificationsScrollDown()" class="loadMore">Load More...</a>
+        <div id="loadingMoreDiv" *ngIf="moreNotificationsLoading">
+            <mat-progress-bar mode="query"></mat-progress-bar>
+        </div>
+    </div>
+    <div class="fullheight"></div>
+</div>
+<div class="notAvailableDiv" *ngIf="!notificationsAvailable">
+    <div class="notAvailableMessage">
+        No notifications available.
+    </div>
+</div>

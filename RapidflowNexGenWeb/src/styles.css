@@ -1,0 +1,1181 @@
+    /* You can add global styles to this file, and also import other style files */
+    
+    @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+    @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+    @import '~bootstrap/dist/css/bootstrap.css';
+    @import "~ng-pick-datetime/assets/style/picker.min.css";
+    @media (min-width: 979px) {
+        body {
+            padding: 20px;
+        }
+    }
+    
+    html {
+        height: 100%
+    }
+    
+    body {
+        background: -webkit-linear-gradient(top, #071D49, #071D49 14%, #dedede 14%, #dedede);
+        height: 100%;
+        font-family: segoe UI;
+    }
+    
+    .app-root {
+        height: 100%;
+        width: 100%;
+        min-width: 0px;
+        background: none
+    }
+    
+    mat-card {
+        margin: 1%!important
+    }
+    
+    @media (max-width: 1500px) {
+        body {
+            padding: 0px;
+        }
+    }
+    
+    @media screen and (min-width: 1000px) {
+        .mat-icon-span {
+            margin-left: 27% !important;
+        }
+        .left-side-bar-bottom-nav {
+            padding-left: 8%;
+        }
+    }
+    
+    @media screen and (min-width: 1366px) {
+        .mat-icon-span {
+            margin-left: 10% !important;
+        }
+        .left-side-bar-bottom-nav {
+            margin-left: -25px;
+        }
+        .mat-list-item-content {
+            padding-top: 14px !important;
+        }
+        .div-cust {
+            height: 54px !important;
+        }
+    }
+    
+    html {
+        height: 100%;
+        width: 100%;
+    }
+    
+    body {
+        height: 100%;
+        width: 100%;
+        font-family: roboto;
+        background-repeat: no-repeat;
+    }
+    
+    .mat-list-item-border {
+        border-bottom: 1px solid lightgray;
+    }
+    
+    .example-fill-remaining-space {
+        flex: 1 1 auto;
+    }
+    
+    .mat-list,
+    .mat-nav-list,
+    .mat-selection-list {
+        padding-top: 0px !important;
+        display: block;
+    }
+    
+    .example-sidenav {
+        padding: 0px;
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+    }
+    
+    .scrollModal {
+        height: 100%;
+        overflow-y: auto;
+    }
+    
+     ::-webkit-scrollbar {
+        width: 10px;
+    }
+    
+     ::-webkit-scrollbar-track {
+        -webkit-box-shadow: none;
+        border-radius: 0px;
+    }
+    
+     ::-webkit-scrollbar-thumb {
+        border-radius: 0px;
+        background: lightgray
+    }
+    
+    .mat-dialog-container {
+        padding: 0px !important;
+        border-radius: 15px !important;
+        overflow-x: visible !important;
+        overflow-y: visible !important;
+        background-color: #ededed;
+        max-width: 45vw !important;
+        min-width: 14vw !important;
+    }
+    
+    .largeWidth {
+        max-height: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+    
+    .smallWidth {
+        max-height: 180px;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+    
+    .mat-drawer-content {
+        overflow: unset !important;
+    }
+    
+    .dialogTitle {
+        color: #FFFFFF;
+        background-color: #071D49;
+        text-align: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-size: 17px;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+    
+    .whitesearch {
+        width: 75%;
+        height: 34px;
+        border: 0.5px solid lightgrey;
+        border-radius: 4px;
+        font-size: 13px;
+        background-size: 17px 17px;
+        background-color: #ECECEC;
+        background-image: url('assets/images/others/ios7-search-strong_1.png');
+        background-position: 7px 10px;
+        background-repeat: no-repeat;
+        padding: 10px 2px 2px 33px;
+        transition: width 0.4s ease-in-out;
+    }
+    
+    .rfng-header {
+        border-bottom: 0.5px solid lightgrey;
+        height: 75px;
+        background: #EEEEEE;
+        padding-top: 5px !important;
+    }
+    
+    .tab-icons {
+        height: 24px;
+        width: 24px;
+    }
+    
+    .small-images-border-raduis {
+        border-radius: 10px !important;
+    }
+    
+    html {
+        height: 100%;
+        width: 100%;
+    }
+    
+    body {
+        height: 100%;
+        width: 100%;
+        font-family: roboto;
+    }
+    
+    .example-fill-remaining-space {
+        flex: 1 1 auto;
+    }
+    
+    .mat-list,
+    .mat-nav-list,
+    .mat-selection-list {
+        padding-top: 0px !important;
+        display: block;
+    }
+    
+    .example-sidenav {
+        padding: 0px;
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+    }
+    
+    body::-webkit-scrollbar {
+        width: 1em;
+    }
+    
+    body::-webkit-scrollbar-track {
+        box-shadow: 0px solid black;
+        -webkit-box-shadow: inset 0 0 6px rgba(218, 26, 26, 0.349);
+    }
+    
+    body::-webkit-scrollbar-thumb {
+        background-color: darkgrey;
+        outline: 1px solid slategrey;
+    }
+    
+    .mat-drawer-container {
+        background-color: white !important;
+        overflow: hidden !important
+    }
+    
+    .largeWidth {
+        max-height: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+    
+    .smallWidth {
+        max-height: 180px;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+    
+    .dialogTitle {
+        color: #FFFFFF;
+        background-color: #071D49;
+        text-align: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-size: 17px;
+    }
+    
+    .rfng-header {
+        border-bottom: 0.5px solid lightgrey;
+        height: 75px;
+        background: #EEEEEE;
+        padding-top: 5px !important;
+    }
+    
+    .tab-icons {
+        height: 24px;
+        width: 24px;
+    }
+    
+    .small-images-border-raduis {
+        border-radius: 10px !important;
+    }
+    
+    .rapidflowtitlebar {
+        font-size: 22px !important;
+        font-weight: bold !important;
+        color: #071D49 !important;
+    }
+    
+    .mat-slide-toggle-bar {
+        background-color: #eee !important;
+        border: 0.5px solid lightgrey;
+        height: 30px !important;
+        width: 60px !important;
+        border-radius: 20px !important;
+    }
+    
+    .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+        background-color: #4BD964 !important;
+        height: 30px !important;
+        width: 60px !important;
+        border-radius: 20px !important;
+    }
+    
+    .mat-slide-toggle-thumb {
+        height: 30px !important;
+        width: 30px !important;
+        margin-top: 2px;
+    }
+    
+    .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+        background-color: white;
+        margin-left: 55%;
+    }
+    
+    .mat-tab-label,
+    .mat-tab-link {
+        font-weight: 400 !important;
+    }
+    
+    .mat-toolbar-row {
+        height: 75px !important
+    }
+    
+    .mat-toolbar {
+        display: flex;
+        box-sizing: border-box;
+        width: 100%;
+        padding: 0 10px !important;
+        padding-right: 10px !important;
+        padding-left: 10px !important;
+        flex-direction: column;
+    }
+    
+    .mat-list .mat-list-option.mat-2-line .mat-list-item-content,
+    .mat-nav-list .mat-list-option.mat-2-line .mat-list-item-content,
+    .mat-selection-list .mat-list-option.mat-2-line .mat-list-item-content {
+        height: auto !important;
+    }
+    
+    .mat-list .mat-list-option.mat-3-line .mat-list-item-content,
+    .mat-nav-list .mat-list-option.mat-3-line .mat-list-item-content,
+    .mat-selection-list .mat-list-option.mat-3-line .mat-list-item-content {
+        height: 72px !important;
+    }
+    
+    .mat-list-item-content {
+        padding: 10px !important;
+        height: auto !important;
+    }
+    
+    .mat-list .mat-list-option .mat-list-item-content,
+    .mat-nav-list .mat-list-option .mat-list-item-content,
+    .mat-selection-list .mat-list-option .mat-list-item-content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        box-sizing: border-box;
+        height: 48px;
+        padding: 0 10px;
+        padding-top: 0px;
+        padding-right: 10px;
+        padding-bottom: 0px;
+        padding-left: 10px;
+        position: relative;
+    }
+    
+    .mat-list-text {
+        line-height: 1.0 !important;
+        padding: 0 7px;
+        width: 63%;
+    }
+    
+    .content {
+        width: 100%;
+    }
+    
+    .formControlDiv {
+        padding-right: 6px;
+    }
+    
+    .formHr {
+        width: 100%;
+        margin-top: 0%;
+        border-top: 1px solid black;
+    }
+    
+    .control-label {
+        color: black;
+        border-radius: 5px;
+        font-weight: bold;
+        width: 100%;
+        text-indent: 5px;
+        margin-bottom: 0%;
+    }
+    
+    .form-control {
+        width: 100%;
+        margin: 0.5%;
+        border-color: #071D49;
+        background-color: white;
+        padding-left: 7px;
+    }
+    
+    .formHeading {
+        background-color: #071D49;
+        color: white;
+        font-weight: normal;
+        width: 100%;
+        padding: 1%;
+        margin-top: 1%;
+        margin-bottom: 1%;
+    }
+    
+    .formHeadingForPdf {
+        background-color: #071D49;
+        color: white;
+        font-weight: normal;
+        width: 98%;
+        padding: 1%;
+        margin-top: 1%;
+        margin-bottom: 1%;
+        margin-right: 1%;
+    }
+    
+    .ProcessBadge {
+        font-size: 3em;
+        position: absolute;
+        top: 20px;
+        right: 7px;
+        height: 8px;
+        background: #84BD00;
+        width: 8px;
+        border-radius: 50%;
+        z-index: -10;
+    }
+    
+    .tile {
+        background-color: #ECECEC;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        margin: 10px;
+        border-radius: 5px;
+        font-family: roboto;
+    }
+    
+    .itemTitle {
+        font-size: 17px;
+        color: #000000;
+    }
+    
+    .itemSubtitle {
+        font-size: 13px;
+    }
+    
+    .tasksHeader {
+        background-color: #071D49;
+        color: white;
+        padding-top: 7px;
+        padding-bottom: 7px;
+        margin: 6px;
+        border-radius: 3px;
+        box-shadow: 0.5px 0.5px 0.5px 0.5px rgba(195, 172, 172, 0.4)
+    }
+    
+    .tasksRow {
+        background-color: white;
+        color: #8E8E93;
+        margin-left: 6px;
+        margin-right: 6px;
+        margin-bottom: 6px;
+        border-radius: 3px;
+        padding-top: 7px;
+        padding-bottom: 8px;
+        box-shadow: 0.5px 0.5px 0.5px 0.5px rgba(195, 172, 172, 0.4)
+    }
+    
+    .itemDescriptionTruncated {
+        font-size: 12px;
+        color: #95989A;
+        margin-left: 4px;
+        margin-top: 4px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 700px;
+    }
+    
+    .itemDescription {
+        font-size: 12px;
+        color: #95989A;
+        margin-left: 4px;
+    }
+    
+    .firstLineRight {
+        font-size: 14px;
+        color: #007AFF
+    }
+    
+    .secondLineRight {
+        font-size: 12px;
+        color: #007AFF;
+    }
+    
+    .toggleArrow {
+        width: 25px;
+        margin-top: 25%;
+        cursor: pointer;
+    }
+    
+     ::ng-deep.mat-expansion-indicator {
+        padding: 15px 5px;
+    }
+    
+    .mat-expansion-panel-body {
+        overflow: hidden !important;
+    }
+    
+     ::ng-deep.mat-expansion-panel-content {
+        margin-left: 0px;
+    }
+    
+     ::ng-deep.mat-expanded {
+        border-radius: 6px !important;
+    }
+    
+    .rightDetails {
+        padding-right: 7px;
+        padding-left: 0px;
+        line-height: 17px;
+        text-align: right;
+        height: 60px;
+    }
+    
+    .mat-expansion-panel-body {
+        width: 97.5%;
+        margin-left: 0px !important;
+    }
+    
+    table.rftable {
+        width: 100%;
+        border-spacing: 2px;
+        border-collapse: separate;
+        line-height: 1.5;
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+    
+    div.rftable {
+        width: 100%;
+        border-spacing: 2px;
+        border-collapse: separate;
+        line-height: 1.5;
+        background-color: #071D49;
+        color: white;
+        padding: 1%;
+        font-weight: normal;
+        margin: 0%;
+        margin-top: 1.5%;
+        margin-bottom: 1.5%;
+    }
+    
+    table.rftable td {
+        border: 0px solid;
+        /* controls the side and bottom border of 'Add' function in the repeating table */
+        text-align: left;
+    }
+    
+    table.rftable tbody td {
+        /* controls the borders of the body section of the repeating table */
+        padding: 1px;
+        /* controls the indentation of text and controls present in the body section of the repeating table*/
+    }
+    
+    app-form {
+        overflow: hidden;
+        height: 100%;
+    }
+    
+    .rounded-corners {
+        border-radius: 5px;
+    }
+    
+    .hideoverflowverticle {
+        overflow: hidden;
+        display: flex;
+        flex-flow: column;
+        height: 100%;
+    }
+    
+    .itemTitle {
+        font-size: 17px;
+        color: #000000;
+    }
+    
+    .itemDescription {
+        font-size: 12px;
+        color: #95989A;
+    }
+    
+    .mat-list-item-border {
+        border-bottom: 1px solid lightgray;
+    }
+    
+    .notAvailableMessage {
+        padding: 10px;
+    }
+    
+    table.rftable tbody td {
+        /* controls the borders of the body section of the repeating table */
+        padding: 1px;
+        /* controls the indentation of text and controls present in the body section of the repeating table*/
+    }
+    
+    app-form {
+        overflow: hidden;
+        height: 100%;
+    }
+    
+    .rounded-corners {
+        border-radius: 5px;
+    }
+    
+    .enableProcessLookup {
+        padding-left: 4%;
+        padding-right: 3%;
+        min-height: 30px;
+        cursor: pointer;
+        background-color: white !important;
+        background: url(assets/images/form_controls/lookup.png) 99% 5px no-repeat rgb(255, 255, 255);
+    }
+    
+    .disableProcessLookup {
+        padding-left: 4%;
+        padding-right: 3%;
+        min-height: 30px;
+        cursor: not-allowed;
+        background: #eeeeee;
+    }
+    
+    .enableDatePicker {
+        padding-left: 4%;
+        padding-right: 3%;
+        min-height: 30px;
+        cursor: pointer;
+        background-color: white !important;
+        background: url(assets/images/form_controls/datetime.png) 99% 4px no-repeat rgb(255, 255, 255);
+    }
+    
+    .disableDatePicker {
+        padding-left: 4%;
+        padding-right: 3%;
+        min-height: 30px;
+        cursor: not-allowed;
+        background: #eeeeee;
+    }
+    
+    .enablePeoplePicker {
+        padding-left: 4%;
+        padding-right: 3%;
+        min-height: 30px;
+        cursor: pointer;
+        background-color: white !important;
+        background: url(assets/images/form_controls/peoplepicker.png) 99% 5px no-repeat rgb(255, 255, 255);
+    }
+    
+    .disablePeoplePicker {
+        padding-left: 4%;
+        padding-right: 3%;
+        min-height: 30px;
+        cursor: not-allowed;
+        background: #eeeeee;
+    }
+    
+    .enableUrl {
+        padding-left: 4%;
+        padding-right: 3%;
+        min-height: 30px;
+        cursor: pointer;
+        background-color: white !important;
+        background: url(assets/images/form_controls/add-link.png) 99% 5px no-repeat rgb(255, 255, 255);
+    }
+    
+    .disableUrl {
+        min-height: 30px;
+        padding-top: 0.5%;
+        opacity: 0.4;
+    }
+    
+    .hideoverflowverticle {
+        overflow: hidden;
+        display: flex;
+        flex-flow: column;
+        height: 100%;
+    }
+    
+    .itemTitle {
+        font-size: 17px;
+        color: #000000;
+    }
+    
+    .itemDescription {
+        font-size: 12px;
+        color: #95989A;
+    }
+    
+    .mat-list-item-border {
+        border-bottom: 1px solid lightgray;
+    }
+    
+    .notAvailableMessage {
+        padding: 10px;
+    }
+    
+    app-process-matrics,
+    app-process-lookups,
+    app-proces-wrapper,
+    app-process-lookup-page,
+    app-pivot,
+    app-report-page,
+    app-addon-page,
+    app-process-user-setting,
+    app-process-admin-pannel,
+    app-addons {
+        overflow: hidden;
+        display: flex;
+        flex-flow: column;
+        height: 100%;
+    }
+    
+    .itemDescription {
+        font-size: 12px;
+        color: #95989A;
+        margin-top: 4px !important;
+        margin-left: 0px !important
+    }
+    
+    .mat-line {
+        margin-top: 0px !important;
+    }
+    
+    .corner-ribbon {
+        background: #e43;
+        position: absolute;
+        padding-left: 10px;
+        padding-right: 10px;
+        text-align: center;
+        line-height: 30px;
+        letter-spacing: 1px;
+        color: #f0f0f0;
+        z-index: 100;
+        border-radius: 15px 50px 30px 5px;
+        border-radius: 0px 0px 15px 15px;
+    }
+    /* Custom styles */
+    
+    .corner-ribbon.sticky {
+        position: fixed;
+    }
+    
+    .corner-ribbon.shadow {
+        box-shadow: 0 0 3px rgba(0, 0, 0, .3);
+    }
+    /* Different positions */
+    
+    .corner-ribbon.top-left {
+        top: 25px;
+        left: -50px;
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+    }
+    
+    .corner-ribbon.top-right {
+        right: 37%;
+        left: auto;
+    }
+    
+    .paginate_button.current {
+        background: 0px !important;
+        background-color: #dadada !important;
+        color: white !important;
+        border: 0px !important;
+        padding: 0.5em 1em;
+        border-radius: 0px !important;
+    }
+    
+    .paginate_button:hover {
+        background: 0px !important;
+        background-color: #585858 !important;
+        border: 1px solid white !important;
+    }
+    
+    .notAvailableMessage {
+        padding: 60px 10px 60px 10px;
+        text-align: center;
+        background-color: #eeeeee;
+        margin-left: 10px;
+        margin-right: 10px;
+        border: 1px dashed #a5a5a5;
+        width: 33%;
+    }
+    
+    .notAvailableDiv {
+        text-align: -webkit-center;
+        padding-right: 60px;
+        margin-top: 17%;
+    }
+    
+    .mat-progress-spinner svg {
+        width: 30px !important;
+        height: 30px !important;
+    }
+    
+    .mat-progress-spinner {
+        width: 30px !important;
+        height: 30px !important;
+    }
+    
+    .wc-banner {
+        font-size: 40px !important;
+        height: 83px !important;
+    }
+    
+    .wc-date-row {
+        font-size: 27px !important;
+    }
+    
+    .wc-month-row {
+        padding: 3px 0px 0px 0px !important;
+    }
+    
+    .wc-day-row {
+        padding: 1px 0px !important;
+    }
+    
+    .calendar-days {
+        font-size: 10px !important;
+    }
+    
+    .wc-date-popover {
+        top: -90px !important;
+    }
+    
+    .time-view {
+        top: 123px !important;
+    }
+    
+    .owl-timer-input {
+        width: 75% !important;
+    }
+    
+    .owl-timer-wrapper {
+        background-color: #071D49;
+    }
+    
+    .owl-timer-control i {
+        color: #FFFFFF !important;
+    }
+    
+    .owl-timer-divider .owl-timer-dot {
+        background-color: #FFFFFF !important;
+    }
+    
+    .owl-calendar-wrapper {
+        background-color: #FFFFFF !important;
+        padding: 0% !important;
+    }
+    
+    .owl-calendar-control {
+        background-color: #071D49;
+    }
+    
+    .owl-calendar-controlNav i {
+        color: #FFFFFF !important;
+    }
+    
+    .owl-calendar-controlContent {
+        color: #FFFFFF !important;
+    }
+    
+    .owl-calendar-controlContent .year-control {
+        color: #FFFFFF !important;
+    }
+    
+    .owl-datetime-input {
+        border: 0px !important;
+    }
+    
+    .mat-menu-content {
+        padding-top: 0px !important;
+        padding-bottom: 0px !important;
+    }
+    
+    .singleDialogButton {
+        width: 100%;
+        color: #007AFF;
+        border: none;
+        background-color: #ECECEC;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
+    
+    .dialogBody {
+        padding: 5%;
+    }
+    
+    .objectItemDescription {
+        overflow: visible !important;
+        white-space: unset !important;
+    }
+    
+    .tableHeading {
+        background-color: #071D49;
+        color: white;
+        padding: 1%;
+        text-align: left;
+        font-weight: normal;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+    
+    .tableHeadingForPdf {
+        background-color: #071D49;
+        color: white;
+        padding: 2%;
+        text-align: left;
+        font-weight: normal;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+    
+    .tableHeaderRow {
+        background-color: #071D49;
+        color: white;
+        text-align: center;
+    }
+    
+    .tableHeaderRowForPdf {
+        background-color: #071D49;
+        color: white;
+        text-align: left;
+        font-weight: normal;
+    }
+    
+    .repeatingTableForPdf {
+        margin-bottom: 5px !important;
+        margin-top: 5px !important;
+    }
+    
+    .tableIndexColumn {
+        background-color: #071D49;
+        color: white;
+    }
+    
+    .repeatingTableButtons {
+        border: 0px !important;
+        vertical-align: middle !important;
+        width: 1%;
+        background-color: #071D49;
+        color: white;
+    }
+    
+    .alert {
+        padding: 15px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        margin: 3px !important
+    }
+    
+    .alert-danger {
+        color: white;
+        background-color: #FF0011;
+        border-color: #ebccd1;
+    }
+    
+    .alert-dismissable .close,
+    .alert-dismissible .close {
+        position: relative;
+        top: -2px;
+        right: -11px;
+        color: inherit;
+    }
+    
+    .alert.alert-warn.alert-dismissible {
+        padding-bottom: 2px !important;
+        padding-top: 2px !important;
+    }
+    
+    .close {
+        opacity: 1!important
+    }
+    
+    .form-control::placeholder {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        padding-right: 15%;
+    }
+    
+    .corner-ribbon {
+        font-size: 11px;
+        background-color: #37c5ab;
+        margin-right: 6%;
+    }
+    
+    .overlayPage {
+        background-color: rgba(1, 1, 1, 0.7);
+        bottom: 0;
+        left: 0;
+        position: fixed;
+        right: 0;
+        top: 0;
+    }
+    
+    .loadMoreDiv {
+        height: 7%;
+    }
+    
+    .scrollModelDiv {
+        height: 100%;
+    }
+    
+    .mainContainer {
+        margin: auto;
+        height: 100%;
+        min-width: 1000px;
+        max-width: 1400px
+    }
+    
+    @media screen and (min-width:1024px) {
+        .bot-lft-nbar {
+            margin-left: 6% !important;
+            padding-top: 1%;
+        }
+        .mainContainer {
+            margin: auto;
+            height: 100%;
+            min-width: 925px;
+            max-width: 1400px;
+        }
+    }
+    
+    @media screen and (min-width:1280px) {
+        .bot-lft-nbar {
+            margin-left: 2% !important;
+            padding-top: 1%;
+        }
+    }
+    
+    @media screen and (min-width:1366px) {
+        .bot-lft-nbar {
+            margin-left: 7% !important;
+        }
+    }
+    
+    @media screen and (max-width:960px) {
+        .bot-lft-nbar {
+            margin-left: 2% !important;
+            padding-top: 1% !important;
+        }
+    }
+    
+    @media screen and ( max-width: 1024px) and (orientation:landscape) {
+        .bot-lft-nbar {
+            margin-left: 4% ! important;
+            padding-top: 1% !important;
+        }
+    }
+    
+    .hideSideNav {
+        margin-left: 0% !important;
+    }
+    
+    mat-sidenav-content {
+        margin-left: 25.8% !important;
+    }
+    
+    mat-sidenav {
+        width: 25.8% !important;
+    }
+    
+    .example-container {
+        width: 100% !important;
+        height: 100% !important;
+    }
+    
+    .example-sidenav-content {
+        height: 100% !important;
+    }
+    
+    .example-sidenav {
+        padding: 0px !important;
+    }
+    
+    .example-sidenav[_ngcontent-c1] {
+        padding: 0px;
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+        border-right: 0.5px lightgray solid
+    }
+    
+    .hideoverflowverticle {
+        overflow: hidden;
+        display: flex;
+        flex-flow: column;
+        height: 100%;
+    }
+    
+    .topRow {
+        border-right: 0.5px solid lightgrey;
+        flex: 0 1 auto;
+    }
+    
+    .MyProcessBottomRow {
+        height: 64px;
+        flex: 0 1 auto;
+    }
+    
+    .MyProcessRow {
+        flex: 1 1 auto;
+        overflow: auto;
+    }
+    
+    .mat-tab-header-pagination {
+        position: relative;
+        display: inline !important;
+        justify-content: center;
+        align-items: center;
+        min-width: 32px;
+        cursor: pointer;
+        z-index: 2;
+    }
+    
+    .badge {
+        background-color: #8BC012
+    }
+    
+    #ConnectionIntrupted {
+        display: none
+    }
+    
+    @media screen and ( max-width: 1024px) and (orientation:landscape) {
+        .mat-dialog-container {
+            min-height: 130%;
+            min-width: 45vw !important;
+        }
+        .loginContainer {
+            min-width: 100%;
+        }
+        #loginDiv {
+            padding-top: 10% !important;
+        }
+        #LoginOptions {
+            margin-top: 15px !important;
+        }
+        .loginButton {
+            margin-top: 0px !important;
+        }
+        #initLoader{
+            text-align: center;
+            padding-top: 20%;
+            padding-bottom: 20%;
+            font-size: 18px;
+            }
+    }
+    
+    @media screen and ( max-width: 1024px) and (orientation:portrait) {
+        .mat-dialog-container {
+            min-height: 125%;
+            min-width: 60vw !important;
+        }
+        .loginContainer {
+            min-width: 100%;
+        }
+        #loginDiv {
+            padding-top: 42% !important;
+        }
+        .Aligner-item {
+            max-width: 80% !important;
+        }
+        #initLoader{
+            text-align: center;
+            padding-top: 20%;
+            padding-bottom: 20%;
+            font-size: 18px;
+            margin-top:50%;
+            }
+    }
+ 

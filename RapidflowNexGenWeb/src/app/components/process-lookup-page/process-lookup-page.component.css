@@ -1,0 +1,178 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+
+/*
+ModuleID: ProcessLookupPageComponent
+Description: CSS rules and styles for process lookup page component.
+Location: ./process-lookup-page.component.css
+Author: Amir Hussain
+Version: 1.0.0
+Modification history: none
+*/
+
+.itemTitle {
+    font-size: 17px;
+    color: #000000;
+}
+
+.itemDescription {
+    font-size: 12px;
+    color: #95989A;
+}
+
+.mat-list-item-border {
+    border-bottom: 1px solid lightgray;
+    height: 50px !important;
+}
+
+.mat-button {
+    height: 23px !important
+}
+
+.backbutton {
+    cursor: pointer;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.example-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+}
+
+.example-header {
+    min-height: 64px;
+    padding: 8px 24px 0;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+.mat-table {
+    overflow: auto;
+    max-height: 500px;
+}
+
+.hideoverflowverticle {
+    overflow: hidden;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+
+.topRow {
+    flex: 0 0.5 auto !important;
+}
+
+.MyProcessRow {
+    flex: 1 1 auto;
+    overflow: auto;
+}
+
+::ng-deep.dataTable {
+    border-radius: 5px;
+    border-bottom: 0px !important;
+    border-collapse: separate;
+    border-spacing: 0px 5px !important;
+}
+
+::ng-deep#mainTable_filter {
+    display: none;
+}
+
+::ng-deep#detailsTable_paginate a {
+    color: white !important;
+    background-color: #c9cac7;
+}
+
+::ng-deep tfoot td {
+    border-top: 1px solid #dedede !important;
+}
+
+::ng-deep thead {
+    background-color: #071D49;
+    color: white;
+}
+
+::ng-deep#mainTable_info {
+    display: none;
+}
+
+::ng-deep.dataTables_length {
+    padding-top: 5px;
+    color: #989a94 !important;
+}
+
+::ng-deep.dataTables_length select {
+    border-radius: 3px;
+}
+
+.loaderStyle {
+    margin-top: 10px;
+}
+
+::ng-deep th {
+    font-size: 12px !important;
+    font-weight: 400 !important;
+}
+
+::ng-deep.odd {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+::ng-deep.even {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.controlIcons {
+    height: 24px;
+    width: 24px;
+}
+
+mat-button {
+    font-weight: 300;
+    color: #071D49;
+}
+
+thead tr th {
+    border-bottom: 0px;
+}
+
+::ng-deep#detailsTable_filter input {
+    border-radius: 3px;
+    box-shadow: 0px 0px 1px 0px black;
+}
+
+::ng-deep#detailsTable_info {
+    display: none;
+}
+
+::ng-deep#mainTable_paginate a {
+    color: #888282 !important
+}
+
+.dataTables_info {
+    margin-left: 1%
+}
+
+.lookupitem {
+    width: 100%;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background: lightgray !important;
+}
+
+.lookupOptionsButton {
+    padding-left: 28px;
+    font-size: 14px;
+    font-family: roboto;
+    cursor: pointer;
+    font-weight: 500;
+}

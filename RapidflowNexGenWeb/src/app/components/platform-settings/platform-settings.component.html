@@ -1,0 +1,189 @@
+<!--
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: PlatformSettingsComponent
+Description: HTML file for PlatformSettingsComponent
+Location: ./platform-settings.component.spec.ts
+Author: Nabil Shahid
+Version: 1.0.0
+Modification history: none
+*/
+ -->
+<mat-progress-bar class="loaderStyle" *ngIf="platformSettingsLoading" mode="query">
+</mat-progress-bar>
+<div *ngIf="noPermission&&!platformSettingsLoading" class="noPermissionMessage">You don't have permission to view this page.</div>
+<div  id="platformSettingsDiv" *ngIf="!platformSettingsLoading&&!noPermission">
+
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="platformSettingsLabel">Device Auto Logout Hours</div>
+            <input class="platformSettingsTextInput" min="24" max="175" [disabled]="!editMode" [style.backgroundColor]="!editMode ? '#f1f1f1' : 'white'"
+                onkeydown="return false" [(ngModel)]="operationAdministrationSettings.DEVICE_AUTO_LOGOUT_HOURS" type="number">
+
+        </div>
+
+        <div class="col-xs-4">
+            <div class="platformSettingsLabel">Device Auto Removal Days</div>
+            <input [disabled]="!editMode" min="1" max="365" [style.backgroundColor]="!editMode ? '#f1f1f1' : 'white'" class="platformSettingsTextInput"
+                onkeydown="return false" [(ngModel)]="operationAdministrationSettings.DEVICE_AUTO_REMOVAL_DAYS" type="number">
+        </div>
+
+        <div class="col-xs-4">
+            <div class="platformSettingsLabel">Deleted Process lookup Purge Days</div>
+            <input [disabled]="!editMode" min="1" max="365" [style.backgroundColor]="!editMode ? '#f1f1f1' : 'white'" class="platformSettingsTextInput"
+                onkeydown="return false" [(ngModel)]="operationAdministrationSettings.DELETED_PLOOKUP_PURGE" type="number">
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-xs-4">
+            <div class="platformSettingsLabel">Diagnostic Logs Purge Days</div>
+            <input [disabled]="!editMode" min="1" max="365" [style.backgroundColor]="!editMode ? '#f1f1f1' : 'white'" onkeydown="return false"
+                [style.backgroundColor]="!editMode ? '#f1f1f1' : 'white'" class="platformSettingsTextInput" [(ngModel)]="operationAdministrationSettings.DIAGNOSTIC_LOGS_PURGE"
+                type="number">
+        </div>
+
+        <div class="col-xs-4">
+            <div class="platformSettingsLabel">Orphaned Uploads Purge Days</div>
+            <input [disabled]="!editMode" min="1" max="365" [style.backgroundColor]="!editMode ? '#f1f1f1' : 'white'" onkeydown="return false"
+                class="platformSettingsTextInput" [(ngModel)]="operationAdministrationSettings.ORPHANED_UPLOADS_PURGE" type="number">
+        </div>
+
+        <div class="col-xs-4">
+            <div class="platformSettingsLabel">Deleted Saved Forms Purge Days</div>
+            <input [disabled]="!editMode" min="1" max="365" [style.backgroundColor]="!editMode ? '#f1f1f1' : 'white'" onkeydown="return false"
+                class="platformSettingsTextInput" [(ngModel)]="operationAdministrationSettings.DELETED_SAVED_FORMS_PURGE" type="number">
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-xs-12 platformSettingsPeoplePicker">
+
+            <div class="platformSettingsLabel">Support Operations Group</div>
+            <app-people-picker class="platformSettingsPerson" *ngIf="peoplePickerChanges" [controlOptions]="platformSettingsPeoplePicker"
+                [fieldName]="'SUPPORT_OPERATIONS_GROUP'" [disabled]="!editMode" [style.backgroundColor]="!editMode ? '#f1f1f1' : 'white'"
+                [(ngModel)]="operationAdministrationSettings.SUPPORT_OPERATIONS_GROUP" ngDefaultControl [selfSelection]="'true'"
+                [selectionType]="'multiple'"></app-people-picker>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 platformSettingsPeoplePicker">
+
+            <div class="platformSettingsLabel">Platform Administrators</div>
+            <app-people-picker class="platformSettingsPerson" *ngIf="peoplePickerChanges" [controlOptions]="platformSettingsPeoplePicker"
+                [fieldName]="'PLATFORM_ADMINISTRATORS'" [disabled]="!editMode" [style.backgroundColor]="!editMode ? '#f1f1f1' : 'white'"
+                [(ngModel)]="operationAdministrationSettings.PLATFORM_ADMINISTRATORS" ngDefaultControl [selfSelection]="'true'"
+                [selectionType]="'multiple'"></app-people-picker>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 platformSettingsPeoplePicker">
+
+            <div class="platformSettingsLabel">Development Group</div>
+            <app-people-picker class="platformSettingsPerson" *ngIf="peoplePickerChanges" [controlOptions]="platformSettingsPeoplePicker"
+                [fieldName]="'DEVELOPMENT_GROUP'" [disabled]="!editMode" [style.backgroundColor]="!editMode ? '#f1f1f1' : 'white'"
+                [(ngModel)]="operationAdministrationSettings.DEVELOPMENT_GROUP" ngDefaultControl [selfSelection]="'true'" [selectionType]="'multiple'"></app-people-picker>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 platformSettingsPeoplePicker">
+            <div class="platformSettingsLabel">Publishing Group</div>
+            <app-people-picker class="platformSettingsPerson" *ngIf="peoplePickerChanges" [controlOptions]="platformSettingsPeoplePicker"
+                [fieldName]="'PUBLISHING_GROUP'" [disabled]="!editMode" [style.backgroundColor]="!editMode ? '#f1f1f1' : 'white'"
+                [(ngModel)]="operationAdministrationSettings.PUBLISHING_GROUP" ngDefaultControl [selfSelection]="'true'" [selectionType]="'multiple'"></app-people-picker>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="platformSettingsLabel">RapidFlow SupportDB Name</div>
+            <input [disabled]="!editMode" maxlength="255" [style.backgroundColor]="!editMode ? '#f1f1f1' : 'white'" class="platformSettingsTextInput"
+                [(ngModel)]="operationAdministrationSettings.RAPIDFLOW_SUPPORTDB_NAME" type="text">
+
+        </div>
+        <div class="col-xs-4">
+            <div class="platformSettingsLabel">RapidFlow Archive Path</div>
+            <input [disabled]="!editMode" maxlength="255" [style.backgroundColor]="!editMode ? '#f1f1f1' : 'white'" class="platformSettingsTextInput"
+                [(ngModel)]="operationAdministrationSettings.RAPIDFLOW_ARCHIVE_PATH" type="text">
+
+        </div>
+        <div class="col-xs-4">
+            <div class="platformSettingsLabel">Outgoing Mail Server</div>
+            <input [disabled]="!editMode" maxlength="255" [style.backgroundColor]="!editMode ? '#f1f1f1' : 'white'" class="platformSettingsTextInput"
+                [(ngModel)]="operationAdministrationSettings.OUTGOING_MAIL_SERVER" type="text">
+
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-xs-4">
+            <div class="platformSettingsLabel">Outgoing Mail Server Port</div>
+            <input [disabled]="!editMode" min="0" max="65535" [style.backgroundColor]="!editMode ? '#f1f1f1' : 'white'" class="platformSettingsTextInput"
+                [(ngModel)]="operationAdministrationSettings.OUTGOING_MAIL_SERVER_PORT" type="number">
+        </div>
+
+        <div class="col-xs-4">
+            <div class="platformSettingsLabel">RapidFlow Homepage</div>
+            <input [disabled]="!editMode" maxlength="255" [style.backgroundColor]="!editMode ? '#f1f1f1' : 'white'" class="platformSettingsTextInput"
+                [(ngModel)]="operationAdministrationSettings.RAPIDFLOW_HOME_PAGE" type="text">
+        </div>
+
+        <div class="col-xs-4">
+            <div class="platformSettingsLabel">Support Group Email</div>
+            <input [disabled]="!editMode" maxlength="255" [style.backgroundColor]="!editMode ? '#f1f1f1' : 'white'" class="platformSettingsTextInput"
+                [(ngModel)]="operationAdministrationSettings.SUPPORT_GROUP_EMAIL" type="email">
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-xs-4">
+            <div class="platformSettingsLabel">Support System Email</div>
+            <input [disabled]="!editMode" maxlength="255" [style.backgroundColor]="!editMode ? '#f1f1f1' : 'white'" class="platformSettingsTextInput"
+                [(ngModel)]="operationAdministrationSettings.SUPPORT_SYSTEM_EMAIL" type="text">
+        </div>
+
+        <div class="col-xs-4">
+            <div class="platformSettingsLabel">Help Link</div>
+            <input [disabled]="!editMode" maxlength="255" [style.backgroundColor]="!editMode ? '#f1f1f1' : 'white'" class="platformSettingsTextInput"
+                [(ngModel)]="operationAdministrationSettings.HELP_LINK" type="text">
+        </div>
+
+        <div class="col-xs-4">
+            <div class="platformSettingsLabel">Apple App Store</div>
+            <input [disabled]="!editMode" maxlength="255" [style.backgroundColor]="!editMode ? '#f1f1f1' : 'white'" class="platformSettingsTextInput"
+                [(ngModel)]="operationAdministrationSettings.APPLE_APP_STORE" type="text">
+        </div>
+
+    </div>
+    <div class="row">
+
+        <div class="col-xs-4">
+            <div class="platformSettingsLabel">Android App Store</div>
+            <input [disabled]="!editMode" maxlength="255" [style.backgroundColor]="!editMode ? '#f1f1f1' : 'white'" class="platformSettingsTextInput"
+                [(ngModel)]="operationAdministrationSettings.ANDROID_APP_STORE" type="text">
+        </div>
+
+        <div class="col-xs-4">
+            <div class="platformSettingsLabel">Application Alert Text</div>
+            <input [disabled]="!editMode" maxlength="255" [style.backgroundColor]="!editMode ? '#f1f1f1' : 'white'" class="platformSettingsTextInput"
+                [(ngModel)]="operationAdministrationSettings.APPLICATION_ALERT.AlertText" type="text">
+        </div>
+
+        <div class="col-xs-4">
+            <div class="platformSettingsLabel">Alert Expiry Date</div>
+            <input [disabled]="!editMode" [style.backgroundColor]="!editMode ? '#f1f1f1' : 'white'" class="platformSettingsTextInput"
+                type="datetime-local" [(ngModel)]="operationAdministrationSettings.APPLICATION_ALERT.ExpiryDate" />
+        </div>
+    </div>
+</div>

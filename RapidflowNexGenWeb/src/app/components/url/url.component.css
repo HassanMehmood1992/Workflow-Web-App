@@ -1,0 +1,107 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+
+/*
+ModuleID: UrlComponent
+Description: CSS rules and styles for the url component.
+Location: ./url.component.css
+Author: Sheharyar Toor
+Version: 1.0.0
+Modification history: none
+*/
+
+input.ng-invalid {
+    border-color: red !important;
+    border-radius: 4px;
+}
+
+textarea.ng-invalid {
+    border-color: red !important;
+    border-radius: 4px;
+}
+
+.validation {
+    font-size: 11px;
+    color: red;
+    margin-left: 1%;
+}
+
+.urlRequired {
+    border: 1px solid;
+    border-color: red !important;
+    border-radius: 4px;
+    height: auto !important;
+    padding-top: 0.5%
+}
+
+.urlNotRequired {
+    border: 0px solid;
+}
+
+.urlPlaceholder {
+    color: #999999;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    padding-right: 15%;
+}
+
+.disableUrl {
+    min-height: 30px;
+    padding-top: 0.5%;
+    opacity: 0.4;
+}
+
+.topdiv {
+    text-align: left;
+}
+
+.secondDiv {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 2px;
+    color: #bdbdbd;
+}
+
+.cursorlabel {
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.imageSize {
+    width: 24px;
+    height: 24px;
+}
+
+.placeholderpadding {
+    padding-left: 5px;
+}
+
+.displaynone {
+    display: none
+}
+
+#linksdiv {
+    float: left;
+    left: 0px;
+    padding-bottom: 4px;
+    padding-left: 4px;
+    width: 100%
+}
+
+#linksdiv>span {
+    cursor: pointer;
+}
+
+#linksdiv>span>img {
+    width: 20px;
+    display: inline;
+}
+
+.noUrl {
+    margin-left: 10px;
+    font-size: 12px;
+}

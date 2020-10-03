@@ -1,0 +1,32 @@
+<!--
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: ProxyApproverDialogComponent
+Description: HTML file for ProxyApproverDialogComponent.
+Location: ./components/proxy-approver-dialog.component.spec.ts
+Author: Sheharyar Toor
+Version: 1.0.0
+Modification history: none
+*/
+ -->
+<div class="dialogTitle">
+    Proxy Approver
+</div>
+<div class="dialogBody">
+    <div class="row">
+        <app-people-picker [(ngModel)]="proxyApproverDetails" ngDefaultControl [selfSelection]="'false'" [selectionType]="'single'"
+            [controlOptions]="proxyAssigneeOptionsJSON" [fieldName]="'ProxyAssignee'"></app-people-picker>
+    </div>
+
+</div>
+<div class="dialogButtons">
+    <mat-divider></mat-divider>
+
+    <button (click)="saveProxyApproverDetails()" [style.cursor]="proxyApproverDetails.length==0 ? 'not-allowed' : null" [style.color]="proxyApproverDetails.length==0 ? '#a0a0a0' : null"
+        [disabled]="proxyApproverDetails.length==0" class="singleDialogButton">Update</button>
+
+</div>

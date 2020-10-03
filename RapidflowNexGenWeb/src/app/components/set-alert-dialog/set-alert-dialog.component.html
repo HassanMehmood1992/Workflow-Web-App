@@ -1,0 +1,31 @@
+<!--
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: SetAlertDialogComponent
+Description: HTML file for SetAlertDialogComponent.
+Location: ./components/set-alert-dialog.component.html
+Author: Nabil Shahid
+Version: 1.0.0
+Modification history: none
+*/
+ -->
+<div class="dialogTitle">
+  Process Alert
+</div>
+<div class="setAlertDialogBody">
+  <div class="setAlertFieldLabel">Alert Expiry Date</div>
+  <input id="expiryDate" class="setAlertDialogField" type="datetime-local" [(ngModel)]="expiryDate" />
+  <div class="setAlertFieldLabel">Alert Text</div>
+  <textarea maxlength="255" class="setAlertDialogField" [(ngModel)]="alertText"></textarea>
+
+</div>
+<div class="dialogButtons">
+  <mat-divider></mat-divider>
+
+  <button (click)="updateProcessGlobalSettings()" class="singleDialogButton">Update</button>
+
+</div>

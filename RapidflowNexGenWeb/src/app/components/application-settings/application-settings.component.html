@@ -1,0 +1,75 @@
+<!--
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: ApplicationSettingsComponent
+Description: HTML file for application settings component
+Location: ./application-settings.component.spec.ts
+Author: Nabil Shahid
+Version: 1.0.0
+Modification history: none
+*/
+ -->
+<div class="hideoverflowverticle">
+    <div class="mat-toolbar-layout topRow">
+        <nav mat-tab-nav-bar #tabGroup class="settingsNavBar">
+            <a mat-tab-link (click)="platformSettingsSelected=false;" class="mattablink" [routerLink]="['general']" routerLinkActive
+                #gs="routerLinkActive">
+                <img [hidden]="!gs.isActive" class="tab-icons" src="assets/images/process_menu/process_settings_selected.png" />
+                <img [hidden]="gs.isActive" class="tab-icons" src="assets/images/process_menu/process_settings_display.png" />
+                <span class="tab-text">General Settings</span>
+            </a>
+            <a *ngIf="currentUserIsPlatformAdministrator" mat-tab-link (click)="platformSettingsSelected=true;" class="mattablink" [routerLink]="['platform']"
+                routerLinkActive #ps="routerLinkActive">
+                <img [hidden]="!ps.isActive" class="tab-icons" src="assets/images/top_level/application_settings/platform_settings_selected.png"
+                />
+                <img [hidden]="ps.isActive" class="tab-icons" src="assets/images/top_level/application_settings/platform_settings_display.png"
+                />
+                <span class="tab-text">Platform Settings</span>
+            </a>
+            <a *ngIf="currentUserIsSupportPerson" mat-tab-link (click)="platformSettingsSelected=false;" class="mattablink" [routerLink]="['userdevices']"
+                routerLinkActive #und="routerLinkActive">
+                <img [hidden]="!und.isActive" class="tab-icons" src="assets/images/top_level/application_settings/users&devices_selected.png"
+                />
+                <img [hidden]="und.isActive" class="tab-icons" src="assets/images/top_level/application_settings/users&devices_display.png"
+                />
+                <span class="tab-text">Users & Devices</span>
+            </a>
+            <a *ngIf="currentUserIsSupportPerson" mat-tab-link (click)="platformSettingsSelected=false;" class="mattablink" [routerLink]="['errorlogs']"
+                routerLinkActive #errl="routerLinkActive">
+                <img [hidden]="!errl.isActive" class="tab-icons" src="assets/images/top_level/application_settings/Errors_Log_Selected.png"
+                />
+                <img [hidden]="errl.isActive" class="tab-icons" src="assets/images/top_level/application_settings/Errors_Log_Display.png"
+                />
+                <span class="tab-text">Errors Log</span>
+            </a>
+            <a *ngIf="currentUserIsSupportPerson" mat-tab-link (click)="platformSettingsSelected=false;" class="mattablink" [routerLink]="['diagnostics']"
+                routerLinkActive #diag="routerLinkActive">
+                <img [hidden]="!diag.isActive" class="tab-icons" src="assets/images/top_level/application_settings/Diagnostics_display_selected.png"
+                />
+                <img [hidden]="diag.isActive" class="tab-icons" src="assets/images/top_level/application_settings/Diagnostics_display.png"
+                />
+                <span class="tab-text">Diagnostics</span>
+            </a>
+            <span id="platformSettingsEditButton" *ngIf="platformSettingsSelected">
+                <button id="editPlatformSettingsButton" title="Edit" (click)="platformSettingsSelected=true" mat-button class="platformSettingsButton">
+                    <img src="assets/images/top_level/edit_2.png" class="platformSettingsButtonImage" />
+                </button>
+            </span>
+            <span id="platformSettingsSaveCancelButtons" *ngIf="platformSettingsSelected">
+                <button id="cancelPlatformSettingsButton" title="Cancel" (click)="platformSettingsSelected=true" mat-button class="platformSettingsButton">
+                    <img src="assets/images/top_level/close_1.png" class="platformSettingsButtonImage" />
+                </button>
+                <button id="savePlatformSettingsButton" title="Save" (click)="platformSettingsSelected=true" mat-button class="platformSettingsButton">
+                    <img src="assets/images/top_level/tick_1.png" class="platformSettingsButtonImage" />
+                </button>
+            </span>
+        </nav>
+    </div>
+    <div class="MyProcessRow">
+        <router-outlet></router-outlet>
+    </div>
+</div>

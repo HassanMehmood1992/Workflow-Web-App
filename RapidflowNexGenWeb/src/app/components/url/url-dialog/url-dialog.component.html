@@ -1,0 +1,36 @@
+<!--
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: UrlDialogComponent
+Description: HTML file for the url dialog component.
+Location: ./url/url-dialog.component.html
+Author: Sheharyar Toor
+Version: 1.0.0
+Modification history: none
+*/
+ -->
+<div class="dialogTitle">
+    {{selectorHeading}}
+</div>
+<form #urlForm="ngForm" ngNativeValidate>
+    <div class="dialogBody">
+        <div class="topRow">
+            <div class="form-group">
+                <label class="control-label" for="Title">Title</label>
+                <input placeholder="Title" class="form-control" type="text" [(ngModel)]="title" id="Title" name="Title" maxlength="150" #Title="ngModel" required>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="Url">URL</label>
+                <input placeholder="http//www.abbvie.com" class="form-control" type="url" pattern="https?://.+" [(ngModel)]="url" id="Url" name="Url" maxlength="250" #Url="ngModel" required>
+            </div>
+        </div>
+    </div>
+    <mat-list-item class=" MyProcessBottomRow row" mat-button>
+        <button class="col-xs-6  mat-button" mat-button (click)="confirmSelection()" [disabled]="!urlForm.valid" [style.color]="urlForm.valid ? '#007aff':'#6d6d6d'" [style.cursor]="urlForm.valid ? 'pointer':'not-allowed'">ADD</button>
+        <button class="col-xs-6  mat-button " mat-button (click)="closeDialog()">CLOSE</button>
+    </mat-list-item>
+</form>

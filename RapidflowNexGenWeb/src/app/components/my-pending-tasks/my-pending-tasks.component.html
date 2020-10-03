@@ -1,0 +1,25 @@
+<!-- 
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: MyPendingTasksComponent
+Description: HTML file for view of my pending tasks component.
+Location: ./my-pending-tasks.component.html
+Author: Amir Hussain
+Version: 1.0.0
+Modification history: none
+*/
+-->
+<mat-progress-bar class="loaderStyle" *ngIf="tasksLoading" mode="query">
+</mat-progress-bar>
+
+<app-tile-list *ngIf="myPendingTasksObject.length>0" [listItems]="myPendingTasksObject" [currentFilterObject]="" [listType]="'myPendingTasks'"></app-tile-list>
+<div class="notAvailableDiv" *ngIf="myPendingTasksObject.length==0&&!tasksLoading">
+    <div class="notAvailableMessage">
+        No pending tasks available.
+    </div>
+
+</div>

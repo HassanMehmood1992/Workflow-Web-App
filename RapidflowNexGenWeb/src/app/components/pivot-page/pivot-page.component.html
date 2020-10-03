@@ -1,0 +1,49 @@
+<!--
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: PivotPageComponent
+Description: HTML file for PivotPageComponent
+Location: ./pivot-page.component.html
+Author: Nabil Shahid
+Version: 1.0.0
+Modification history: none
+*/
+-->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/pivottable/2.15.0/pivot.min.css" rel="stylesheet">
+<mat-list class="topRow">
+    <mat-list-item class="mat-list-item-border" id="pivotPageNavBar">
+        <app-nav-bar [NavArray]="navArray"></app-nav-bar>
+        <span class="example-fill-remaining-space"></span>
+        <button *ngIf="canPublishPivot" mat-button (click)="openPublishDialog()" class="pivotButton" title="Publish pivot">
+            <img class="tab-icons" src="assets/images/others/publish_pivot_outline.png" class="controlIcons" />
+
+        </button>
+        <button mat-button class="pivotButton" title="Export to excel" (click)="exportToExcel()">
+
+            <img src="assets/images/others/Export_to_excel.png" class="controlIcons" />
+
+        </button>
+        <button *ngIf="!allDataAccess" mat-button class="pivotButton" title="Data filter in effect" (click)="showDataFilterDialog()">
+            <img src="assets/images/process_menu/Submissions/Advisory_web.png" class="controlIcons" />
+        </button>
+    </mat-list-item>
+</mat-list>
+<div class="MyProcessRow">
+
+    <mat-progress-bar class="loaderStyle" *ngIf="pivotLoading" mode="query"></mat-progress-bar>
+    <mat-card class="pivotCard" *ngIf="!noPermission">
+        <div id="pivotUIDiv">
+            <div id="output"></div>
+        </div>
+    </mat-card>
+    <div class="notAvailableDiv" *ngIf="noPermission">
+        <div class="notAvailableMessage">
+            You don't have permission on this view.
+        </div>
+    </div>
+
+</div>

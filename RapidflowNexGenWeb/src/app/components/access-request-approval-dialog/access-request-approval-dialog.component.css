@@ -1,0 +1,125 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+
+/*
+ModuleID: AccessRequestApprovalDialogComponent
+Description: CSS rules and styles for access request approval dialog component.
+Location: ./access-request-approval-dialog.component.css
+Author: Amir Hussain
+Version: 1.0.0
+Modification history: none
+*/
+
+.mat-form-field.mat-form-field {
+    width: auto;
+}
+
+::ng-deep.mat-list-item-content {
+    height: auto;
+}
+
+::ng-deep.dialogBody {
+    padding-left: 35px;
+    padding-top: 15px;
+    font-size: 15px;
+    color: #95989A;
+}
+
+::ng-deep.publishFormField {
+    width: 360px;
+}
+
+::ng-deep.mat-input-underline {
+    display: none;
+}
+
+::ng-deep.mat-select-value-text {
+    white-space: unset !important;
+    color: #007AFF;
+    display: block;
+    /* Fallback for non-webkit */
+    display: -webkit-box;
+    max-width: 400px;
+    height: 15px*1.4*3;
+    /* Fallback for non-webkit */
+    margin: 0 auto;
+    font-size: 15px;
+    line-height: 1.4;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* $font-size: 26px;
+$line-height: 1.4;
+$lines-to-show: 3; */
+
+::ng-deep.md-input-focused label {
+    display: none
+}
+
+#pivotUIDiv {
+    padding: 15px;
+}
+
+ ::ng-deep.mat-select-arrow {
+    margin-top: 20px !important;
+}
+
+ ::ng-deep.publishButton {
+    color: #007AFF;
+    font-size: 17px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.loaderStyle {
+    margin-top: 10px;
+}
+
+ ::ng-deep.mat-dialog-container {
+    padding: 0px !important;
+}
+
+.controlIcons {
+    height: 24px;
+    width: 24px;
+}
+
+mat-button {
+    font-weight: 300;
+    color: #071D49;
+}
+
+.pvtAxisLabel {
+    color: black;
+}
+
+#accessRequestBottomRow {
+    color: #1980E8;
+    border-top: 0.5px solid lightgrey
+}
+
+.accessRequestApproveButton {
+    border-right: 0.5px solid lightgrey
+}
+
+.MyProcessRow {
+    padding: 15px
+}
+
+small-images-border-raduis {
+    width: 35px
+}
+
+.approval-dialog-comments-box {
+    width:100% !important;
+}

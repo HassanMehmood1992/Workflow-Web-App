@@ -1,0 +1,50 @@
+<!-- 
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: AuthenticateUserDialogComponent
+Description: HTML file for view of authenticate user dialog component.
+Location: ./authenticate-user-dialog.component.html
+Author: Sheharyar Toor
+Version: 1.0.0
+Modification history: none
+*/
+-->
+<div class="hideoverflowverticle">
+  <div class="dialogTitle">
+    {{data.title}}
+  </div>
+  <div class="dialogBody MyProcessRow authenticate-user-body">
+    <mat-list>
+      <mat-list-item class="mat-list-item ">
+          <div *ngIf="validatingUser" class="authenticate-user-header">
+              <img class="authenticate-user-spinner" src="assets/images/others/rapidflow-spiral.svg" /> Reautheticating user...
+          </div>
+        <div *ngIf="!validatingUser" class="row">
+          <div class="">
+            <div class="form-group authenticate-user-name">
+                <label>{{data.currentUserName}}</label>
+            </div>
+            <div class="form-group authenticate-user-password-div">
+              <div class="input-group authenticate-user-password-sub-div">
+                <span class="input-group-addon authenticate-user-password-span">
+                  <img width="20" src="assets/images/login_screen/login_password.png">
+                </span>
+                <input class="form-control authenticate-user-password" type="password" maxlength="50" autocomplete="off" placeholder="Password" value="" [(ngModel)]="userPasswordInput"
+                  #ctrl="ngModel" [ngModelOptions]="{standalone: true}" >
+              </div>
+            </div>
+            <div *ngIf="invalidUser" class="authenticate-user-validation">Invalid Username or Password.</div>
+          </div>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <mat-list-item class="MyProcessBottomRow row" mat-button>
+    <div *ngIf="!validatingUser" class="col-xs-6  mat-button authenticate-user-okie-btn" [style.cursor]="userPasswordInput.length==0 ? 'not-allowed' : null" [style.color]="userPasswordInput.length==0 ? '#6d6d6d':'#1980E8'" mat-button (click)="autheticateUser(true)">AUTHENTICATE</div>
+    <div *ngIf="!validatingUser" class="col-xs-6  mat-button authenticate-user-cancel-btn" mat-button (click)="autheticateUser(false)">CANCEL</div>
+  </mat-list-item>
+</div>

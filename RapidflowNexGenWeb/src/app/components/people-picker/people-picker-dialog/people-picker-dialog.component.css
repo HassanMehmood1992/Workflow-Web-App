@@ -1,0 +1,102 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: PeoplePickerDialogComponent
+Description: CSS rules and styles for the people picker dialog component.
+Location: ./people-picker-dialog.component.css
+Author: Sheharyar Toor
+Version: 1.0.0
+Modification history: none
+*/
+.mat-dialog-container {
+    padding: 0px !important;
+}
+
+.autocomplete-list {
+    min-height:10vh;
+    max-height:25vh;
+    overflow-y:auto;background: white;
+}
+
+.autocomplete-list ul {
+    margin: 0;
+    padding: 0;
+}
+
+.autocomplete-list ul li {
+    cursor: pointer;
+    list-style: inside none none;
+    padding: 5px 5px 5px 10px;
+}
+
+.autocomplete-list ul li.autocomplete-active {
+    background-color: white;
+    box-shadow: 0 1px 8px 0 rgb(204, 192, 192), 0 13px 0px 0 rgb(255, 249, 249);
+}
+
+.autocomplete-active {
+    color: black;
+}
+
+.dialogBody {
+    padding: 0%;
+}
+
+.people-picker-dialog-body {
+    max-height:80vh;min-height:20vh;background:white
+}
+
+.people-picker-dialog-top-row {
+    background: white;
+}
+
+.people-picker-dialog-list {
+    height: 50px !important;
+}
+
+.people-picker-dialog-list-div {
+    cursor:pointer
+}
+
+.people-picker-dialog-search-field {
+    padding-bottom: 2%; margin-left: 0%;
+}
+
+.people-picker-dialog-done-btn {
+    min-height:0px;padding:0px;margin-top:0px;color:blue;min-width:10%;background: lightgrey;width:15%;    float: right;
+}
+
+.people-picker-dialog-alert {
+    font-size:12px !important;width:100%
+}
+
+.people-picker-dialog-current-selection-div {
+    margin:0PX !important;
+}
+
+.people-picker-dialog-current-selection-text {
+    padding-left: 10px; 
+    border-top: 0.5px solid darkgray; 
+    border-bottom: 0.5px solid lightgrey; text-align: left; 
+    BORDER-RADIUS: 0PX !important; 
+    background: #eeeeee; color: black; font-size: 14px; 
+    box-shadow: 0 1px 0px 0 rgb(204, 192, 192), 0 0px 0px 0 rgb(255, 249, 249);
+}
+
+.users-ul {
+    list-style-type:none;
+    margin:0;padding:0;
+    display:inline;
+    background:white;
+}
+
+.remove-user-icon {
+    cursor: pointer;float:right;
+}
+
+.results {
+    max-height:40vh;overflow-y:auto;min-height:10vh;    margin-bottom: 13px;
+}

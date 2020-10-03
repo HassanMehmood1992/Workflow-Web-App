@@ -1,0 +1,25 @@
+<!-- 
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: ProcessComponent
+Description: HTML file for view of process component.
+Location: ./process.component.html
+Author: Amir Hussain
+Version: 1.0.0
+Modification history: none
+*/
+-->
+<div class="hideoverflowverticle">
+    <router-outlet></router-outlet>
+    <p *ngIf="alertfound" class="alertStyle">
+        <ngb-alert *ngIf="!closed" (close)="closed=true" type='danger' [dismissible]="true">
+            <span [innerHTML]="alertMessage">
+
+            </span>
+        </ngb-alert>
+    </p>
+</div>

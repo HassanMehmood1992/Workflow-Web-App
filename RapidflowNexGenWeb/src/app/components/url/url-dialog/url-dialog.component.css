@@ -1,0 +1,44 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+
+/*
+ModuleID: UrlDialogComponent
+Description: CSS rules and styles for the url dialog component.
+Location: ./url/url-dialog.component.css
+Author: Sheharyar Toor
+Version: 1.0.0
+Modification history: none
+*/
+
+input.ng-invalid {
+    border-color: red !important;
+    border-radius: 4px;
+}
+
+.dialogBody {
+    max-height: 80vh;
+    min-height: 20vh;
+    background: white
+}
+
+.topRow {
+    background: white;
+    border: 0px;
+}
+
+.form-group {
+    height: 40px;
+}
+
+.MyProcessBottomRow {
+    color: #1980E8;
+    border-top: 0.5px solid lightgrey;
+}
+
+.mat-button {
+    text-align: center;
+    cursor: pointer;
+}

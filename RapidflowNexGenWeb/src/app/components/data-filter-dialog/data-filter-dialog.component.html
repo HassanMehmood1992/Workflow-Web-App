@@ -1,0 +1,46 @@
+<!--
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: DataFilterDialogComponent
+Description: HTML file for data filter dialog component.
+Location: ./data-filter-dialog.component.html
+Author: Nabil Shahid
+Version: 1.0.0
+Modification history: none
+*/
+-->
+<span *ngIf="dialogType=='dataFilterInEffectMessage'">
+  <div class="dialogTitle">Data Filter in Effect</div>
+  <div class="dataFilterDiv">
+    Displayed data is security trimmed as per your authorizations.
+  </div>
+  <hr flex id="dataFilterButtonBorder" />
+
+  <div class="row closeButton" (click)="closeDialog()">
+    Close
+
+  </div>
+</span>
+<span *ngIf="dialogType=='directoryOraganizationFilter'">
+  <div class="dialogTitle">Organizations</div>
+
+  <div id="organizationFilterBody">
+    <input type="text" class="form-control" placeholder="Filter contents below..." [(ngModel)]="searchString">
+    <br/>
+    <div id="organizationTableDiv">
+      <table class="table table-striped table-hover">
+        <tr *ngFor="let org of organizations | filterArray:searchString">
+          <td (click)="applyFilter(org.OrganizationName)" class="organizationCol"> {{org.OrganizationName}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div *ngIf="selectedOrganization!=''" class="dialogButtons">
+    <mat-divider></mat-divider>
+    <button (click)="clearFilter()" class="singleDialogButton">Clear</button>
+  </div>
+</span>

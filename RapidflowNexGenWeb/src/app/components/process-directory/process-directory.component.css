@@ -1,0 +1,229 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+
+/*
+ModuleID: ProcessDirectoryComponent
+Description: CSS rules and styles for the process directory component.
+Location: ./process-directory.component.css
+Author: Sheharyar Toor
+Version: 1.0.0
+Modification history: none
+*/
+
+.mattablink {
+    padding-left: 1%;
+    cursor: pointer;
+    box-sizing: border-box;
+    opacity: 1.0;
+    min-width: 10px;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: top;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.tab-text {
+    margin-left: 14px;
+    color: #071D49;
+}
+
+.mattablink {
+    padding-left: 1%;
+    cursor: pointer;
+    box-sizing: border-box;
+    opacity: 1.0;
+    min-width: 10px;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: top;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.tab-text {
+    margin-left: 14px;
+    color: #071D49;
+}
+
+.firstLineText {
+    font-size: 17px;
+    font-weight: 500;
+    color: #000000;
+    line-height: 1;
+    display: block;
+    overflow: hidden !important;
+}
+
+.firstLineText1 {
+    font-size: 15px;
+    font-weight: 400;
+    color: #000000;
+    line-height: 1;
+    margin-top: 0.5%;
+    padding-bottom: 0.3%;
+    display: block;
+    overflow: hidden !important;
+}
+
+.secondLineText {
+    font-family: Roboto;
+    font-size: 12px;
+    color: #8E8E93;
+    line-height: 1.2;
+    margin: 0.5% 0% 1% 0%;
+}
+
+.rightText {
+    font-family: Roboto;
+    font-size: 17px;
+    margin-left: 10%;
+    color: #8E8E93;
+}
+
+.fullWidth {
+    width: 100%;
+}
+
+.leftSectionWidth {
+    width: 85%;
+}
+
+.rightSectionWidth {
+    width: 15%;
+    padding-left: 2%;
+}
+
+.rightSectionToggleFormatting {
+    width: 15%;
+    float: right;
+    margin-right: 36%;
+}
+
+.detailsText {
+    font-family: Roboto;
+    font-size: 15px !important;
+    color: #071D49;
+}
+
+div.mat-menu-panel {
+    width: 160px !important;
+}
+
+div.mat-menu-content {
+    width: 160px !important;
+}
+
+.mat-dialog-container {
+    border-radius: 15px !important;
+    overflow-x: hidden !important;
+    background-color: #ededed;
+}
+
+.scrollModal {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.organizationFilterImage {
+    width: 24px;
+    margin-left: 3px;
+}
+
+#filterOrganizationsSpan {
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: -4px;
+}
+
+.div-p-img {
+    padding: 0% 0% 0% 1%;
+    width: 7%;
+}
+
+.div-p-txt {
+    padding: 0% 0% 0% 0%;
+    width: 85%;
+}
+
+@media screen and (max-width:1024px) {
+    .div-p-txt {
+        padding: 0% 0% 0% 4%;
+        width: 85%;
+    }
+    .div-p-img {
+        padding: 0% 0% 0% 3%;
+        width: 7%;
+    }
+}
+
+.hideoverflowverticle {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.topRow {
+    height: 50px !important;
+}
+
+.progressbartopdiv {
+    width: 100%;
+    float: left
+}
+
+.progressbardiv {
+    width: 100%;
+}
+
+.directoryItemStyle {
+    padding-left: 3%;
+    padding-top: 1%;
+    padding-bottom: 0.5%;
+    border-bottom: 0.5px solid lightgrey;
+}
+
+.matmenuitem {
+    padding: 0% 0% 0% 10%;
+}
+
+.matmenuitemForFavourites {
+    border-bottom: 0.5px solid #eeeeee;
+    width: 160px !important;
+}
+
+.MatMenueList {
+    width: 120% !important;
+}
+
+.cursorPointer {
+    cursor: pointer;
+}
+
+.imageMargin {
+    margin-right: 8%;
+}
+
+.menuwidth {
+    width: 160px
+}
+
+.loadMore {
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.invisibleButton {
+    width: 10px;
+    border: none;
+    background: none;
+}

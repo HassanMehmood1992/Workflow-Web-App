@@ -1,0 +1,24 @@
+<!-- 
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: DateTimePickerComponent
+Description: HTML file for view of date time picker component.
+Location: ./date-time-picker.component.html
+Author: Sheharyar Toor
+Version: 1.0.0
+Modification history: none
+*/
+-->
+<div>
+    <input id="{{fieldName}}" [(ngModel)]="ngModel" name="{{fieldName}}" class="{{className}} date-picker-input" [owlDateTimeTrigger]="dt3" [owlDateTime]="dt3" [min]="controlOptions.minDate" [max]="controlOptions.maxDate" [selectMode]="controlOptions.selectMode"
+        [rangeSeparator]="controlOptions.rangeSeparator" (dateTimeChange)="dateTimeChange()" readonly attr.value="{{formatDate()}}" [ngClass]="{'enableDatePicker': !controlOptions.disabled, 'disableDatePicker': controlOptions.disabled , 'datePickerRequired': !ngModel && controlOptions.required, 'datePickerNotRequired': ngModel}">
+    <owl-date-time (afterPickerOpen)="afterPickerOpen()" (afterPickerClosed)="afterPickerClosed()" [pickerType]="controlOptions.pickerType" [pickerMode]="controlOptions.pickerMode" [startView]="controlOptions.startView" [startAt]="controlOptions.startAt"
+        [disabled]="controlOptions.disabled" [hour12Timer]="controlOptions.hour12Timer" [stepHour]="controlOptions.stepHour" [stepMinute]="controlOptions.stepMinute" [stepSecond]="controlOptions.stepSecond" #dt3></owl-date-time>
+    <div class="validation" *ngIf="!ngModel && controlOptions.required && clicked">
+        {{controlOptions.validationText}}
+    </div>
+</div>

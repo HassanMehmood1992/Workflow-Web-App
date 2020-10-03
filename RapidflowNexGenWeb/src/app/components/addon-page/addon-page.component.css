@@ -1,0 +1,28 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: AddonPageComponent
+Description: CSS rules and styles for addon page component.
+Location: ./addon-page.component.css
+Author: Nabil Shahid
+Version: 1.0.0
+Modification history: none
+*/
+.loaderStyle{
+    margin-top: 10px;
+}
+.controlIcons{
+    height: 24px;
+    width:24px;
+}
+.addonCard{
+    padding:10px;
+    display: inline-block !important;
+    min-width: 98%;
+}
+#addOnPageHeader{
+    height: 50px !important;
+}

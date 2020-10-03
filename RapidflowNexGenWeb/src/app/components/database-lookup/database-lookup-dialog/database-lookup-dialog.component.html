@@ -1,0 +1,80 @@
+<!-- 
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: DatabaseLookupDialogComponent
+Description: HTML file to view the database lookup dialog component.
+Location: ./database-lookup/database-lookup-dialog.component.html
+Author: Sheharyar Toor
+Version: 1.0.0
+Modification history: none
+*/
+-->
+<div class="hideoverflowverticle plookupDiv">
+    <div class="dialogTitle">
+        {{data.lookupDetails.selectorHeading}}
+    </div>
+    <mat-list class="topRow database-lookup-dialog-header">
+        <mat-list-item class="mat-list-item-border database-lookup-dialog-list-input">
+            <input type="text" class="form-control database-lookup-dialog-list-input-width" maxlength="50" placeholder="Filter contents below..." [(ngModel)]="searchString">
+        </mat-list-item>
+        <mat-expansion-panel class="database-lookup-dialog-list-input-width" *ngIf="tempNgModel.length > 0 && data.lookupDetails.selectionType != 'single'" #matExpansionPanel>
+            <mat-expansion-panel-header class="database-lookup-dialog-expansion-panel-header">Selected
+            </mat-expansion-panel-header>
+            <ul class="ExpansionList database-lookup-dialog-expansion-panel-ul" >
+                <li *ngFor="let item of tempNgModel">
+                    <span>{{item}}</span>
+                </li>
+            </ul>
+        </mat-expansion-panel>
+    </mat-list>
+    <div class="dialogBody MyProcessRow database-lookup-dialog-sub-body">
+        <div *ngIf="!loadingRecords">
+            <table class="table table-striped table-hover database-lookup-dialog-table">
+                <thead class="database-lookup-dialog-table-head">
+                    <tr>
+                        <th *ngIf="data.lookupDetails.selectionType != 'single'">
+                            <input type="checkbox" (ngModelChange)="selectAll($event)" [(ngModel)]="isAllSelected">
+                        </th>
+                        <th *ngFor="let column of cols" (click)="sortColumn(column)" class="database-lookup-dialog-table-header">
+                            {{column.columnHeading}}
+                            <span class="glyphicon sort-icon" *ngIf="(sortKey == column.columnName)" [ngClass]="{'glyphicon-chevron-up':column.sortArrow,'glyphicon-chevron-down':!column.sortArrow}"></span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr (click)="setLookupValues(row)" *ngFor="let row of rows | filterArrayLookupDialog:searchString:cols | paginate: paginationConfig">
+                        <td *ngIf="data.lookupDetails.selectionType != 'single'">
+                            <input type="checkbox" [checked]="row.isChecked">
+                        </td>
+                        <td class="database-lookup-dialog-table-header" *ngFor="let column of cols">
+                            <span *ngIf="column.type == 'peoplepicker' && column.columnHeading != undefined">{{row[column.columnName][0].DisplayName}}</span>
+                            <span *ngIf="column.type == 'text'  && column.columnHeading != undefined">{{row[column.columnName]}}</span>
+                            <span *ngIf="column.type == 'url'  && column.columnHeading != undefined">
+                                <span *ngFor="let url of row[column.columnName]">
+                                    <a href="{{url.url}}">{{url.title}}</a>;
+                                </span>
+                            </span>
+                            <span *ngIf="column.type == 'datetime' && column.columnHeading != undefined">{{formatDateTime('datetime',row[column.columnName])}}</span>
+                            <span *ngIf="column.type == 'date'  && column.columnHeading != undefined">{{formatDateTime('date',row[column.columnName])}}</span>
+                            <span *ngIf="column.type == 'time'  && column.columnHeading != undefined">{{formatDateTime('time',row[column.columnName])}}</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="lookupPagination" *ngIf="rows.length > paginationConfig.itemsPerPage">
+                <pagination-controls (pageChange)="onPageChange($event)" [id]="paginationConfig.id" [maxSize]="maxSize" [previousLabel]="labels.previousLabel" [nextLabel]="labels.nextLabel" [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
+                [screenReaderPageLabel]="labels.screenReaderPageLabel" [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel"></pagination-controls>
+            </div>
+        </div>
+    </div>
+    <mat-list-item class=" MyProcessBottomRow row database-lookup-dialog-footer">
+        <div class="database-lookup-dialog-footer-div">
+            <button *ngIf="data.lookupDetails.selectionType != 'single'" (click)="confirmSelection()" class="btn database-lookup-dialog-btns">Confirm</button>
+            <button (click)="clearSelection()" class="btn database-lookup-dialog-btns">Clear</button>
+        </div>
+    </mat-list-item>
+</div>

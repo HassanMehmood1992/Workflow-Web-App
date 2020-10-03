@@ -1,0 +1,41 @@
+<!--
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: DiagnosticLoggingSetDialogComponent
+Description: HTML file for DiagnosticLoggingSetDialogComponent.
+Location: ./diagnostic-logging-set-dialog.component.html
+Author: Nabil Shahid
+Version: 1.0.0
+Modification history: none
+*/
+ -->
+<div class="dialogTitle">
+    Configure Diagnostic Logging
+</div>
+<div class="dialogBody">
+    <div class="row">
+        <div class="col-xs-4">
+            Start Date Time:
+        </div>
+        <div class="col-xs-8">
+            <input type="datetime-local" [(ngModel)]="diagnosticLoggingDetails.StartDate" id="diagnosticStartDate">
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-xs-4">
+            Duration(minutes):
+        </div>
+        <div class="col-xs-8">
+            <input type="number" [(ngModel)]="diagnosticLoggingDetails.Duration" min="5" max="180" step="1" onkeydown="return false" class="diagnosticLoggingDuration" />
+        </div>
+    </div>
+    <mat-divider id="diagnosticLoggingButtonBorder"></mat-divider>
+    <div mat-dialog-actions class="row diagnosticLogrow">
+        <button (click)="updateDiagnosticLogging()"  id="diagnosticLoggingUpdateButton">Update</button>
+    </div>
+</div>

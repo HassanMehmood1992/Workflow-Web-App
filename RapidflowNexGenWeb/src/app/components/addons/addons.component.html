@@ -1,0 +1,36 @@
+<!-- 
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: AddonsComponent
+Description: HTML file for view of addons component.
+Location: ./addons.component.html
+Author: Amir Hussain
+Version: 1.0.0
+Modification history: none
+*/
+-->
+<div class="hideoverflowverticle">
+    <span *ngFor="let item of addOns|filterArray:searchStr">
+            <mat-list class="topRow" *ngIf="item.Availability.toLowerCase()=='both'||item.Availability.toLowerCase()=='web'">
+                    <mat-list-item tabindex="0" (keyup.enter)="moveToAddons(item)" class="mat-list-item-border mat-list-item-ripple mat-list-option"  (click)="moveToAddons(item)">
+                        <h3 mat-line class="itemTitle">{{item.Title}}</h3>
+                        <p mat-line class="objectItemDescription">
+                            <span class="itemDescription">{{item.Description}}</span>
+    </p>
+    </mat-list-item>
+    </mat-list>
+    </span>
+
+    <mat-progress-bar class="loaderStyle" *ngIf="addonsLoading" mode="query">
+    </mat-progress-bar>
+
+    <div class="notAvailableDiv" *ngIf="!addOnsAvailable">
+        <div class="notAvailableMessage">
+            No addon available.
+        </div>
+    </div>
+</div>

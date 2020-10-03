@@ -1,0 +1,33 @@
+<!-- 
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: ConfirmationDialogComponent
+Description: HTML file for the confirmation dialog component.
+Location: ./confirmation-dialog.component.html
+Author: Sheharyar Toor
+Version: 1.0.0
+Modification history: none
+*/
+-->
+<div class="hideoverflowverticle">
+  <div class="dialogTitle">
+      {{data.title}}
+  </div>
+  <div class="dialogBody MyProcessRow confirmation-dialog-body" >
+      <mat-list>
+          <mat-list-item class="mat-list-item ">
+              <div class="row">
+                  <span class="confirmation-dialog-message" [innerHTML]="data.message"></span>
+              </div>
+          </mat-list-item>
+      </mat-list>
+  </div>
+  <mat-list-item class=" MyProcessBottomRow row confirmation-dialog-footer" mat-button>
+      <div class="col-xs-6  mat-button confirmation-dialog-btn" id="confirmButton" mat-button (click)="closeDialog(true)">YES</div>
+      <div class="col-xs-6  mat-button confirmation-dialog-btn" id="notConfirmButton" mat-button (click)="closeDialog(false)">NO</div>
+  </mat-list-item>
+</div>

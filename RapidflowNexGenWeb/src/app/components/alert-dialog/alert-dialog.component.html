@@ -1,0 +1,33 @@
+<!-- 
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: AlertDialogComponent
+Description: HTML file for the alert dialog component.
+Location: ./alert-dialog.component.html
+Author: Sheharyar Toor
+Version: 1.0.0
+Modification history: none
+*/
+-->
+
+<div class="hideoverflowverticle">
+  <div class="dialogTitle">
+      {{data.title}}
+  </div>
+  <div class="alertDialogBody" >
+      <mat-list>
+          <mat-list-item class="mat-list-item ">
+              <div class="row">
+                  <span class="alert-dialog-message" [innerHTML]="data.message"></span>
+              </div>
+          </mat-list-item>
+      </mat-list>
+  </div>
+  <mat-list-item class="MyProcessBottomRow row alert-dialog-list" mat-button>
+      <div id="okButton" class="col-xs-12  mat-button alert-dialog-button" mat-button (click)="closeDialog()">OK</div>
+  </mat-list-item>
+</div>

@@ -1,0 +1,286 @@
+<!-- 
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: TileListComponent
+Description: HTML file for view of tile list component.
+Location: ./tile-list.component.html
+Author: Nabil Shahid
+Version: 1.0.0
+Modification history: none
+*/
+-->
+
+<div *ngIf="listType=='submissions'">
+
+    <mat-expansion-panel #matExpansionPanel (opened)="toggleRoutingOn(((config.currentPage-1)*config.itemsPerPage-1)+i+1)" class="rfngExpension"
+        (closed)="toggleRoutingOff(((config.currentPage-1)*config.itemsPerPage-1)+i+1)" *ngFor="let item of listItems; let i=index ">
+        <mat-expansion-panel-header class="rfngExpensionheader" (click)="expandPanel(matExpansionPanel, $event)">
+            <div class="row rfngExpensionrow" (click)="openForm(item)">
+                <div class="col-xs-9">
+                    <table>
+                        <tr>
+                            <td>
+                                <img src="assets/images/process_menu/Form.png">
+                            </td>
+                            <td>
+                                <span class="itemTitle">{{item.Reference}}</span>
+                                <br/>
+                                <span *ngIf="item.Status!='SAVED'" class="itemSubtitle">
+                                    {{item.DateInitiated.toUpperCase()}}
+                                </span>
+
+                                <span *ngIf="item.Status=='SAVED'" class="itemSubtitle">
+                                    {{item.SavedDateTime.toUpperCase()}}
+                                </span>
+                            </td>
+                        </tr>
+
+
+                    </table>
+                    <div *ngIf="!item.Expanded" class="itemDescriptionTruncated">
+                        {{item.DescriptionValue | decodeUriComponent}}
+                    </div>
+                </div>
+                <div (click)="openDialog(item)" *ngIf="item.Status==pendingStatusVal" class="col-xs-3 rightDetails">
+                    <span class="firstLineRight">
+                        {{item.PendingTaskName}}
+                    </span>
+                    <br/>
+                    <span class="secondLineRight">
+                        <img src="assets/images/others/webtop_user.png">{{item.PendingTaskAssigneeName}}
+                    </span>
+                    <br/>
+                    <span class="secondLineRight">
+                        <img src="assets/images/others/stopwatch.png">&nbsp;{{item.PendingSince | formatOffsetDate: item.ProcessOffset}}
+                    </span>
+                </div>
+                <div *ngIf="item.Status!=pendingStatusVal" class="col-xs-3 rightDetails" style="padding-top:10px">
+                    <span class="firstLineRight darkgreyStyle">
+                        {{item.DisplayStatus}}
+                        <span *ngIf="item.DeletedOn">(Deleted)</span>
+                    </span>
+                    <br/>
+                    <span *ngIf="item.DateCompleted!=undefined" class="secondLineRight secondlineStyle">
+                        {{item.DateCompleted.toUpperCase()}}
+                    </span>
+                    <span *ngIf="item.DateCompleted==undefined&&item.Status=='PENDING'" class="secondLineRight secondlineStyle">
+                        {{item.DateInitiated.toUpperCase()}}
+                    </span>
+                    <span *ngIf="item.DateCompleted==undefined&&item.Status=='SAVED'" class="secondLineRight secondlineStyle">
+                        {{item.InitiatedByName}}
+                    </span>
+                </div>
+            </div>
+
+        </mat-expansion-panel-header>
+        <div class="row">
+            <div class="itemDescription col-xs-8">
+                {{item.DescriptionValue}}
+            </div>
+            <div class="itemDescription col-xs-2 floatRight">
+                <img (click)="deleteRestoreSavedForm(item,'restore')" *ngIf="item.showRestoreIcon" title="restore form" src="assets/images/top_level/restore_from_trash.png"
+                    class="restoreDeleteStyle" />
+                <img (click)="deleteRestoreSavedForm(item,'delete')" *ngIf="item.showDeleteIcon" title="delete form" src="assets/images/top_level/Remove_1.png"
+                    class="restoreDeleteStyle" />
+            </div>
+        </div>
+
+        <div *ngIf="item.Status==pendingStatusVal" class="marginWidthFull">
+            <span class="itemTitle marginRight">Workflow Routing</span>
+            <div class="row tasksHeader">
+                <div class="col-xs-2 taskDetailStyle">Task Name</div>
+                <div class="col-xs-2 taskDetailStyle">Assigned To</div>
+                <div class="col-xs-2 taskDetailStyle">Result</div>
+                <div class="col-xs-3 taskDetailStyle">Date Completed</div>
+                <div class="col-xs-3 taskDetailStyle">Comments</div>
+            </div>
+            <div class="row" *ngFor="let task of item.FormTasks" [ngClass]="task.Required == 'Yes' ? 'tasksRow':''" [hidden]="task.Required == 'Yes' ? false : true">
+                <div [style.color]="task.Result == 'Pending' ? 'black' : null" class="col-xs-2 taskDetailStyle">{{task.TaskName}}</div>
+                <div [style.color]="task.Result == 'Pending' ? 'black' : null" class="col-xs-2 taskDetailStyle">{{task.AssignedToName}}</div>
+                <div *ngIf="task.Result == 'Pending'" [style.color]="task.Result == 'Pending' ? 'black' : null" class="col-xs-2 taskDetailStyle">{{task.PendingText}}</div>
+                <div *ngIf="task.Result != 'Pending'" [style.color]="task.Result == 'Pending' ? 'black' : null" class="col-xs-2 taskDetailStyle">{{task.Result}}</div>
+                <div [style.color]="task.Result == 'Pending' ? 'black' : null" class="col-xs-3 taskDetailStyle">{{task.DateCompleted | formatOffsetDate: item.ProcessOffset}}</div>
+                <div [style.color]="task.Result == 'Pending' ? 'black' : null" class="col-xs-3 taskDetailStyle">{{task.Comments}}</div>
+            </div>
+        </div>
+    </mat-expansion-panel>
+
+
+
+
+
+</div>
+
+
+
+
+<div *ngIf="listType=='myPendingTasks'">
+
+    <mat-expansion-panel #matExpansionPanel (opened)="toggleRoutingOn(((config.currentPage-1)*config.itemsPerPage-1)+i+1)" class="rfngExpension"
+        (closed)="toggleRoutingOff(((config.currentPage-1)*config.itemsPerPage-1)+i+1)" *ngFor="let item of listItems| filterArray:searchStr; let i=index  ">
+        <mat-expansion-panel-header class="rfngExpensionheader" (click)="expandPanel(matExpansionPanel, $event)">
+            <div class="row rfngExpensionrow" (click)="openForm(item)">
+                <div class="col-xs-9">
+                    <table>
+                        <tr>
+                            <td>
+                                <img [src]="'assets/images/'+item.ImageRelativePath+'.png'">
+                            </td>
+                            <td>
+                                <span class="itemTitle">
+
+                                    {{item.ItemHeader1}}
+                                </span>
+                                <br/>
+                                <span class="itemSubtitle">{{item.ItemHeader2}}
+
+                                </span>
+
+
+                            </td>
+                        </tr>
+
+
+                    </table>
+
+                    <div *ngIf="!item.Expanded&&item.TaskType=='TaskAssignment'" class="itemDescriptionTruncated">
+                        {{item.DescriptionValue | decodeUriComponent}}
+                    </div>
+                    <div *ngIf="!item.Expanded&&item.TaskType=='AccessRequest'" class="itemDescriptionTruncated">
+                        {{item.Message}}
+                    </div>
+                    <div *ngIf="!item.Expanded&&item.TaskType=='ProcessLookupChangeApproval'" class="itemDescriptionTruncated">
+                        <span *ngIf="item.ItemStatus=='delete'">
+                            Item has been Deleted
+                        </span>
+                        <span *ngIf="item.ItemStatus=='restore'">
+                            Item has been Restored
+                        </span>
+                        <span *ngIf="item.ItemStatus=='created'">
+                            Item has been Created
+                        </span>
+                        <span *ngIf="item.ItemStatus=='bulkinsert'">
+                            Multiple items have been Created
+                        </span>
+                        <span *ngIf="item.ItemStatus=='modified'">Item has been Modified
+
+
+                        </span>
+                    </div>
+                </div>
+
+                <div (click)="openDialog(item)" class="col-xs-3 rightDetails" style="padding-top:10px">
+                    <span class="firstLineRight">
+                        {{item.TaskName}}
+                    </span>
+                    <br/>
+                    <span class="secondLineRight marginRight">
+                        <img src="assets/images/others/stopwatch.png"> {{item.PendingSince | formatOffsetDate: item.ProcessOffset}}
+                    </span>
+                </div>
+            </div>
+
+        </mat-expansion-panel-header>
+        <div *ngIf="item.TaskType=='ProcessLookupChangeApproval'">
+            <div class="itemDescriptionTruncated">
+                <span *ngIf="item.ItemStatus=='delete'">
+                    Item has been Deleted
+                </span>
+                <span *ngIf="item.ItemStatus=='restore'">
+                    Item has been Restored
+                </span>
+                <span *ngIf="item.ItemStatus=='created'">
+                    Item has been Created
+                </span>
+                <span *ngIf="item.ItemStatus=='modified'">Item has been Modified
+
+
+                </span>
+                <span *ngIf="item.ItemStatus=='bulkinsert'">
+                    Multiple items have been Created
+
+
+                </span>
+            </div>
+
+            <div *ngIf="item.ItemStatus=='created'||item.ItemStatus=='delete'||item.ItemStatus=='restore'" class="marginWidthFull">
+
+
+                <span class="itemTitle "> Item Details</span>
+                <div class="row tasksHeader">
+                    <div class="col-xs-6 taskDetailStyle">Column</div>
+                    <div class="col-xs-6 taskDetailStyle">Value</div>
+
+                </div>
+                <div class="row tasksRow" *ngFor="let task of item.LookupItem| keys">
+                    <div [style.color]="task.Result == 'Pending' ? 'black' : null" class="col-xs-6 taskDetailStyle">{{parseJSONObject(item.lookupDispalyAndTitleArray)[task.key]}}</div>
+                    <div [style.color]="task.Result == 'Pending' ? 'black' : null" class="col-xs-6 taskDetailStyle">{{retrunstring(task.value)}}</div>
+
+                </div>
+            </div>
+            <div *ngIf="item.ItemStatus=='modified'" class="marginWidthFull">
+
+
+                <div class="col-xs-12">
+                    <span class="itemTitle marginRight"> Item Details</span>
+                    <div class="row tasksHeader">
+                        <div class="col-xs-6 taskDetailStyle">Previous Value</div>
+                        <div class="col-xs-6 taskDetailStyle">Modified Value</div>
+
+                    </div>
+                    <div *ngFor="let task of item.LookupItem| keys">
+                        <div class="row tasksRow">
+                            <div [style.color]="task.Result == 'Pending' ? 'black' : null" class="col-xs-12 taskDetailStyle taskDetailStyle2">{{parseJSONObject(item.lookupDispalyAndTitleArray)[task.key]}}</div>
+
+                        </div>
+                        <div class="row tasksRow" [style.background]="retrunstring(task.value) != retrunstring(parseJSONObject(item.PreviousItem)[task.key]) ? 'lightgrey' : null">
+                            <div class="col-xs-6 taskDetailStyle">{{retrunstring(parseJSONObject(item.PreviousItem)[task.key])}}</div>
+                            <div class="col-xs-6 taskDetailStyle">{{retrunstring(task.value)}}</div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row" *ngIf="item.TaskType=='TaskAssignment'">
+            <div class="itemDescription col-xs-8">
+                {{item.DescriptionValue}}
+            </div>
+        </div>
+        <div class="row" *ngIf="item.TaskType=='AccessRequest'">
+            <div class="itemDescription col-xs-8">
+                Reason : {{item.Reason}}
+            </div>
+        </div>
+
+
+
+        <div *ngIf="item.Status==pendingStatusVal&&item.TaskType=='TaskAssignment'" class="marginWidthFull">
+            <span class="itemTitle marginRight">Workflow Routing</span>
+            <div class="row tasksHeader">
+                <div class="col-xs-2 taskDetailStyle">Task Name</div>
+                <div class="col-xs-2 taskDetailStyle">Assigned To</div>
+                <div class="col-xs-2 taskDetailStyle">Result</div>
+                <div class="col-xs-3 taskDetailStyle">Date Completed</div>
+                <div class="col-xs-3 taskDetailStyle">Comments</div>
+            </div>
+            <div class="row" *ngFor="let task of item.FormTasks" [ngClass]="task.Required == 'Yes' ? 'tasksRow':''" [hidden]="task.Required == 'Yes' ? false : true">
+                <div [style.color]="task.Result == 'Pending' ? 'black' : null" class="col-xs-2 taskDetailStyle">{{task.TaskName}}</div>
+                <div [style.color]="task.Result == 'Pending' ? 'black' : null" class="col-xs-2 taskDetailStyle">{{task.AssignedToName}}</div>
+                <div *ngIf="task.Result == 'Pending'" [style.color]="task.Result == 'Pending' ? 'black' : null" class="col-xs-2 taskDetailStyle">{{task.PendingText}}</div>
+                <div *ngIf="task.Result != 'Pending'" [style.color]="task.Result == 'Pending' ? 'black' : null" class="col-xs-2 taskDetailStyle">{{task.Result}}</div>
+                <div [style.color]="task.Result == 'Pending' ? 'black' : null" class="col-xs-3 taskDetailStyle">{{task.DateCompleted | formatOffsetDate: item.ProcessOffset}}</div>
+                <div [style.color]="task.Result == 'Pending' ? 'black' : null" class="col-xs-3 taskDetailStyle">{{task.Comments}}</div>
+            </div>
+        </div>
+
+    </mat-expansion-panel>
+</div>

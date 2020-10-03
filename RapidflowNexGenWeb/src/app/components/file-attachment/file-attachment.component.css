@@ -1,0 +1,61 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: FileAttachmentComponent
+Description: CSS rules and styles for file attachment component.
+Location: ./file-attachment.component.css
+Author: Sheharyar Toor
+Version: 1.0.0
+Modification history: none
+*/
+
+input.ng-invalid{border-color: red !important; border-radius: 4px;} 
+textarea.ng-invalid{border-color: red !important; border-radius: 4px;}
+.validation{ font-size:11px;color:red;margin-left: 1%;}
+.fileAttachmentRequired{
+  border: 1px solid;
+  border-color: red !important; 
+  border-radius: 4px;
+}
+.fileAttachmentNotRequired{
+  border: 0px solid;
+}
+
+.file-attachment-div {
+  padding-top:2px;padding-bottom:2px;padding-left:2px;color:#bdbdbd;
+}
+
+.file-attachment-label {
+  cursor: pointer;
+}
+
+.file-attachment-icon {
+  width:30px;height:30px;
+}
+
+.file-attachment-choose-file-span {
+  padding-left:5px;
+}
+
+.file-attachment-input {
+  display:none
+}
+
+.file-attachment-list-div {
+  margin-left:2px;font-size:12px;
+}
+
+.file-attachment-list-sub-div{
+  padding-bottom: 4px;
+}
+
+.file-attachment-remove-file-icon {
+  cursor:pointer;width:30px;height:30px;
+}
+
+.file-attachment-footer {
+  margin-left:10px;font-size:12px;
+}

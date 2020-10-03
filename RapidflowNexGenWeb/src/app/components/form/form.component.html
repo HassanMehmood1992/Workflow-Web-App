@@ -1,0 +1,41 @@
+<!--
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: FormComponent
+Description: HTML file for form component.
+Location: ./form.component.html
+Author: Sheharyar Toor
+Version: 1.0.0
+Modification history: none
+*/
+ -->
+<div class="hideoverflowverticle">
+    <mat-list class="topRow">
+        <mat-list-item class="mat-list-item-border form-header" >
+            <app-nav-bar [NavArray]="NavArray"></app-nav-bar>
+            <span *ngIf="Status!='INITIATING'">
+                    <span class="backbutton form-go-back-icon" (click)="goBack()">
+                        <img src="assets\images\top_level\left_arrow.png" width="24px" />
+                        </span>
+
+            <span id="Reference">{{Reference}}</span>
+            </span>
+            <span class="example-fill-remaining-space"></span>
+            <button class="form-option-icon" *ngIf="Status=='COMPLETED' || Status=='TERMINATED' || Status=='REJECTED'" (click)='downloadPDF()' mat-button 
+            id="downloadPDF" title="Download PDF">
+                <img  src="assets/images/others/export_to_pdf_2.png" width="24px" class="controlIcons"  />
+           </button>
+            <button mat-button class="form-option-icon" (click)="shareForm()" title="Copy and share form url">
+                <img  src="assets/images/top_level/Share_1.png" width="24px" class="controlIcons"  />
+           </button>
+        </mat-list-item>
+    </mat-list>
+    <div class="MyProcessRow">
+        <div id="createNew" #createNew layout="column">
+        </div>
+    </div>
+</div>

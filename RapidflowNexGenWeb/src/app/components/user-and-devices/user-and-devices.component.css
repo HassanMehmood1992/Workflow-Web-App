@@ -1,0 +1,121 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+
+/*
+ModuleID: UserAndDevicesComponent
+Description: CSS file for UserAndDevicesComponent.
+Location: ./components/user-and-devices.component.css
+Author: Nabil Shahid
+Version: 1.0.0
+Modification history: none
+*/
+
+@import '../../../../node_modules/datatables.net-dt/css/jquery.dataTables.css';
+::ng-deep.dataTables_wrapper {
+    padding: 20px;
+}
+
+::ng-deep.dataTable {
+    border-radius: 5px;
+    border-bottom: 0px !important;
+    border-collapse: separate;
+    border-spacing: 0px 5px !important;
+}
+
+::ng-deep#userDevicesTable_filter {
+    display: none;
+}
+
+::ng-deep#userDevicesTable thead {
+    background-color: #071D49;
+    color: white;
+}
+
+::ng-deep#userDevicesTable_info {
+    display: none;
+}
+
+::ng-deep.dataTables_length {
+    padding-top: 5px;
+    color: #989a94 !important;
+}
+
+::ng-deep.dataTables_length select {
+    border-radius: 3px;
+}
+
+::ng-deep th {
+    font-size: 12px !important;
+    font-weight: 400 !important;
+}
+
+::ng-deep.odd {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+::ng-deep.even {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+thead tr th {
+    border-bottom: 0px;
+}
+
+::ng-deep#userDevicesTable_length {
+    display: none;
+}
+
+::ng-deep#userDevicesTable tbody tr td {
+    padding: 7px;
+}
+
+#mainDiv {
+    color: #a09e9e;
+}
+
+#userDevicesTable {
+    cursor: pointer;
+}
+
+::ng-deep#userDevicesTable_paginate a {
+    /* color: #888282 !important */
+}
+
+::ng-deep.deactivateSubmenu {
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+    display: none;
+    right: 38px;
+    width: 145px;
+    height: 68px;
+    padding: 6px;
+    padding-left: 15px;
+}
+
+::ng-deep.deviceDeactivateMenu {
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+    display: none;
+    right: 38px;
+    width: 145px;
+    padding: 6px;
+}
+
+::ng-deep.activateUser {
+    display: none;
+    margin-left: 5px;
+}
+
+::ng-deep.deactivateUser {
+    display: none;
+    margin-left: 5px;
+}
+
+.marginClass {
+    padding: 10px;
+}

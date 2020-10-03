@@ -1,0 +1,220 @@
+<!--
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: ProcessGeneralSettingsComponent
+Description: HTML file for ProcessGeneralSettingsComponent.
+Location: ./components/process-general-settings.component.html
+Author: Nabil Shahid
+Version: 1.0.0
+Modification history: none
+*/
+ -->
+<mat-progress-bar class="loaderStyle" *ngIf="generalSettingsRendering!=2" mode="query"></mat-progress-bar>
+<mat-list *ngIf="generalSettingsRendering==2">
+    <mat-list-item class="dividerHeader">
+        User Settings
+    </mat-list-item>
+    <mat-divider></mat-divider>
+
+    <mat-list-item>
+        <table class="fullWidth">
+            <tr>
+                <td class="leftSectionWidth">
+                    <span class="firstLineText">Email Notifications</span>
+                </td>
+                <td class="rightSectionToggleFormatting">
+                    <mat-slide-toggle [checked]="emailNotificationsChecked" [(ngModel)]="emailNotificationsChecked" (change)="updateEmailNotification()">
+                    </mat-slide-toggle>
+                </td>
+            </tr>
+        </table>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+
+
+    <mat-list-item>
+        <table class="fullWidth">
+            <tr>
+                <td class="leftSectionWidth">
+                    <span class="firstLineText">Out of Office Delegation</span>
+                    <br/>
+                    <div *ngIf="outOfOfficeChecked">
+                        <span *ngIf="outOfOfficeDetails['Delegated_To'] != undefined" class="secondLineText">{{outOfOfficeDetails["Delegated_To"]["DisplayName"]}}</span>
+                        <br/>
+                        <span *ngIf="outOfOfficeDetails['Start_Date'] != undefined" class="secondLineText">Starting from {{getFormattedDate(outOfOfficeDetails["Start_Date"],'date')}} 12:00 AM UTC</span>
+                        <span *ngIf="outOfOfficeDetails['End_Date'] != undefined" class="secondLineText">to {{getFormattedDate(outOfOfficeDetails["End_Date"],'date') }} 11:59 PM UTC</span>
+                    </div>
+                </td>
+                <td class="rightSectionToggleFormatting">
+                    <mat-slide-toggle [checked]="outOfOfficeChecked" [(ngModel)]="outOfOfficeChecked" (change)="outOfOfficeDialog()">
+                    </mat-slide-toggle>
+                </td>
+            </tr>
+        </table>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+        <table class="fullWidth">
+            <tr>
+                <td class="leftSectionWidth">
+                    <span class="firstLineText">Proxy Approver</span>
+                    <br/>
+                    <div *ngIf="proxyApproverChecked">
+                        <span *ngIf="proxyApproverDetails['DisplayName'] != undefined" class="secondLineText">{{proxyApproverDetails["DisplayName"]}}</span>
+                    </div>
+                </td>
+                <td class="rightSectionToggleFormatting">
+                    <mat-slide-toggle [checked]="proxyApproverChecked" [(ngModel)]="proxyApproverChecked" (change)="proxyApproverDialog()">
+                    </mat-slide-toggle>
+                </td>
+            </tr>
+        </table>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+        <table class="fullWidth">
+            <tr>
+                <td class="leftSectionWidth">
+                    <span class="firstLineText">Process Alert</span>
+                    <br/>
+                    <div>
+                        <span id="processAlertSpan" class="secondLineText" [innerHTML]="alertDisplayString"></span>
+                        <br/>
+                    </div>
+                </td>
+                <td *ngIf="currentUserIsSupportPerson||currentUserIsAdmin||currentUserIsOwner" class="rightSectionToggleFormatting">
+                    <mat-slide-toggle [checked]="processAlertChecked" [(ngModel)]="processAlertChecked" (change)="updateProcessAlert()">
+                    </mat-slide-toggle>
+                </td>
+            </tr>
+        </table>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item class="userPermissionsItem">
+        <mat-expansion-panel class="userPermissionsPanel">
+            <mat-expansion-panel-header class="userPermissionsHeader">
+                <mat-panel-title>
+                    Assigned Roles
+                </mat-panel-title>
+
+            </mat-expansion-panel-header>
+            <mat-list>
+                <span *ngFor="let psr of permissionViewJSON">
+                    <mat-list-item class="roleItem" (click)="showPermissionsDialog(psr.Permission,psr.RoleName)" title="View Permissions">
+                        <a>{{psr.RoleName}}</a>
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                </span>
+            </mat-list>
+
+        </mat-expansion-panel>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item class="dividerHeader">
+        Process Details
+    </mat-list-item>
+    <mat-divider></mat-divider>
+
+    <mat-list-item class="detailsText" *ngIf="globalProcessSettings!=undefined">
+        {{globalProcessSettings.Process_Settings.PROCESS_DESCRIPTION}}
+    </mat-list-item>
+    <mat-divider *ngIf="globalProcessSettings!=undefined"></mat-divider>
+
+
+    <mat-list-item *ngIf="globalProcessSettings!=undefined">
+
+        <table class="fullWidth">
+            <tr>
+                <td class="leftSectionWidth">
+                    <span class="firstLineText">Organization</span>
+                    <br/>
+                    <span class="detailsText">{{globalProcessSettings.Process_Settings.BUSINESS_ORGANIZATION}}</span>
+
+                </td>
+
+            </tr>
+        </table>
+
+    </mat-list-item>
+    <mat-divider *ngIf="globalProcessSettings!=undefined"></mat-divider>
+
+    <mat-list-item *ngIf="globalProcessSettings!=undefined">
+        <table class="fullWidth">
+            <tr>
+                <td class="leftSectionWidth">
+                    <span class="firstline">ID</span>
+
+                </td>
+                <td class="rightSectionToggleFormatting rightText">
+                    <span>{{globalProcessSettings.Process_Settings.PROCESS_IDENTIFIER}}</span>
+
+                </td>
+            </tr>
+        </table>
+    </mat-list-item>
+    <mat-divider *ngIf="globalProcessSettings!=undefined"></mat-divider>
+
+    <mat-list-item *ngIf="globalProcessSettings!=undefined">
+        <table class="fullWidth">
+            <tr>
+                <td class="leftSectionWidth">
+                    <span class="firstline">Version</span>
+
+                </td>
+                <td class="rightSectionToggleFormatting rightText">
+                    <span>{{globalProcessSettings.Process_Settings.PROCESS_VERSION}}</span>
+
+                </td>
+            </tr>
+        </table>
+    </mat-list-item>
+    <mat-divider *ngIf="globalProcessSettings!=undefined"></mat-divider>
+    <mat-list-item *ngIf="globalProcessSettings!=undefined">
+        <table class="fullWidth">
+            <tr>
+                <td class="leftSectionWidth">
+                    <span class="firstline">Owner</span>
+
+                </td>
+                <td class="rightSectionToggleFormatting rightText">
+                    <span>{{globalProcessSettings.Process_Owner.DisplayName}}</span>
+
+                </td>
+            </tr>
+        </table>
+    </mat-list-item>
+    <mat-divider *ngIf="globalProcessSettings!=undefined"></mat-divider>
+    <mat-list-item *ngIf="globalProcessSettings!=undefined">
+        <table class="fullWidth">
+            <tr>
+                <td class="leftSectionWidth">
+                    <span class="firstline">Administrator</span>
+
+                </td>
+                <td class="rightSectionToggleFormatting rightText">
+                    <span>{{globalProcessSettings.Process_Admin.DisplayName}}</span>
+
+                </td>
+            </tr>
+        </table>
+    </mat-list-item>
+    <mat-divider *ngIf="globalProcessSettings!=undefined"></mat-divider>
+    <mat-list-item *ngIf="globalProcessSettings!=undefined">
+        <table class="fullWidth">
+            <tr>
+                <td class="leftSectionWidth">
+                    <span class="firstline">Time zone</span>
+
+                </td>
+                <td class="rightSectionToggleFormatting rightText">
+                    <span>UTC{{globalProcessSettings.Process_Settings.PROCESS_TIMEZONE}}</span>
+
+                </td>
+            </tr>
+        </table>
+    </mat-list-item>
+</mat-list>

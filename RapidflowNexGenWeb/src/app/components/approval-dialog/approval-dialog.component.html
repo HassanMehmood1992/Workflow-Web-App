@@ -1,0 +1,78 @@
+<!-- 
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: ApprovalDialogComponent
+Description: HTML file for view approval dialog component.
+Location: ./approval-dialog.component.html
+Author: Sheharyar Toor
+Version: 1.0.0
+Modification history: none
+*/
+-->
+<div class="hideoverflowverticle approval-dialog-body">
+    <div class="dialogTitle">
+        Workflow Task
+    </div>
+    <div class="MyProcessRow approval-dialog-body-sub-div">
+        <div fxLayout="row wrap" fxLayout.xs="column" fxLayout.sm="column" fxLayoutWrap>
+            <mat-list class="approval-dialog-list">
+                <mat-list-item class="mat-list-item-border approval-dialog-first-row">
+                    <img matListAvatar width="44px" class="small-images-border-raduis approval-dialog-form-icon" src="assets/images/process_menu/Form.png">
+                    <h3 mat-line class="itemTitle approval-dialog-first-row-text">{{refrenceNumber}}</h3>
+                    <h3 mat-line class="itemTitle approval-dialog-first-row-text">{{workflowName}}</h3>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <div class="mat-list-item itemDescription approval-dialog-decription" id="messageBody">
+                    <span> {{TaskName}} </span>
+                    <span class="approval-dialog-second-row" *ngIf="listType != 'submissions'">
+                        <img width="15" src="assets/images/others/webtop_clock.png" /> {{taskDetails["PendingSince"] | formatOffsetDate: taskDetails["ProcessOffset"]}}</span>
+                    <span class="approval-dialog-second-row" *ngIf="listType == 'submissions'">
+                        <img width="15" src="assets/images/others/webtop_clock.png" /> {{dateCreated | formatOffsetDate: taskDetails["ProcessOffset"]}}</span>
+                    <br/>
+                    <span>{{TaskInstructions}}</span>
+                    <br/>
+                    <br/>
+                    <mat-form-field class="approval-dialog-comments-box" *ngIf="showCommentsBox">
+                        <textarea matInput [(ngModel)]="userComments" placeholder="Enter comments here" matTextareaAutosize matAutosizeMinRows="3" value="" matAutosizeMaxRows="7" maxlength="255"></textarea>
+                    </mat-form-field>
+                </div>
+            </mat-list>
+        </div>
+    </div>
+    <div class="approval-dialog-action-panel">
+        <mat-divider *ngIf="showDelegateSection"></mat-divider>
+        <mat-list-item class="mat-button action-panel-list">
+            <h3 class="delegate-label" *ngIf="showDelegateSection">Delegate
+                <span class="delegate-arrow-span">
+                    <img (click)="showDelegateButton=!showDelegateButton" [src]="showDelegateButton ? 'assets/images/top_level/up_arrow.png' : 'assets/images/top_level/down_arrow.png'"
+                    class="delegate-arrow">
+                </span>
+            </h3>
+            <div *ngIf="showDelegateButton">
+                <div *ngIf="showDelegateSection && multipleAssignee && isDelegateAny">
+                    <mat-form-field class="publishFormField roleSelectInput multiple-assignee-span">
+                        <mat-select [(ngModel)]="delegateFrom" required placeholder="Select assignee">
+                            <mat-option *ngFor="let task of CurrentPendingTasksJSON" [value]="task.AssignedToEmail">{{task.AssignedToName}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div *ngIf="showDelegateButton">
+                    <app-people-picker [(ngModel)]="DelegateDetails" ngDefaultControl [selfSelection]="'false'" [selectionType]="'single'" [selectorHeading]="'Select Delegate'" [controlOptions]="DelegateOptions" [fieldName]="'DelegateDetails'"></app-people-picker>
+
+                    <button data-tap-disabled="true" class="btn" [style.color]="DelegateDetails.length == 0 && delegateFrom == '' ? '#ececec':'#007aff'" [attr.disabled]="DelegateDetails.length == 0 && delegateFrom == '' ? '': null" *ngFor="let button of DelegateActionButton | keys"
+                        class="btn delegate-action-btn" (click)="userAction(button.key,button.value)" [attr.title]="button.value.tooltip">{{button.value.label}}</button>
+                </div>
+            </div>
+        </mat-list-item>
+        <mat-divider *ngIf="!showDelegateButton"></mat-divider>
+        <mat-list-item *ngIf="!showDelegateButton" class="mat-button action-panel-list">
+            <div fxLayout="row wrap" fxLayoutAlign="center" fxLayout.xs="column" fxLayout.md="column" fxLayout.sm="column">
+                <button data-tap-disabled="true" class="btn action-buttons" *ngFor="let button of ActionButtons | keys" (click)="userAction(button.key,button.value)" [attr.title]="button.value.tooltip">{{button.value.label}}</button>
+            </div>
+        </mat-list-item>
+    </div>
+</div>

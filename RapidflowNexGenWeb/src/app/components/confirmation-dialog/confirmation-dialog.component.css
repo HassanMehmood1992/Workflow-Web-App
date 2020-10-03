@@ -1,0 +1,29 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: ConfirmationDialogComponent
+Description: CSS rules and styles for the confirmation dialog component.
+Location: ./confirmation-dialog.component.css
+Author: Sheharyar Toor
+Version: 1.0.0
+Modification history: none
+*/
+
+.confirmation-dialog-body {
+    padding:15px;max-height:80vh
+}
+
+.confirmation-dialog-message {
+    text-align: center;
+}
+
+.confirmation-dialog-footer {
+    color:#1980E8; border-top:0.5px solid lightgrey;cursor: pointer;
+}
+
+.confirmation-dialog-btn {
+    text-align:center;cursor: pointer;
+}

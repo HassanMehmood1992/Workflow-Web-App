@@ -1,0 +1,66 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+
+/*
+ModuleID: LookupApprovalDialogComponent
+Description: CSS rules and styles for lookup approval dialog component.
+Location: ./lookup-approval-dialog.component.css
+Author: Amir Hussain
+Version: 1.0.0
+Modification history: none
+*/
+
+.taskRowHeader {
+    top: 25%;
+    overflow-wrap: break-word;
+    font-weight: 600
+}
+
+.itemDescriptionTruncated>span {
+    font-size: 12px;
+}
+
+.MyProcessRow {
+    padding: 15px;
+    max-height: 80vh
+}
+
+.small-images-border-raduis {
+    width: 35px
+}
+
+.taskDetails {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.itemTitle {
+    margin: 6px
+}
+
+.col-xs-6 {
+    top: 25%;
+    overflow-wrap: break-word;
+}
+
+.itemPreviousDetails {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.mat-list-item {
+    padding-left: 10px;
+    padding-right: 10px
+}
+
+.MyProcessBottomRow {
+    color: #1980E8;
+    border-top: 0.5px solid lightgrey
+}
+
+.approvalButton {
+    border-right: 0.5px solid lightgrey
+}

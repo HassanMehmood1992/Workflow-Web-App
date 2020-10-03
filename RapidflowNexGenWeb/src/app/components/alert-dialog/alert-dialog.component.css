@@ -1,0 +1,31 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: AlertDialogComponent
+Description: CSS rules and styles for the alert dialog component.
+Location: ./alert-dialog.component.css
+Author: Sheharyar Toor
+Version: 1.0.0
+Modification history: none
+*/
+::ng-deep.alertDialogBody{
+    padding: 15px;
+}
+
+.alert-dialog-message{
+    text-align: center;
+}
+
+.alert-dialog-button {
+    text-align:center;
+    cursor: pointer;
+}
+
+.alert-dialog-list{
+    color:#1980E8; 
+    border-top:0.5px solid lightgrey;
+    cursor: pointer;
+}

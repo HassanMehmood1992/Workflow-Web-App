@@ -1,0 +1,29 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: FormComponent
+Description: CSS rules and styles for form component.
+Location: ./form.component.css
+Author: Sheharyar Toor
+Version: 1.0.0
+Modification history: none
+*/
+.control-label{
+    color:white !important;
+    background-color: #071D49 !important;
+}
+
+.form-header {
+    height: 50px !important;
+}
+
+.form-go-back-icon {
+    cursor:pointer
+}
+
+.form-option-icon {
+    min-width: 24px;
+}

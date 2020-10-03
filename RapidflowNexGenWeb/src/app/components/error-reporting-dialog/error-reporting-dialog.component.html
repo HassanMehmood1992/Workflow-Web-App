@@ -1,0 +1,42 @@
+<!--
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: ErrorReportingDialogComponent
+Description: HTML file for ErrorReportingDialogComponent.
+Location: ./error-reporting-dialog.component.html
+Author: Nabil Shahid
+Version: 1.0.0
+Modification history: none
+*/
+ -->
+<div class="hideoverflowverticle">
+    <div class="dialogTitle">
+        {{ErrorDialogHeader}}
+    </div>
+
+
+    <div class="errorDialogBody MyProcessRow">
+
+        <mat-list>
+
+            <mat-list-item class="mat-list-item">
+                {{ErrorDialogbody}}
+
+            </mat-list-item>
+
+
+        </mat-list>
+
+    </div>
+    <div class="row" id="errorReportingDialogButtonDiv">
+        <div class="row">
+            <div class="col-xs-6" id="errorReportButton"   (click)="reportErrorLog()">Create Support Ticket</div>
+            <div class="col-xs-6" id="cancelButton"   (click)="okClick()">Cancel</div>
+        </div>
+
+    </div>
+</div>

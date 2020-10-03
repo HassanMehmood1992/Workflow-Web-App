@@ -1,0 +1,43 @@
+<!--
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: UrlComponent
+Description: HTML file for the url component.
+Location: ./url.component.html
+Author: Sheharyar Toor
+Version: 1.0.0
+Modification history: none
+*/
+ -->
+<div class="topdiv">
+    <div class="col-sm-12 secondDiv" [ngClass]="ngModel.length == 0 && controlOptions.required ? 'urlRequired': 'urlNotRequired'">
+        <label [style.display]="controlOptions.disabled?'none':'inline'" class="cursorlabel">
+      <img src="assets/images/form_controls/add-link.png" class="imageSize"/>
+      <span class="placeholderpadding">{{controlOptions.placeholder}}</span>
+      <input id="{{fieldName}}" name="{{fieldName}}" [attr.readonly]="controlOptions.readonly?'':null" [attr.disabled]="controlOptions.disabled?'':null"
+        [required]="controlOptions.required" (click)="openDialog()" class="displaynone" type="text" [formControl]="myForm.controls[fieldName]"
+      />
+    </label>
+        <div class="validation" *ngIf="ngModel.length == 0 && controlOptions.required && clicked">
+            {{controlOptions.validationText}}
+        </div>
+    </div>
+    <div class="" *ngIf="ngModel != ''">
+        <div *ngFor="let link of ngModel">
+            <div id="linksdiv">
+                <span>
+          <img *ngIf="!controlOptions.disabled || !controlOptions.readonly" src="assets/images/form_controls/row_remove.png"
+            (click)="removeUrl(link, i)" />
+        </span>
+                <a href="{{link.url}}" target="blank">{{link.title}}</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="noUrl" *ngIf="ngModel.length == 0 && controlOptions.disabled">
+    No urls chosen
+</div>

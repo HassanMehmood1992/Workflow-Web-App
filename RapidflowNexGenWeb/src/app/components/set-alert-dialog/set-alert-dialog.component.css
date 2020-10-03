@@ -1,0 +1,35 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: SetAlertDialogComponent
+Description: CSS file for SetAlertDialogComponent.
+Location: ./components/set-alert-dialog.component.css
+Author: Nabil Shahid
+Version: 1.0.0
+Modification history: none
+*/
+.setAlertDialogField{
+    width: 100%;
+    border-radius: 0px;
+    border: 0px;
+    border: 1px solid #a9a6a6;
+    background-color: #ededed;
+    color: #635e5e;
+    margin-bottom: 5px;
+}
+.setAlertDialogBody{
+    width: 300px;
+   
+    padding: 10px;
+}
+.setAlertFieldLabel{
+    color: #635e5e;
+    margin-top: 15px;
+    margin-bottom:5px;
+}
+textarea {
+    resize: none;
+ }

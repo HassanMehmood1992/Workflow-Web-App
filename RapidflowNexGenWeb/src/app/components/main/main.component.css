@@ -1,0 +1,313 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+
+/*
+ModuleID: MainComponent
+Description: CSS rules and styles for main component.
+Location: ./main.component.css
+Author: Amir Hussain
+Version: 1.0.0
+Modification history: none
+*/
+
+.example-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.example-sidenav-content {
+    height: 100%;
+}
+
+.rapidflowtitlebar {
+    font-size: 22px;
+    font-weight: bold;
+    color: #071D49;
+}
+
+.example-sidenav {
+    padding: 0px;
+}
+
+.example-sidenav[_ngcontent-c1] {
+    padding: 0px;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    border-right: 1px lightgray solid
+}
+
+.hideoverflowverticle {
+    overflow: hidden;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    border-right: 0.5px solid lightgrey;
+}
+
+app-process {
+    overflow: hidden;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+
+.topRow {
+    flex: 0 1 auto;
+    border-right: 0px !important;
+}
+
+.MyProcessBottomRow {
+    height: 50px;
+    flex: 0 1 auto;
+    border-top: 0.5px solid lightgrey !important;
+}
+
+.MyProcessRow {
+    flex: 1 1 auto;
+    overflow: auto;
+    height: 100%
+}
+
+.mat-tab-header-pagination {
+    position: relative;
+    display: inline !important;
+    justify-content: center;
+    align-items: center;
+    min-width: 32px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.badge {
+    background-color: #8BC012
+}
+
+.mattablink {
+    padding: 0%;
+    cursor: pointer;
+    box-sizing: border-box;
+    opacity: 1.0;
+    min-width: 10px;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: top;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    margin-left: 10px !important;
+}
+
+.tab-text {
+    margin-left: 10px;
+    color: #071D49;
+}
+
+.itemTitle {
+    font-size: 17px !important;
+    color: #000000;
+    font-weight: 500 !important;
+    margin-top: 4px !important;
+}
+
+.itemOrganization {
+    font-size: 14px !important;
+    color: #000000;
+    font-weight: 400 !important;
+    padding-top: 2px !important;
+    margin-top: 4px !important;
+    margin-bottom: 4px !important;
+}
+
+.itemDescription {
+    font-size: 12px !important;
+    color: darkgrey
+}
+
+.mat-list-item-border {
+    border-bottom: 1px solid lightgray;
+}
+
+.mat-toolbar-row {
+    height: 50px !important
+}
+
+.mat-list .mat-list-option.mat-2-line .mat-list-item-content,
+.mat-nav-list .mat-list-option.mat-2-line .mat-list-item-content,
+.mat-selection-list .mat-list-option.mat-2-line .mat-list-item-content {
+    height: 51px !important;
+}
+
+.mat-list .mat-list-option.mat-3-line .mat-list-item-content,
+.mat-nav-list .mat-list-option.mat-3-line .mat-list-item-content,
+.mat-selection-list .mat-list-option.mat-3-line .mat-list-item-content {
+    height: 55px !important;
+}
+
+.mat-list-item-content {
+    height: 55px !important;
+}
+
+.searchControl {
+    width: 98% !important;
+    height: 24px!important;
+    padding-left: 8px!important;
+    display: inline-block!important;
+    border: 1px solid #ccc!important;
+    border-radius: 4px!important;
+    box-sizing: border-box!important;
+    font-size: 12px!important
+}
+
+.searchControl {
+    font-weight: normal;
+    padding-left: 8px;
+}
+
+.searchControl ::-moz-placeholder {
+    padding: 8px;
+    color: lightgray;
+    font-size: 12px
+}
+
+.mat-list-text {
+    width: 62% !important;
+}
+
+.mat-list .mat-list-item .mat-list-item-content,
+.mat-nav-list .mat-list-item .mat-list-item-content,
+.mat-selection-list .mat-list-item .mat-list-item-content {
+    padding-left: 3px !important
+}
+
+.mat-list-text {
+    padding: 0px!important;
+}
+
+.processImage {
+    margin-right: -6px;
+}
+
+.alert-custom {
+    color: white;
+    background-color: #f16969;
+    border-color: #800040;
+}
+
+ng:deep.alert {
+    padding: 15px;
+    margin-bottom: 0px !important;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+ng:deep.alert-danger {
+    color: white;
+    background-color: #771621;
+    border-color: #ebccd1;
+}
+
+.notAvailableDiv {
+    margin-top: 40%;
+    padding-right: 0px;
+}
+
+.notAvailableMessage {
+    width: 75%;
+}
+
+.brand-logo {
+    position: relative;
+    left: -10px;
+    max-width: 100%;
+    height: 100%;
+}
+
+.taskCountDiv {
+    font-size: 12px;
+    white-space: nowrap;
+    margin-right: 10px;
+}
+
+.bottomRowDiv {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    margin-bottom: 50px;
+    width: 100%
+}
+
+.sideNavMyProcessRow {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.nopadding {
+    padding: 0px !important;
+}
+
+.heightClass {
+    height: 50px !important;
+}
+
+.cursorMargin {
+    cursor: pointer;
+    margin-left: 4px
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.margin8 {
+    margin-right: 8%;
+}
+
+.pendingApproval {
+    font-size: 12px;
+    white-space: nowrap;
+    margin-right: 10px;
+    color: #1980E8
+}
+
+#removebutton {
+    padding: 0% 0% 0% 10%;
+    border-top: 05px darkgrey
+}
+
+#sharebutton {
+    padding: 0% 0% 0% 10%;
+}
+
+.buttonwrap {
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.width10 {
+    width: 10px;
+    border: none;
+    background: none;
+}
+
+.loadMore {
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.fullwidth {
+    width: 100%
+}
+
+.badgeCountDiv {
+    text-align: right;
+    line-height: 15px;
+}

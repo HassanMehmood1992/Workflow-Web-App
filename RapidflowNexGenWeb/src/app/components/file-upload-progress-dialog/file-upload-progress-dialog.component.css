@@ -1,0 +1,29 @@
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: FileUploadProgressDialogComponent
+Description: CSS rules and styles for file upload progress dialog component.
+Location: ./file-upload-progress-dialog.component.css
+Author: Sheharyar Toor
+Version: 1.0.0
+Modification history: none
+*/
+
+.file-name-div{
+    width:100%;margin:10px;font-size:12px;
+}
+
+.file-name-span {
+    float:left;
+}
+
+.file-name-span2 {
+    float:right;
+}
+
+.file-progress-bar {
+    width:100%;
+}

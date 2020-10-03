@@ -1,0 +1,144 @@
+<!-- 
+/* Copyright (C) Abbvie Inc - All Rights Reserved
+* Unauthorized copying of this file, via any medium is strictly prohibited
+* Proprietary and confidential
+*/
+
+/*
+ModuleID: MainComponent
+Description: HTML file for view of main component.
+Location: ./main.component.html
+Author: Amir Hussain
+Version: 1.0.0
+Modification history: none
+*/
+-->
+<div class="mainContainer">
+    <mat-sidenav-container class="example-container">
+        <mat-sidenav #sidenav mode="side" (keydown.escape)="close('escape')" disableClose opened="true" class="example-sidenav hideoverflowverticle">
+            <div class="topRow">
+                <mat-toolbar mat-line class="rfng-header">
+                    <mat-list-item class="nopadding">
+                        <img class="brand-logo" src="assets/images/rapidflow_badge_400px.png" width="251px" height="60px" alt="">
+                    </mat-list-item>
+                </mat-toolbar>
+                <mat-list>
+
+                    <mat-list-item class="mat-list-item-border heightClass">
+                        <p mat-line class="rapidflowtitlebar" *ngIf="!searchOn"> Favorites</p>
+                        <input mat-line class="searchControl" [(ngModel)]="searchString" [formControl]="searchControl" (input)="retrieveFilteredProcesses()" placeholder="Filter contents below..." *ngIf="searchOn">
+                        <span class="example-fill-remaining-space"></span>
+
+                        <img class="processFilter" width="24px" height="24px" src="assets/images/top_level/filter_display_web.png" tabindex='1' (keyup.enter)="searchOn=true" title="Turn search  ON" *ngIf="!searchOn" (click)="searchOn=true" class="pointer" />
+                        <img class="processFilter" width="24px" height="24px" src="assets/images/top_level/filter_selected_web.png" tabindex='2' (keyup.enter)="searchOn=false;searchString=''; removeFilterCurrentSort()" title="Turn search  OFF" *ngIf="searchOn" (click)="searchOn=false;searchString=''; removeFilterCurrentSort()"
+                            class="pointer" />
+
+                        <img width="24px" height="24px" src="assets/images/top_level/sort_display_web.png" title="Turn sort  ON" *ngIf="!alphaSort" tabindex='3' (keyup.enter)="alphaSort=true;sortProcesses()" (click)="alphaSort=true;sortProcesses()" class="cursorMargin" />
+                        <img width="24px" height="24px" src="assets/images/top_level/sort_selected_web.png" title="Turn sort  OFF" *ngIf="alphaSort" tabindex='4' (keyup.enter)="alphaSort=false;sortProcesses()" (click)="alphaSort=false;sortProcesses()" class="cursorMargin" />
+
+                    </mat-list-item>
+                </mat-list>
+            </div>
+            <mat-progress-bar mode="query" *ngIf="!myProcessLoaded"></mat-progress-bar>
+            <div class="notAvailableDiv" *ngIf="noProcessesAvailable">
+                <div class="notAvailableMessage">
+                    No processes found.
+                </div>
+            </div>
+            <div class="scrollModal" infinite-scroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="50" [scrollWindow]="false" (scrolled)="OnFavoritesScrollDown()">
+                <mat-list *ngIf="!noProcessesAvailable">
+
+                    <mat-list-item tabindex='{{i+5}}' (keyup.enter)="movetoProcess(process,i)" (keyup.a)="alert('assdab')" class="mat-list-item-border mat-list-item-ripple mat-list-option" *ngFor="let process of processes; let i = index" [ngStyle]="{ 'background' :(process.Active) ? '#EEEEEE' : '' }">
+                        <img matListAvatar width="44px" class="small-images-border-raduis processImage" height="44px" [src]="process.ProcessImage" alt="" (click)="movetoProcess(process,i)">
+                        <h3 mat-line class="itemTitle" (click)="movetoProcess(process,i)">{{process.ProcessName}}</h3>
+                        <p mat-line class="itemOrganization" (click)="movetoProcess(process,i)">
+                            <span>{{process.OrganizationName}}</span>
+                        </p>
+                        <p mat-line *ngIf="process.RecentNotification!=''&&process.RecentNotification!=undefined" (click)="movetoProcess(process,i)">
+                            <span class="itemDescription" [title]="process.RecentNotification| decodeUriComponent">{{process.RecentNotification| decodeUriComponent}}</span>
+                        </p>
+                        <p mat-line *ngIf="process.RecentNotification==''||process.RecentNotification==undefined" (click)="movetoProcess(process,i)">
+                            <span class="itemDescription"> &nbsp; </span>
+                        </p>
+                        <span class="example-fill-remaining-space" (click)="movetoProcess(process,i)"></span>
+                        <div class="badgeCountDiv">
+                            <span class="taskCountDiv" [ngStyle]="{ 'color' : ((process.TaskCount| badgeCount :process.InboxCount) > 0 &&process.Status=='Active') ? '#1980E8' : 'darkgrey' }">{{process.MyProcessLastModifiedProcessOffset|formatdate}}</span>
+                            <br/>
+                            <span class="buttonwrap">
+                                <span class="badge" *ngIf="(process.TaskCount| badgeCount :process.InboxCount) > 0 && process.Status=='Active'">{{process.TaskCount| badgeCount :process.InboxCount}}</span>
+                            <mat-menu #processMenu="matMenu">
+                                <button (click)="shareProcess(process)" id="sharebutton" mat-menu-item>
+                                        <img height="14px" src="assets/images/top_level/Share_1.png" class="margin8"/>
+                                        <span class="detailsText">Share</span>
+                                    </button>
+
+                                <button (click)="removeProcessFromFavorites(process)" id="removebutton" mat-menu-item>
+                                        <img height="14px" src="assets/images/top_level/Remove_1.png" class="margin8"/>
+                                        <span class="detailsText">Remove</span>
+                                    </button>
+                            </mat-menu>
+                            </span>
+                            <span layout="column" class="pendingApproval">
+                                <span *ngIf="process.Status=='Pending Access'">Pending Approval</span>
+                            </span>
+                        </div>
+                        <div>
+                            <span *ngIf="process.Status=='Active'">
+                                <button [matMenuTriggerFor]="processMenu" class="width10" tabindex='{{i+6}}' >
+                                    <img height="20px" src="assets/images/process_menu/More_1.png" />
+                                </button>
+                            </span>
+                        </div>
+                    </mat-list-item>
+                </mat-list>
+                <div class="loadMoreDiv" *ngIf="!allProcessesLoaded">
+                    <a *ngIf="myProcessLoaded&&!moreProcessesLoading&&!allProcessesLoaded" (click)="OnFavoritesScrollDown()" class="loadMore">Load More...</a>
+                    <div id="loadingMoreDiv" *ngIf="moreProcessesLoading">
+                        <mat-progress-bar mode="query"></mat-progress-bar>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="MyProcessBottomRow">
+                <p *ngIf="alertfound" class="bottomRowDiv">
+                    <ngb-alert *ngIf="!closed" (close)="closed=true" type='danger' [dismissible]="true">
+                        <span [innerHTML]="alertMessage">
+                        </span>
+                    </ngb-alert>
+                </p>
+                <nav mat-tab-nav-bar class="bot-lft-nbar">
+                    <div fxLayout="row">
+                        <a fxLayout.xs="column" fxLayout.md="column" fxLayout.sm="column" mat-tab-link (keyup.enter)="setHeader('favourites')" class="mattablink" (click)="setHeader('favourites')">
+                            <img [hidden]="!favouritesOpen" class="tab-icons" src="assets/images/top_level/Favorites_Selected.png" />
+                            <img [hidden]="favouritesOpen" class="tab-icons" src="assets/images/top_level/Favorites_display.png" />
+                            <span class="tab-text">Favorites</span>
+                        </a>
+                        <a fxLayout.xs="column" fxLayout.md="column" fxLayout.sm="column" mat-tab-link class="mattablink" (keyup.enter)="setHeader('directory')" (click)="setHeader('directory')">
+                            <img [hidden]="!directoryOpen" class="tab-icons" src="assets/images/top_level/Directory_Selected.png" />
+                            <img [hidden]="directoryOpen" class="tab-icons" src="assets/images/top_level/Directory_display.png" />
+                            <span class="tab-text">Directory</span>
+                        </a>
+                        <a fxLayout.xs="column" fxLayout.md="column" fxLayout.sm="column" mat-tab-link class="mattablink" (keyup.enter)="setHeader('appSettings')" (click)="setHeader('appSettings')">
+                            <img [hidden]="!appSettingOpen" class="tab-icons" src="assets/images/top_level/process_settings_selected.png" />
+                            <img [hidden]="appSettingOpen" class="tab-icons" src="assets/images/top_level/process_settings_display.png" />
+                            <span class="tab-text">Settings</span>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </mat-sidenav>
+
+        <mat-sidenav-content [class.hideSideNav]="!sidenav.opened">
+            <div class="example-sidenav-content hideoverflowverticle fullwidth">
+                <div class="topRow fullwidth">
+                    <app-header></app-header>
+                </div>
+                <div class="MyProcessRow sideNavMyProcessRow">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>
